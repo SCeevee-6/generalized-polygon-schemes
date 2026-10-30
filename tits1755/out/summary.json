@@ -1,0 +1,58 @@
+{
+  "suborbit_sizes": [
+    1,
+    10,
+    80,
+    640,
+    1024
+  ],
+  "eigenvalues": [
+    10,
+    5,
+    1,
+    -3,
+    -5
+  ],
+  "multiplicities": [
+    "1",
+    "351",
+    "650",
+    "675",
+    "78"
+  ],
+  "R1_BFS_matches_suborbits_at_all_points": true,
+  "R1_symmetric": true,
+  "p_symmetric_in_ij": true,
+  "sum_k p_ij k_k = k_i k_j": true,
+  "krein_all_nonnegative": true,
+  "krein_q0_ii_equals_m_i": true,
+  "krein_zero_nontrivial_(i,j,k)_eigen_indices": [
+    [
+      4,
+      4,
+      4
+    ]
+  ],
+  "Q_polynomial_orderings_found": 0,
+  "fusions_zero_violations": [
+    "[[1, 2, 3, 4]]",
+    "[[1], [2], [3], [4]]"
+  ],
+  "fusion_violation_counts": [
+    0,
+    4,
+    8,
+    4,
+    8,
+    4,
+    8,
+    9,
+    8,
+    4,
+    9,
+    9,
+    9,
+    9,
+    0
+  ]
+}
