@@ -46,9 +46,9 @@ Checks run on the contents of this commit:
 ## Known limitations
 
 - `code/bannai_muzychuk_crosscheck.py` writes the last column, `feasible_thick_octagon`, as the constant `none`. The column is not computed. Checked by hand against the solution list: each real-positive entry has s = 1, t = 1, a non-integer s or t, or lies on the diagonal s = t, which the Feit-Higman condition excludes. The computed feasibility test is the grid test in `fusion/verify_fusions.py`.
-- `fusion/fusion_note.tex` was checked statically only; no TeX engine ran in the environment that produced it. Bibliography entries other than Crnković–Rukavina–Švob (2020) and Cameron–Goethals–Seidel (1978) were written from memory and need verification.
+- `fusion/fusion_note.tex` was checked statically only; no TeX engine ran in the environment that produced it. Bibliography: Crnković–Rukavina–Švob (page range corrected to 641–652), Cameron–Goethals–Seidel, Feit–Higman and Van Maldeghem match Crossref; Tits (1983) matches on journal, volume and start page (539), end page 594 not confirmed; Brouwer–Cohen–Neumaier (1989) and Bannai–Ito (1984) are not indexed by Crossref and remain unchecked.
 - Literature novelty claims come from a search, not an exhaustive review.
-- Not verified: |T| by Schreier–Sims, and the multiplicities against the ATLAS character table.
+- Verified (`tits1755/verify_group_order.py`, output in `tits1755/verify_group_order_output.txt`): |T| = 17971200 by Schreier–Sims on the ATLAS generators, matching the ATLAS page order; the 5 eigenspaces of A_1 (dimensions 1, 351, 650, 675, 78) are irreducible, because the rank is 5 and the permutation character is therefore multiplicity-free with 5 constituents. Not done: comparison with the ATLAS character table (the ATLAS page does not list character degrees; GAP is not available on this host).
 - The two intersection tables in `tits1755/out/` and `data/` have different column names (`p_k_ij` and `p^k_ij`) and the same values. They are kept because two different scripts write them.
 
 ## Open directions
