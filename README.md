@@ -25,6 +25,15 @@ Status: project working notes, not peer reviewed. `fusion_note.tex` is a draft.
 | `docs/novelty_audit.md` | Literature audit from an earlier session | Predates the unified theorem; its octagon-only framing is superseded |
 | `qpoly/` | Q-polynomial ordering check from an earlier session (`qpoly_check.py`, output, `qpoly_note.md`) | Not re-run in this commit |
 
+## Repository layout from earlier commits
+
+Earlier commits on `main` (same account, 22:44) added folders that overlap with the files above:
+
+- `fusion/`: `verify_fusions.py`, `verify_fusions_output.txt` and `fusion_note.tex`. These are byte-identical to the root copies.
+- `tits1755/`: `compute_tits1755.py` (earlier ATLAS orbital script) and `out/` (intersection numbers, Krein parameters, fusion test, summary). `code/atlas_orbital_table.py` is the version reproduced in this commit.
+
+Both folders were left as they were. The root copies are the ones this README describes.
+
 ## Reproducing
 
     pip install -r requirements.txt
