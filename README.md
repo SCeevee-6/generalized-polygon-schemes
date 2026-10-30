@@ -23,18 +23,19 @@ Status: project working notes, not peer reviewed. `fusion/fusion_note.tex` is a 
 | `tits1755/compute_tits1755.py`, `tits1755/octagon_fusion_symbolic.py`, `tits1755/out/` | Earlier computation from the raw ATLAS generators, with its outputs (`intersection_numbers.csv`, `krein_parameters.csv`, `fusion_test.csv`, `summary.json`), and a symbolic octagon fusion test | `python tits1755/compute_tits1755.py` (needs the ATLAS generators) |
 | `code/` | `atlas_orbital_table.py`: orbital table from the ATLAS v3 permutation generators. `bannai_muzychuk_crosscheck.py`: Groebner-basis column criterion over the 13 proper partitions (about 7 minutes). | see Reproducing |
 | `data/` | `intersection_numbers_independent_verification.csv`, `krein_parameters_independent.csv`, `bannai_muzychuk_crosscheck.csv`, `symbolic_fusion_test.csv` | outputs of the scripts above |
+| `thin/` | Thin-octagon GO(1,t) fusion check (t = 2, 8, 18, 32, 50): only trivial, bipartite-parity and halved-GQ(t,t) fusions close; no primitive fusion; 0/24 Q-polynomial orderings. `thin_fusions.py`, `thin_fusions.json`, `verify_thin_explicit.py`, `thin_note.md` | `python thin/thin_fusions.py` |
 | `docs/` | `tits_1755_orbital_algebra_report.md`: report on the 1755-point scheme. `novelty_audit.md`: literature audit from an earlier session; its octagon-only framing is superseded by the unified theorem. | — |
 
 The earlier copies of `fusion_note.tex`, `verify_fusions.py` and `verify_fusions_output.txt` at the repository root were removed. They were byte-identical to the copies in `fusion/`.
 
 ## Reproducing
 
-    pip install -r requirements.txt
-    python fusion/verify_fusions.py
-    python qpoly/qpoly_check.py
-    python tits1755/scheme_from_array.py --atlas
-    python code/atlas_orbital_table.py
-    python code/bannai_muzychuk_crosscheck.py
+    pip install -r requirements.txt
+    python fusion/verify_fusions.py
+    python qpoly/qpoly_check.py
+    python tits1755/scheme_from_array.py --atlas
+    python code/atlas_orbital_table.py
+    python code/bannai_muzychuk_crosscheck.py
 
 Checks run on the contents of this commit:
 
