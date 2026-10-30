@@ -1,46 +1,56 @@
 # generalized-polygon-schemes
 
-Association-scheme computations for point graphs of generalized polygons: fusion closure,
-Q-polynomial orderings, and the orbital algebra of the Tits group on 1755 points.
+Association-scheme computations for point graphs of generalized polygons: fusions of the point-distance scheme, Q-polynomial orderings, and the orbital algebra of the Tits group on 1755 points.
+
+Status: project working notes, not peer reviewed. `fusion/fusion_note.tex` is a draft.
+
+## Results
+
+- **Fusions.** For a generalized 2d-gon of order (s,t), d in {3,4}, with integers s,t >= 2, the point-distance scheme has a proper fusion if and only if s = t. The fusion is then unique: {1,...,d-1} | {d}.
+- **Hexagons, s = t = q.** The fusion is strongly regular with parameters ((q^6-1)/(q-1), q(q+1)(q^2+1), q^3+q^2+q-1, (q+1)(q^2+1)), the parameters of the collinearity graph of Q(6,q).
+- **Octagons.** The case s = t is excluded by the Feit-Higman condition (2st must be a square), so the Ree-Tits octagon GO(2,4) has no proper fusion.
+- **Tits group on 1755 points, (s,t) = (2,4).** Intersection array {10,8,8,8;1,1,1,5}. Eigenvalues of A_1 are 10, 5, 1, -3, -5 with multiplicities 1, 351, 650, 675, 78. The only vanishing non-principal Krein parameter is q^4_44 = 0. Of the 15 fusions of {1,2,3,4}, only the two trivial ones close.
 
 ## Layout
 
-| Path | Contents |
-|---|---|
-| `tits1755/compute_tits1755.py` | From the ATLAS v3 generators of T = 2F4(2)' (TF42G1-p1755B0): suborbits, 125 intersection numbers, P, Q, Krein parameters, Q-polynomial test, 15-partition fusion test |
-| `tits1755/octagon_fusion_symbolic.py` | Symbolic Bose-Mesner algebra of a generalized octagon GO(s,t); fusion closure differences per partition; cross-check against the numeric table |
-| `tits1755/out/` | Outputs of the two scripts (`summary.json`, CSV tables, `octagon_fusion_symbolic.txt`) |
-| `fusion/` | Earlier fusion verification for generalized hexagons and octagons: `verify_fusions.py`, `verify_fusions_output.txt`, `fusion_note.tex` |
-| `qpoly/` | Q-polynomial check for generalized polygon schemes (`qpoly_check.py`, output, note) |
-| `docs/novelty_audit.md` | Literature audit of the 1755-point project and the claimed new result |
-| `docs/tits_1755_orbital_algebra_report.md` | Orbital-algebra report for the 1755-point scheme (version 2) |
+| Path | Content | How to run |
+|---|---|---|
+| `fusion/` | Draft note `fusion_note.tex`; exact sympy verifier `verify_fusions.py` (all integer (s,t) in [2,30]^2, hexagon cubic, Tits data, Krein parameters, SRG parameters); expected stdout `verify_fusions_output.txt` | `python fusion/verify_fusions.py` (sympy) |
+| `qpoly/` | Q-polynomial ordering check for point schemes of generalized 2d-gons, d = 2,3,4 (`qpoly_check.py`, output, `qpoly_note.md`). Not re-run in the latest commit. | `python qpoly/qpoly_check.py` (sympy) |
+| `tits1755/scheme_from_array.py` | Derivation of the 1755-point algebra from the intersection array alone (stdlib, exact Fractions): p^k_ij, P, Q, multiplicities, Krein parameters, Q-polynomial test over 24 orderings, closure-violation counts for all 15 fusions. `--atlas` checks the result against the ATLAS generators. | `python tits1755/scheme_from_array.py --atlas` (about 10 s) |
+| `tits1755/out_array/` | Outputs of `scheme_from_array.py`: `orbital_valencies.csv`, `intersection_numbers.csv`, `P_matrix.csv`, `Q_matrix.csv`, `krein_parameters.csv`, `fusion_results.csv`, `run_output.txt` | — |
+| `tits1755/figures/` | `tits_1755_scheme.png`: intersection diagram of the 5 orbitals and closure violations for the 15 fusions | — |
+| `tits1755/compute_tits1755.py`, `tits1755/octagon_fusion_symbolic.py`, `tits1755/out/` | Earlier computation from the raw ATLAS generators, with its outputs (`intersection_numbers.csv`, `krein_parameters.csv`, `fusion_test.csv`, `summary.json`), and a symbolic octagon fusion test | `python tits1755/compute_tits1755.py` (needs the ATLAS generators) |
+| `code/` | `atlas_orbital_table.py`: orbital table from the ATLAS v3 permutation generators. `bannai_muzychuk_crosscheck.py`: Groebner-basis column criterion over the 13 proper partitions (about 7 minutes). | see Reproducing |
+| `data/` | `intersection_numbers_independent_verification.csv`, `krein_parameters_independent.csv`, `bannai_muzychuk_crosscheck.csv`, `symbolic_fusion_test.csv` | outputs of the scripts above |
+| `docs/` | `tits_1755_orbital_algebra_report.md`: report on the 1755-point scheme. `novelty_audit.md`: literature audit from an earlier session; its octagon-only framing is superseded by the unified theorem. | — |
 
-## Reproduce
+The earlier copies of `fusion_note.tex`, `verify_fusions.py` and `verify_fusions_output.txt` at the repository root were removed. They were byte-identical to the copies in `fusion/`.
 
-```
-pip install -r requirements.txt        # sympy
-python tits1755/compute_tits1755.py    # ~10 s; fetches ATLAS generators into tits1755/cache/
-python tits1755/octagon_fusion_symbolic.py          # ~5 s; add --solve for sympy.solve (slow)
-```
+## Reproducing
 
-`cache/` is git-ignored because it holds third-party ATLAS files.
+    pip install -r requirements.txt
+    python fusion/verify_fusions.py
+    python qpoly/qpoly_check.py
+    python tits1755/scheme_from_array.py --atlas
+    python code/atlas_orbital_table.py
+    python code/bannai_muzychuk_crosscheck.py
 
-## Results reproduced by the scripts
+Checks run on the contents of this commit:
 
-- Suborbits of the point stabiliser: 1, 10, 80, 640, 1024.
-- Eigenvalues 10, 5, 1, -3, -5 with multiplicities 1, 351, 650, 675, 78.
-- BFS distance from 0 on the R_1 graph equals the suborbit label at all 1755 points.
-- All Krein parameters are non-negative. The only vanishing Krein parameter with all indices >= 1 is q^4_44 = 0 (eigen-indices).
-- No ordering of the eigenspaces passes the triangle-zero Q-polynomial test.
-- Of the 15 partitions of {1,2,3,4}, only the trivial and identity partitions have zero closure violations.
-- The symbolic octagon matrices reproduce all 125 numeric intersection numbers at (s,t) = (2,4).
+- `tits1755/scheme_from_array.py --atlas` exits 0. The 125 p^k_ij derived from the intersection array equal the counts taken from the ATLAS permutation action. Graph distance in R_1 equals the orbital label at all 1755 points.
+- The intersection tables in `data/intersection_numbers_independent_verification.csv` and `tits1755/out/intersection_numbers.csv` both agree with the table derived by `scheme_from_array.py`, cell by cell (125 entries each).
+- `code/bannai_muzychuk_crosscheck.py` compiles. It was not re-run, because the run takes about 7 minutes. Its CSV comes from the producing run.
 
-## Verification status and caveats
+## Known limitations
 
-- The graph is published in Crnkovic, Rukavina and Svob, J. Algebraic Combin. 51 (2020), DOI 10.1007/s10801-019-00888-5 (arXiv:1809.10197). Its Table 13 lists the same intersection array and automorphism group. The Krein, fusion and Q-polynomial results are not in that paper.
-- Not checked against a primary source in this work: the Cameron-Goethals-Seidel (1978) extremal-polygon result on vanishing Krein parameters, and the De Bruyn (2022) statement of its octagon case. The publisher page was blocked by the network allowlist during the audit.
-- The tightness claim in the audit uses an identity that was not checked against a primary source. It is not computed by the scripts.
-- The character-degree attribution of 1, 351, 650, 675, 78 to the ATLAS character table was not re-checked.
-- The full group order |T| = 17,971,200 was not verified by Schreier-Sims. The code checks transitivity and the suborbit structure only.
-- The octagon fusion theorem in `docs/novelty_audit.md` concerns thick generalized octagons. For formal s = t the fusion {1,2,3}|{4} closes, but s = t is excluded for real octagons by the Feit-Higman condition that 2st be a perfect square.
-- The Feit-Higman condition and the non-existence claim it supports are cited from memory and not re-checked against a primary source in this work.
+- `code/bannai_muzychuk_crosscheck.py` writes the last column, `feasible_thick_octagon`, as the constant `none`. The column is not computed. Checked by hand against the solution list: each real-positive entry has s = 1, t = 1, a non-integer s or t, or lies on the diagonal s = t, which the Feit-Higman condition excludes. The computed feasibility test is the grid test in `fusion/verify_fusions.py`.
+- `fusion/fusion_note.tex` was checked statically only; no TeX engine ran in the environment that produced it. Bibliography entries other than Crnković–Rukavina–Švob (2020) and Cameron–Goethals–Seidel (1978) were written from memory and need verification.
+- Literature novelty claims come from a search, not an exhaustive review.
+- Not verified: |T| by Schreier–Sims, and the multiplicities against the ATLAS character table.
+- The two intersection tables in `tits1755/out/` and `data/` have different column names (`p_k_ij` and `p^k_ij`) and the same values. They are kept because two different scripts write them.
+
+## Open directions
+
+- Q-polynomial classification of hexagon and octagon point schemes. `qpoly/` is the start of this.
+- Whether the fusion result extends to other coherent configurations of T on Omega.
