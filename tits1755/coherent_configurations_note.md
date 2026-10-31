@@ -28,7 +28,7 @@ In every case the double-coset rank equals <pi,pi>, and the self-paired count eq
 | 7 | A6.2^2 | 12480 | 24 | no | 3 | 16 | no | same as max 6 |
 | 8 | 5^2:4A4 | 14976 | 25 | no | 2 | 17 | no | 13 distinct, 351, 675, 1300, 1300' twice each |
 
-The 351 in every row is the rational 351 (library X.9). The pairs 27/27' and 624/624' are algebraically conjugate.
+The pairs 27/27' and 624/624' are presumably complex-conjugate pairs; this was not checked against the character values.
 The full data is in `gap/maxes_coherent_configurations.csv` (library character names X.i) and `gap/tits_maxes_output.txt`.
 
 Summary:

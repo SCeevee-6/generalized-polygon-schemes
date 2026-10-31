@@ -25,5 +25,5 @@ Verdict on the claim that the thin octagons of orders (1,2) and (1,8) admit prop
 t tested. Both fusions are imprimitive. One is the bipartition. The other is the halved graph, which is the collinearity
 graph of GQ(t,t). So nothing new comes out of the (1,t) case. The order (2,1) case does have a primitive fusion. Its
 graph has the parameters of the triangular graph T(10), and T(n) is determined by its parameters for n other than 8
-(Chang 1959, Hoffman 1960), so it is T(10). It has 45 vertices, one for each flag of GQ(2,2). Order (8,1) has no proper fusion.
+(Chang 1959, Hoffman 1960), so its parameters match T(10). Whether the graph is isomorphic to T(10) was not checked. It has 45 vertices, one for each flag of GQ(2,2). Order (8,1) has no proper fusion.
 This agrees with Remark "Sharpness of thickness" in `fusion/fusion_note.tex`.
