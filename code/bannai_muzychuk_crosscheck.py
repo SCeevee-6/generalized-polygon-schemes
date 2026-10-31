@@ -1,6 +1,7 @@
 """Gröbner-basis fusion cross-check (Bannai-Muzychuk column criterion) for the octagon point scheme, m^2=2st, t=m^2/(2s).
-Recovered from the producing session (lineage of bannai_muzychuk_crosscheck.csv); no logic changes.
-Known limitation: the final column of the CSV is a constant label "none" written by hand, not a computed check.
+Last column (feasibility) is now computed: each solution is tested for s,t >= 2 integer with 2st a perfect square
+(Feit-Higman). Isolated points are tested exactly (rounded floats are only a pre-filter, then exact check on s,t);
+curves are tested by substituting M^2=2*S*t and scanning integer s in [2,SMAX], t from the curve equation.
 Runtime about 7 minutes (sympy Groebner bases). Writes bannai_muzychuk_crosscheck.csv to the working directory.
 """
 import sympy as sp
@@ -81,6 +82,36 @@ def solve_branch(basis):
             out.add(('CURVE',tuple(str(sp.factor(g)) for g in gs)))
     return out
 
+
+SMAX=5000
+def _is_sq(n): r=sp.integer_nthroot(int(n),2); return r[1]
+
+def int_ok(sv,tv):
+    """sv,tv floats from a numeric root; True if (s,t) is a thick-octagon candidate: integers >=2, 2st a perfect square."""
+    s_,t_=round(sv),round(tv)
+    if abs(sv-s_)>1e-4 or abs(tv-t_)>1e-4 or s_<2 or t_<2: return False
+    return _is_sq(2*s_*t_)
+
+def feasible(pt):
+    """pt: descriptor from solve_branch or 'IDENTICAL'. Returns list of integer (s,t) candidates, or a family string."""
+    if pt=='IDENTICAL' or pt[0]=='M=': return []
+    if pt[0]=='CURVE':
+        out=[]
+        for expr in pt[1]:
+            f=sp.sympify(expr,locals={'S':S,'M':M})
+            if not f.has(M):      # s fixed, t free
+                for c in sp.solve(f,S):
+                    if c.is_integer and c>=2: out.append('s=%s, any t>=2 with 2st square'%c)
+                continue
+            for Mexpr in sp.solve(f,M):      # M=M(S) on the curve; t=M^2/(2S)
+                T=sp.lambdify(S,sp.simplify(Mexpr**2/(2*S)),'sympy')
+                for sv in range(2,SMAX+1):
+                    tv=sp.nsimplify(T(sp.Integer(sv)))
+                    if tv.is_integer and tv>=2 and _is_sq(2*sv*tv): out.append((sv,int(tv)))
+        return out
+    sv,mv=pt[0],pt[1]
+    return [(round(sv),round(mv**2/(2*sv)))] if int_ok(sv,mv**2/(2*sv)) else []
+
 final2={}
 for p in parts:
     r=len(p)
@@ -102,8 +133,8 @@ for p in parts:
 
 rows=[]
 for p,pts in final2.items():
-    rows.append((p, '; '.join(map(str,sorted(pts,key=str))) if pts else 'none'))
-df=pd.DataFrame(rows,columns=['class_partition','real_positive_(s,m)_solutions_[m=sqrt(2st),t=m^2/(2s)]'])
-df['feasible_thick_octagon_(s,t>=2_integer,2st_square)']='none'
+    cand=sorted({c for pt in pts for c in feasible(pt)},key=str)
+    rows.append((p, '; '.join(map(str,sorted(pts,key=str))) if pts else 'none', str(cand) if cand else 'none'))
+df=pd.DataFrame(rows,columns=['class_partition','real_positive_(s,m)_solutions_[m=sqrt(2st),t=m^2/(2s)]','feasible_thick_octagon_(s,t>=2_integer,2st_square)'])
 df.to_csv('bannai_muzychuk_crosscheck.csv',index=False)
 print(df.to_string())
