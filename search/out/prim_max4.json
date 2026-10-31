@@ -1,0 +1,38 @@
+{
+ "input": "repo/tits1755/out_cosets/max4_intersection_numbers.csv",
+ "n": 2304,
+ "rank": 7,
+ "units": [
+  [
+   1
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   4
+  ],
+  [
+   5
+  ],
+  [
+   6
+  ]
+ ],
+ "valencies": [
+  1,
+  78,
+  300,
+  300,
+  325,
+  325,
+  975
+ ],
+ "method": "gray",
+ "subsets_or_nodes": 30,
+ "a1_constant": 6,
+ "a1_constant_disconnected": 0,
+ "connected_drg": [],
+ "seconds": 0.0
+}

@@ -1,0 +1,4 @@
+tom424_intersection_numbers.csv gray [(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), (2, 3, 4, 5, 6, 7, 8, 9, 10, 11)] cpsat [(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), (2, 3, 4, 5, 6, 7, 8, 9, 10, 11)] INFEASIBLE agree 0s
+tom423_intersection_numbers.csv gray [(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)] cpsat [(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)] INFEASIBLE agree 1s
+max8_intersection_numbers.csv gray [] cpsat [] INFEASIBLE agree 231s
+tom422_intersection_numbers.csv gray [(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)] cpsat [(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)] INFEASIBLE agree 117s

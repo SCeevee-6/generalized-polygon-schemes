@@ -40,3 +40,13 @@ permutation representation; non-commutative association scheme sporadic group ce
 
 The searches are keyword searches. BCN (1989) and Van Maldeghem's book (1998) were not read page by page,
 so absence here does not show novelty.
+
+## Addendum (31 Oct 2026, later session)
+
+- Crnković, Rukavina, Švob, arXiv:1809.10197 (= JACo 51 (2020)), read in full for Section 3.4: primitive T-actions
+  up to 12000 points, imprimitive up to 7000; SRGs (1600,351,94,72) and (3510,693,180,126); DRGs GO(2,4), GO(4,2).
+  OpenAlex lists three citing works (Borsuk counterexamples 2020; two Mathieu-group DRG papers 2021/2022); none
+  extends the range for T.
+- Fusions as a nonexistence tool: already used on Brouwer's DRG page (Lang; Galazidis; Huang via halved graphs),
+  and implemented in Vidali's `sage-drg` (`all_fusions`, recursive `check_feasible`). So the method is known.
+- Kovaľ, SRG nonexistence preprints (Oct 2026), cited in Brouwer's SRG table as Koval26h; not found on arXiv.
