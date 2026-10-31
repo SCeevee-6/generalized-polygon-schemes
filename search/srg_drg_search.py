@@ -10,7 +10,9 @@ D_0 = {0}, D_1 = S, D_2, ... from the structure constants. For (u,v) in class k 
 A_{D_i} A_S is |D_i(u) cap Gamma(v)|; the graph is distance-regular iff this is constant on D_{i-1}
 (b_{i-1}), on D_i (a_i) and on D_{i+1} (c_{i+1}) for every i. Integer arithmetic throughout.
 
-Usage: python srg_drg_search.py <intersection_numbers.csv> <out.json> [gray|dfs|cpsat|cuts] [time_limit_s]
+Usage: python srg_drg_search.py <intersection_numbers.csv> <out.json> [gray|dfs|cpsat|cuts] [time_limit_s] [nomp]
+
+With 'nomp' the cuts model also excludes the complete multipartite graphs (complements of closed subsets).
 
 The dfs method (search_dfs) prunes with the monotonicity of the walk counts and is kept for comparison; cpsat (search_cpsat) adds the condition that walk counts off S lie in {0, c_2} and is used for the large ranks.
 """
@@ -253,7 +255,7 @@ def maximal_closed_subsets(p):
     return [tuple(sorted(c)) for c in cs if not any(c < d for d in cs)]
 
 
-def search_cpsat_cuts(p, workers=6, time_limit=3600.0, log=None):
+def search_cpsat_cuts(p, workers=6, time_limit=3600.0, log=None, exclude_multipartite=False):
     """Same model as search_cpsat plus connectivity (S in no maximal closed subset), solved repeatedly in feasibility mode with all workers; after each
     solution a no-good cut on the x variables is added. Ends with status INFEASIBLE (complete) or UNKNOWN."""
     from ortools.sat.python import cp_model
@@ -291,6 +293,12 @@ def search_cpsat_cuts(p, workers=6, time_limit=3600.0, log=None):
     for C in maximal_closed_subsets(p):
         out = [a for a in range(U) if units[a][0] not in C]
         m.AddBoolOr([x[a] for a in out])
+    if exclude_multipartite:
+        # S = complement of a proper closed subset C != {0} gives a complete multipartite graph; cut these
+        for C in closed_subsets(p):
+            if len(C) > 1:
+                pat = [units[a][0] not in C for a in range(U)]
+                m.AddBoolOr([x[a].Not() if pat[a] else x[a] for a in range(U)])
     sols, status, t_used = [], None, 0.0
     while True:
         s = cp_model.CpSolver()
@@ -305,6 +313,9 @@ def search_cpsat_cuts(p, workers=6, time_limit=3600.0, log=None):
             break
         sol = [a for a in range(U) if s.Value(x[a])]
         sols.append(sol)
+        if log:
+            S = sorted(i for a in sol for i in units[a])
+            log(f'solution units={sol} classes={S} drg={distance_regular(p, S)}')
         m.AddBoolOr([x[a].Not() if a in sol else x[a] for a in range(U)])
     return val, pair, units, sols, status
 
@@ -343,7 +354,8 @@ def summary(info):
 if __name__ == '__main__':
     kw = {}
     if len(sys.argv) > 4:
-        kw = {'time_limit': float(sys.argv[4]), 'log': lambda m: print(m, flush=True)}
+        kw = {'time_limit': float(sys.argv[4]), 'log': lambda m: print(m, flush=True),
+              'exclude_multipartite': len(sys.argv) > 5 and sys.argv[5] == 'nomp'}
     info = run(sys.argv[1], sys.argv[3] if len(sys.argv) > 3 else 'gray', **kw)
     with open(sys.argv[2], 'w') as f:
         json.dump(info, f, indent=1)

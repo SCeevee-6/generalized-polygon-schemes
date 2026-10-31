@@ -1,0 +1,18 @@
+multiplicities [1, 351, 650, 675, 78]; vanishing Krein parameters (i<=j): [(4, 4, 4)]
+type (1, 1, 1): 25 unknowns, free dimension 2; Krein tightens 0 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 1, 2): 29 unknowns, free dimension 2; Krein tightens 8 ranges; forced only with Krein: [((3, 3, 3), 0.0), ((3, 3, 4), 64.0), ((3, 4, 3), 64.0), ((3, 4, 4), 384.0), ((4, 3, 3), 256.0), ((4, 3, 4), 256.0), ((4, 4, 3), 256.0), ((4, 4, 4), 256.0)]; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 2, 2): 37 unknowns, free dimension 6; Krein tightens 10 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 2, 3): 37 unknowns, free dimension 5; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 3, 3): 40 unknowns, free dimension 7; Krein tightens 7 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 3, 4): 36 unknowns, free dimension 5; Krein tightens 7 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (1, 4, 4): 34 unknowns, free dimension 5; Krein tightens 9 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 2, 2): 49 unknowns, free dimension 14; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 2, 3): 50 unknowns, free dimension 14; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 2, 4): 44 unknowns, free dimension 10; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 3, 3): 54 unknowns, free dimension 17; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 3, 4): 48 unknowns, free dimension 13; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (2, 4, 4): 44 unknowns, free dimension 11; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (3, 3, 3): 57 unknowns, free dimension 19; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (3, 3, 4): 51 unknowns, free dimension 15; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (3, 4, 4): 46 unknowns, free dimension 12; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
+type (4, 4, 4): 42 unknowns, free dimension 10; Krein tightens 8 ranges; forced only with Krein: []; octagon triple agrees with forced values: True; all values within LP ranges: True
