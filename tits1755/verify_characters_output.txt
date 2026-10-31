@@ -1,0 +1,5 @@
+chi(1) = [1, 351, 650, 675, 78]
+samples=4000  non-integer values=0
+mean chi_i^2 (expect ~1): [1.0, 0.923, 0.902, 0.831, 0.946]
+element orders seen: [2, 3, 4, 5, 6, 8, 10, 12, 13, 16]
+degree list: 22 chars, sum of squares = 17971200, |T| = 17971200, equal: True
