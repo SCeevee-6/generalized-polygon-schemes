@@ -28,19 +28,20 @@ In every case the double-coset rank equals <pi,pi>, and the self-paired count eq
 | 7 | A6.2^2 | 12480 | 24 | no | 3 | 16 | no | same as max 6 |
 | 8 | 5^2:4A4 | 14976 | 25 | no | 2 | 17 | no | 13 distinct, 351, 675, 1300, 1300' twice each |
 
-The pairs 27/27' and 624/624' are presumably complex-conjugate pairs; this was not checked against the character values.
+27/27' is a complex-conjugate pair. 624/624' is not: both are real (indicator +1) and each is fixed by complex conjugation; they are swapped by the outer automorphism of T and fuse to an irreducible of degree 1248 in 2F4(2). Checked in `gap/extra_checks.g`; an earlier version of this note presumed both pairs were complex conjugate.
 The full data is in `gap/maxes_coherent_configurations.csv` (library character names X.i) and `gap/tits_maxes_output.txt`.
 
 Summary:
 
 - Five actions are commutative: degrees 1600 (two classes), 1755, 2304 and 2925.
 - Four of those are symmetric. The L2(25) action on 2304 points is commutative but not symmetric: it has one pair of
-  non-self-paired orbitals, which matches the complex pair 27, 27'.
+  non-self-paired orbitals, which matches the complex-conjugate pair 27, 27'.
 - Three actions give non-commutative configurations: the two A6.2^2 classes (12480 points, rank 24, the algebra has
   centre of dimension 13) and 5^2:4A4 (14976 points, rank 25, centre of dimension 13).
-- Only the 1755-point action is metric (the GO(2,4) distance scheme). The other actions were not tested for fusions.
+- Only the 1755-point action is metric (the GO(2,4) distance scheme). Fusions of the commutative actions and the algebra structure of the non-commutative ones are in `coset_fusions_note.md`.
 
 Novelty: Breuer and Lux (Comm. Algebra 24 (1996) 2293-2316, doi:10.1080/00927879608825701) classified the
-multiplicity-free permutation characters of the sporadic groups. I have not checked whether their tables include T,
-so the commutative cases above are not claimed as new. The non-commutative cases are a direct computation from
-standard data.
+multiplicity-free permutation characters of the sporadic groups. Their database as shipped with ctbllib 1.3.11 does
+not include T (`gap/extra_checks_output.txt`). The ranks are still standard data, computable from the library
+tables, and Crnković–Rukavina–Švob (2020) list ranks of T on small cosets, so I do not claim them as new. The
+non-commutative cases are a direct computation from standard data.
