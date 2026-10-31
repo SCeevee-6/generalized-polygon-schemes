@@ -1,0 +1,4 @@
+a_i = [0, 1, 1, 1, 5]  theta = [10, 5, 1, -3, -5]
+LHS = (th_1 + k/(a_1+1))(th_d + k/(a_1+1)) = 0
+RHS = -k a_1 b_1/(a_1+1)^2 = -20
+bound holds: True  equality (tight): False  a_d = 5
