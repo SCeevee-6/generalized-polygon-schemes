@@ -1,0 +1,58 @@
+{"v": 1015, "i": 1, "partial": {"param": [1015, 150, 5, 25], "status": "INFEASIBLE", "seconds": 3.9}}
+{"v": 1015, "i": 1, "partial": {"param": [1015, 182, 21, 35], "status": "INFEASIBLE", "seconds": 327.5}}
+{"v": 1015, "i": 1, "partial": {"param": [1015, 312, 113, 88], "status": "INFEASIBLE", "seconds": 7.8}}
+{"v": 1015, "i": 1, "partial": {"param": [1015, 702, 477, 504], "status": "INFEASIBLE", "seconds": 6.4}}
+{"v": 1015, "i": 1, "partial": {"param": [1015, 832, 684, 672], "status": "INFEASIBLE", "seconds": 214.1}}
+{"v": 1015, "i": 1, "partial": {"param": [1015, 864, 738, 720], "status": "INFEASIBLE", "seconds": 88.9}}
+{"v": 1015, "i": 1, "rank": 52, "units": 43, "one_dim_reps": 19, "results": [{"param": [1015, 150, 5, 25], "status": "INFEASIBLE", "seconds": 3.9}, {"param": [1015, 182, 21, 35], "status": "INFEASIBLE", "seconds": 327.5}, {"param": [1015, 312, 113, 88], "status": "INFEASIBLE", "seconds": 7.8}, {"param": [1015, 702, 477, 504], "status": "INFEASIBLE", "seconds": 6.4}, {"param": [1015, 832, 684, 672], "status": "INFEASIBLE", "seconds": 214.1}, {"param": [1015, 864, 738, 720], "status": "INFEASIBLE", "seconds": 88.9}], "seconds": 648.7}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 180, 5, 30], "status": "INFEASIBLE", "seconds": 0.5}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 216, 19, 42], "status": "INFEASIBLE", "seconds": 19.6}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 252, 35, 56], "status": "INFEASIBLE", "seconds": 32.8}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 264, 63, 55], "status": "INFEASIBLE", "seconds": 23.4}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 288, 53, 72], "status": "INFEASIBLE", "seconds": 46.2}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 324, 73, 90], "status": "INFEASIBLE", "seconds": 103.9}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 360, 95, 110], "status": "INFEASIBLE", "seconds": 64.7}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 396, 119, 132], "status": "INFEASIBLE", "seconds": 201.9}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 408, 143, 132], "status": "INFEASIBLE", "seconds": 309.3}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 432, 145, 156], "status": "INFEASIBLE", "seconds": 366.1}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 468, 173, 182], "status": "INFEASIBLE", "seconds": 506.9}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 480, 200, 180], "status": "INFEASIBLE", "seconds": 135.1}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 504, 203, 210], "status": "INFEASIBLE", "seconds": 479.5}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 540, 235, 240], "status": "INFEASIBLE", "seconds": 368.6}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 1008, 833, 812], "status": "INFEASIBLE", "seconds": 64.1}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 306, 89, 72], "status": "k not a sum of unit valencies"}, {"param": [1225, 520, 255, 195], "status": "k not a sum of unit valencies"}, {"param": [1225, 704, 378, 440], "status": "k not a sum of unit valencies"}, {"param": [1225, 782, 495, 506], "status": "k not a sum of unit valencies"}, {"param": [1225, 884, 633, 650], "status": "k not a sum of unit valencies"}, {"param": [1225, 1008, 833, 812], "status": "INFEASIBLE", "seconds": 64.1}], "seconds": 64.4}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 792, 515, 506], "status": "INFEASIBLE", "seconds": 1058.2}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 900, 665, 650], "status": "INFEASIBLE", "seconds": 205.0}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 1044, 893, 870], "status": "INFEASIBLE", "seconds": 38.4}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 340, 105, 90], "status": "k not a sum of unit valencies"}, {"param": [1225, 544, 243, 240], "status": "k not a sum of unit valencies"}, {"param": [1225, 714, 413, 420], "status": "k not a sum of unit valencies"}, {"param": [1225, 792, 515, 506], "status": "INFEASIBLE", "seconds": 1058.2}, {"param": [1225, 900, 665, 650], "status": "INFEASIBLE", "seconds": 205.0}, {"param": [1225, 1044, 893, 870], "status": "INFEASIBLE", "seconds": 38.4}], "seconds": 1302.0}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 576, 269, 272], "status": "INFEASIBLE", "seconds": 1516.2}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 720, 425, 420], "status": "INFEASIBLE", "seconds": 1096.6}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 816, 539, 552], "status": "INFEASIBLE", "seconds": 444.8}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 374, 123, 110], "status": "k not a sum of unit valencies"}, {"param": [1225, 576, 269, 272], "status": "INFEASIBLE", "seconds": 1516.2}, {"param": [1225, 720, 425, 420], "status": "INFEASIBLE", "seconds": 1096.6}, {"param": [1225, 816, 539, 552], "status": "INFEASIBLE", "seconds": 444.8}, {"param": [1225, 918, 683, 702], "status": "k not a sum of unit valencies"}], "seconds": 3058.2}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 648, 343, 342], "status": "INFEASIBLE", "seconds": 1616.3}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 744, 443, 465], "status": "INFEASIBLE", "seconds": 167.7}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 828, 563, 552], "status": "INFEASIBLE", "seconds": 430.7}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 936, 719, 702], "status": "INFEASIBLE", "seconds": 126.1}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 442, 165, 156], "status": "k not a sum of unit valencies"}, {"param": [1225, 648, 343, 342], "status": "INFEASIBLE", "seconds": 1616.3}, {"param": [1225, 744, 443, 465], "status": "INFEASIBLE", "seconds": 167.7}, {"param": [1225, 828, 563, 552], "status": "INFEASIBLE", "seconds": 430.7}, {"param": [1225, 936, 719, 702], "status": "INFEASIBLE", "seconds": 126.1}], "seconds": 2341.4}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 960, 750, 760], "status": "INFEASIBLE", "seconds": 81.9}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 476, 189, 182], "status": "k not a sum of unit valencies"}, {"param": [1225, 680, 375, 380], "status": "k not a sum of unit valencies"}, {"param": [1225, 748, 453, 462], "status": "k not a sum of unit valencies"}, {"param": [1225, 850, 585, 600], "status": "k not a sum of unit valencies"}, {"param": [1225, 960, 750, 760], "status": "INFEASIBLE", "seconds": 81.9}], "seconds": 82.4}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 684, 383, 380], "status": "INFEASIBLE", "seconds": 1605.6}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 756, 469, 462], "status": "INFEASIBLE", "seconds": 918.7}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 864, 613, 600], "status": "INFEASIBLE", "seconds": 268.8}}
+{"v": 1225, "i": 13, "partial": {"param": [1225, 972, 775, 756], "status": "INFEASIBLE", "seconds": 54.3}}
+{"v": 1225, "i": 13, "rank": 39, "units": 32, "one_dim_reps": 14, "results": [{"param": [1225, 510, 215, 210], "status": "k not a sum of unit valencies"}, {"param": [1225, 684, 383, 380], "status": "INFEASIBLE", "seconds": 1605.6}, {"param": [1225, 756, 469, 462], "status": "INFEASIBLE", "seconds": 918.7}, {"param": [1225, 864, 613, 600], "status": "INFEASIBLE", "seconds": 268.8}, {"param": [1225, 972, 775, 756], "status": "INFEASIBLE", "seconds": 54.3}], "seconds": 2847.8}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 50, 4, 2], "status": "INFEASIBLE", "seconds": 1.0}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 175, 14, 28], "status": "INFEASIBLE", "seconds": 13.9}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 275, 58, 66], "status": "INFEASIBLE", "seconds": 223.1}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 400, 120, 144], "status": "INFEASIBLE", "seconds": 118.1}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 500, 256, 180], "status": "INFEASIBLE", "seconds": 15.6}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 525, 238, 231], "status": "INFEASIBLE", "seconds": 34.0}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 550, 224, 286], "status": "INFEASIBLE", "seconds": 22.0}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 625, 360, 300], "status": "INFEASIBLE", "seconds": 37.0}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 650, 355, 364], "status": "INFEASIBLE", "seconds": 35.9}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 675, 354, 432], "status": "INFEASIBLE", "seconds": 21.4}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 775, 518, 496], "status": "INFEASIBLE", "seconds": 316.5}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 900, 690, 684], "status": "INFEASIBLE", "seconds": 222.7}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 1000, 852, 840], "status": "INFEASIBLE", "seconds": 66.6}}
+{"v": 1176, "i": 1, "partial": {"param": [1176, 1125, 1076, 1080], "status": "INFEASIBLE", "seconds": 0.8}}
+{"v": 1176, "i": 1, "rank": 36, "units": 30, "one_dim_reps": 15, "results": [{"param": [1176, 50, 4, 2], "status": "INFEASIBLE", "seconds": 1.0}, {"param": [1176, 175, 14, 28], "status": "INFEASIBLE", "seconds": 13.9}, {"param": [1176, 188, 40, 28], "status": "k not a sum of unit valencies"}, {"param": [1176, 235, 42, 48], "status": "k not a sum of unit valencies"}, {"param": [1176, 240, 52, 48], "status": "k not a sum of unit valencies"}, {"param": [1176, 275, 58, 66], "status": "INFEASIBLE", "seconds": 223.1}, {"param": [1176, 329, 112, 84], "status": "k not a sum of unit valencies"}, {"param": [1176, 400, 120, 144], "status": "INFEASIBLE", "seconds": 118.1}, {"param": [1176, 460, 173, 184], "status": "k not a sum of unit valencies"}, {"param": [1176, 470, 172, 198], "status": "k not a sum of unit valencies"}, {"param": [1176, 470, 193, 184], "status": "k not a sum of unit valencies"}, {"param": [1176, 495, 222, 198], "status": "k not a sum of unit valencies"}, {"param": [1176, 500, 256, 180], "status": "INFEASIBLE", "seconds": 15.6}, {"param": [1176, 525, 238, 231], "status": "INFEASIBLE", "seconds": 34.0}, {"param": [1176, 550, 224, 286], "status": "INFEASIBLE", "seconds": 22.0}, {"param": [1176, 625, 360, 300], "status": "INFEASIBLE", "seconds": 37.0}, {"param": [1176, 650, 355, 364], "status": "INFEASIBLE", "seconds": 35.9}, {"param": [1176, 675, 354, 432], "status": "INFEASIBLE", "seconds": 21.4}, {"param": [1176, 680, 382, 408], "status": "k not a sum of unit valencies"}, {"param": [1176, 705, 418, 429], "status": "k not a sum of unit valencies"}, {"param": [1176, 705, 432, 408], "status": "k not a sum of unit valencies"}, {"param": [1176, 715, 438, 429], "status": "k not a sum of unit valencies"}, {"param": [1176, 775, 518, 496], "status": "INFEASIBLE", "seconds": 316.5}, {"param": [1176, 846, 600, 630], "status": "k not a sum of unit valencies"}, {"param": [1176, 900, 690, 684], "status": "INFEASIBLE", "seconds": 222.7}, {"param": [1176, 935, 742, 748], "status": "k not a sum of unit valencies"}, {"param": [1176, 940, 752, 748], "status": "k not a sum of unit valencies"}, {"param": [1176, 987, 826, 840], "status": "k not a sum of unit valencies"}, {"param": [1176, 1000, 852, 840], "status": "INFEASIBLE", "seconds": 66.6}, {"param": [1176, 1125, 1076, 1080], "status": "INFEASIBLE", "seconds": 0.8}], "seconds": 1129.0}

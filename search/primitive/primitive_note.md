@@ -21,32 +21,55 @@ primitive group of automorphisms?
 
 ## Method
 
-1. GAP 4.16.1, primitive groups library: for each of the 430 degrees, every primitive group except Sym(v) and
-   Alt(v) with rank >= 4 (`export_primitive.g`). That gives 2164 groups (`prim_ranks.csv`); most degrees have only
-   Sym and Alt, and most groups are affine (degrees 289, 343, 361, 529, 625, 729, 841, 961, 1024) or product
-   actions (1296, 1000).
-2. For each group: orbitals and exact intersection numbers from the generators (`tits1755/coset_schemes.py`), then
-   the exact depth-first search of `search/dfs_numba.py` over unions of transposition-closed units
-   (`search/prim_search.py`). This finds every SRG and every DRG that is a union of orbitals.
-3. Groups where the search is too slow (rank above about 30): for each open parameter set of that degree, a CP-SAT
-   model with k, lambda, mu fixed, where the SRG conditions are linear in the unit variables and their products
-   (`search/srg_fixed_cpsat.py`). INFEASIBLE is a proof that no union has those parameters.
+1. GAP 4.16.1, primitive groups library (complete below degree 4096): for each of the 430 degrees, every primitive
+   group except Sym(v) and Alt(v) with rank >= 4 (`export_primitive.g`). That gives 2164 groups (`prim_ranks.csv`).
+   Most degrees have only Sym and Alt; most of the groups are affine (degrees 121, ..., 961, 343, 625, 729, 1024)
+   or product actions (1000, 1296).
+2. Exact DFS (`search/prim_search.py`, using `search/dfs_numba.py`): orbitals and exact p^k_ij from the generators,
+   then all unions of transposition-closed units with constant a_1 and walk counts off S in {0, c_2}, each checked
+   exactly for distance-regularity. This finds every SRG and every DRG that is a union of orbitals. Used for all
+   2038 groups of rank <= 30 and five more (861/1, 903/1, 946/1, 1128/1, 1176/1).
+3. Degree p^2 (p = 11, 13, 17, 19, 23, 29, 31): no computation needed. GAP confirms that all 460 groups of these
+   degrees in the list have an elementary abelian regular socle N = Z_p^2, so every invariant graph is a Cayley graph
+   Cay(N, D). For an SRG on p^2 vertices both restricted eigenvalues are integers (a conference graph has
+   eigenvalues (-1 +- p)/2 here), so chi(D) is a rational integer for every character chi of N. For t in F_p^* the
+   Galois automorphism zeta_p -> zeta_p^t gives chi(tD) = chi(D) for all chi, hence tD = D. So D is a union of
+   punctured lines through 0 of AG(2,p), and the graph has Latin square parameters (p^2, m(p-1), p-2+(m-1)(m-2),
+   m(m-1)), which exist for every m. None of them is open. (Standard multiplier argument; see Ma's survey of
+   partial difference sets.) As a check, all 116114 SRGs the DFS found on these degrees are of this type.
+4. Groups of rank above 30 that are not of degree p^2: first the fixed-parameter CP-SAT model
+   (`search/srg_fixed_cpsat.py`; exact, INFEASIBLE is a proof), which settled 14 groups. Where it was too slow, for
+   commutative configurations: eigenvalue MILP (`search/srg_spectral_milp.py`). A union S is an SRG(v,k,lambda,mu) iff
+   its valency is k and every non-principal eigenvalue sum_{a in S} P[j,a] is r or s, which is linear in binary
+   variables. HiGHS through scipy. Floating point; checked against the DFS on 30 groups and 712 (group, parameter
+   set) pairs with no disagreement (244 found, 179 infeasible).
+5. Non-commutative configurations where CP-SAT was too slow (1015/1, 1225/13; 1176/1 as a check against the DFS): MILP with the
+   exact walk-count conditions (lambda on S, mu off S, with y_ab = x_a x_b linearised) plus the eigenvalue
+   conditions from the one-dimensional representations of the orbital algebra (`search/srg_hybrid_milp.py`).
+6. A parameter set whose k is not a sum of unit valencies is ruled out for that group at once.
 
-Controls: on degree 120 the search gives SRG(120,56,28,24) from 8 groups, plus (120,51,18,24), (120,42,8,18) and
-T(16), in line with arXiv:2606.10652. The fixed-parameter model finds srg(121,40,15,12) and srg(1024,495,238,240)
-on the groups where the DFS found them.
+`aggregate.py` combines everything into `summary.csv` (one line per group: method, settled, hits).
 
-## Results so far
+Controls: on degree 120 the DFS gives SRG(120,56,28,24) from 8 groups, plus (120,51,18,24), (120,42,8,18) and
+T(16), in line with arXiv:2606.10652. The MILPs find srg(121,40,15,12), srg(1024,495,238,240) and T(48) on
+1128/1 where the DFS finds them.
 
-- DFS complete on 2038 of the 2164 groups (every group of rank <= 30 and some above; `dfs_results.jsonl.gz`).
-  Every SRG found has parameters that Brouwer's table lists as existing (309 parameter sets), and none lies on an
-  open set. **new** (search range), empty answer.
-- The other 126 groups (rank 31 to 281) are running with the fixed-parameter model. After the first 36 groups:
-  178 (group, parameter set) pairs fail at once because k is not a sum of unit valencies, 138 are INFEASIBLE, and
-  8 are UNKNOWN after 15 minutes (degrees 861, 903, 946 and 1024). No solution. **incomplete**.
+## Result
+
+All 2164 groups are settled (`summary.csv`). Every SRG the searches produce has parameters that Brouwer's table
+already lists as existing (309 parameter sets from the DFS), and **no open parameter set with v <= 1300 is
+realised by an SRG admitting a primitive group of automorphisms**. Rank 3 groups and 2-transitive groups are left
+out because their graphs are known (rank 3) or trivial.
+
+Status: **new** in the sense that I did not find it in the sources checked (BVM22 Table 11.9 covers primitive groups
+of rank <= 10 only, as cited by arXiv:2606.10652). It rests on exact computation for 2150 groups (DFS 2043, multiplier argument for degree p^2 93 more,
+CP-SAT 14). For 14 groups (625/109, 625/530, 729/296, 729/330, 729/331, 729/337, 729/346, 729/347, 1024/1, 1024/2,
+1024/3, 1024/6, 1015/1, 1225/13) at least one parameter set was settled only by a floating-point MILP, so those are
+**numerical** (the MILPs agree with the exact DFS wherever both ran).
 
 ## Assessment
 
-If the rest also comes out empty, the statement is: no open parameter set with v <= 1300 is realised by a graph
-admitting a primitive group of rank >= 4 from the GAP library. That is a negative result. It is useful for the
-table and might be a short section of a note, but it is not a discovery.
+A clean negative result: none of the open SRG parameter sets in Brouwer's table up to 1300 vertices can be filled by
+a graph with a primitive automorphism group. That is worth one line in the table and a short section in a note,
+not a paper by itself. A discovery would need imprimitive groups (much larger search space) or groups that are not
+transitive at all.
