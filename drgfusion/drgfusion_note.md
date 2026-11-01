@@ -34,35 +34,50 @@ only gains something through results specific to the fused object (SRG nonexiste
 | {44,35,3; 1,5,42} | 375 | {1,2}\|{3} | (375,22,5,1) | mu = 1 | **known** (Lang, on Brouwer's page) |
 | {56,45,12,1; 1,12,45,56} | 324 | {1,2}\|{3,4} | (324,57,0,12) | Gavrilyuk–Makhnev, Kaski–Östergård | **known** (Galazidis) |
 | {36,35,27,6; 1,9,30,36} | 324 | {1,4}\|{2,3} | (324,57,0,12) | same | **known** (Galazidis) |
-| {14,10,3; 1,5,12} | 50 | {1,3}\|{2} | (50,21,4,12) | absolute bound: eigenvalue -9 has multiplicity 7, and 50 > 7·10/2 | **not found** |
-| {19,12,5; 1,4,15} | 96 | {1,3}\|{2} | (96,38,10,18) | Degraer (2007) | **not found** |
-| {39,30,4; 1,5,36} | 300 | {1,2}\|{3} | (300,26,4,2) | Kovaľ, Oct 2026 preprint | **not found**, **conditional** |
-| {112,77,16; 1,16,88} | 750 | {1,3}\|{2} | (750,210,55,60) | Kovaľ, Oct 2026 preprint | **not found**, **conditional** |
-| {21,16,10,1; 1,2,16,21} | 300 | {1,4}\|{2,3} | (300,26,4,2) | Kovaľ, Oct 2026 preprint | **not found**, **conditional** |
-| {25,24,2,1; 1,2,24,25} | 352 | {1,4}\|{2,3} and {1,2}\|{3,4} | (352,26,0,2) | Kovaľ, Oct 2026 preprint | **not found**, **conditional** |
+| {14,10,3; 1,5,12} | 50 | {1,3}\|{2} | (50,21,4,12) | absolute bound | **known**: the array itself fails the absolute bound (BCN Thm 2.3.3), q^h_33 = (7,1,1,0), 43 > 28 |
+| {19,12,5; 1,4,15} | 96 | {1,3}\|{2} | (96,38,10,18) | Degraer (2007) | **known**: Neumaier, by counting 4-cliques (BCN additions, Ch. 4) |
+| {39,30,4; 1,5,36} | 300 | {1,2}\|{3} | (300,26,4,2) | Kovaľ, Oct 2026 preprint | **conditional**, and an immediate corollary of that preprint |
+| {112,77,16; 1,16,88} | 750 | {1,3}\|{2} | (750,210,55,60) | Kovaľ, Oct 2026 preprint | **known**: deleted in the BCN additions (Ch. 14, by BCN Thm 4.4.4) |
+| {21,16,10,1; 1,2,16,21} | 300 | {1,4}\|{2,3} | (300,26,4,2) | Kovaľ, Oct 2026 preprint | **known**: the array fails the absolute bound, q^h_44 = (7,0,1,0,0), 43 > 28 |
+| {25,24,2,1; 1,2,24,25} | 352 | {1,4}\|{2,3}, {1,2}\|{3,4} | (352,26,0,2) | Kovaľ, Oct 2026 preprint | **conditional**; the folded graph is a srg(176,25,0,4), which the same preprint also rules out, so no fusion is needed |
 
-"Not found" means: the array is still in Brouwer's current table, it is not in the list of ruled-out arrays on
-his DRG page, and it is not in the `sporadic` nonexistence list of `sage-drg` (`drg/nonex.py`). I have not
-checked BCN's printed tables, Vidali's thesis, or the papers that cite Degraer (2007).
+Exact Krein and absolute-bound numbers: `exact_check.py`, output in `exact_check_output.txt`.
 
-The Kovaľ references (Brouwer's SRG table, anchor Koval26h: "The Bannai–Munemasa–Venkov lattice method for
-strongly regular graphs: a uniform discriminant-form condition and new nonexistence results", preprint,
-Oct 2026) are not on arXiv as far as I can tell, so I could not read them. The four arrays that depend on them
-stand or fall with those preprints.
+## Literature check of 1 Nov 2026 (outcome: nothing new here)
 
-The case {14,10,3; 1,5,12} is worth a second look by hand. The eigenvalue -6 of the DRG has multiplicity 7, and
-the fusion says that in the 7-dimensional spherical representation for this eigenvalue the cosines of
-distances 1 and 3 are equal, so the 50 vertices form a 2-distance set in R^7, which has at most 35 points. If
-this is right, the array should already fail a standard check, which makes me suspect it is ruled out somewhere
-I have not looked.
+The earlier "not found" labels were wrong for four of the six arrays. The reason is that Brouwer's machine-readable
+files are the 1989 BCN tables of arrays that pass the elementary conditions, without the remarks column of the
+printed book and without the later deletions. Being in those files says nothing about being open.
 
-## Assessment
+- `feasibility_sweep.py` runs the Krein conditions, the absolute bound and the Delsarte–Goethals–Seidel
+  s-distance bound over all 5526 arrays in the files (including the extended IA4a, IA5a, IA6b–IA17b).
+  44 arrays fail Krein or the absolute bound (`feasibility_sweep.csv`), among them {14,10,3;1,5,12} and
+  {21,16,10,1;1,2,16,21}. These are presumably marked in the printed BCN tables; in any case they are ruled out
+  by standard conditions, which `sage-drg` also checks.
+- The s-distance bound (v <= C(m+s-1,s) + C(m+s-2,s-1) for the s distinct cosines of an eigenvalue of
+  multiplicity m) rules out exactly one array, {14,10,3;1,5,12}, which the absolute bound already kills. It adds
+  nothing on these tables.
+- The BCN additions (BCN-ac.ps.gz, Brouwer's DRG page) delete {19,12,5;1,4,15} (Neumaier) and
+  {112,77,16;1,16,88} (Thm 4.4.4).
+- Fused SRGs on more than 1300 vertices: 718 primitive fused SRGs (240 with v > 1300, from 81 arrays) coming from
+  arrays that pass Krein and the absolute bound. Krein conditions and the absolute bound of a fusion are
+  inherited from the original scheme, so I tested the conditions that are not: Neumaier's claw bound (checked
+  against Brouwer's SRG table: no existing graph violates my implementation, 24 nonexistent ones do) and the
+  conference-graph condition. The only hit is Lang's {44,35,3;1,5,42}. The large triangle-free cases such as
+  srg(3404,82,0,2) from {81,80,2,1;1,2,80,81} are open SRG parameter sets, so they give nothing either.
+- Arrays of diameter 8 and more (30 arrays in all tables): every 2-class fusion found belongs to a classical
+  family (hypercubes, Hamming graphs, doubled Odd graphs and their relatives), all of which exist.
+- Not done: three-class fusions against van Dam's tables. Their Krein and absolute-bound conditions are inherited
+  too, so only van Dam's case-specific results could help, and I stopped here.
 
-Six arrays ruled out by a known method, four of them only conditionally. This is the kind of item Brouwer adds
-to his page ("X notes that the array ... is ruled out since ..."), not a paper on its own. The sweep only covers
-v <= 1300 for the SRG lookup; fused SRGs on more vertices were not checked against anything.
+So the item "forced fusions as a paper" is dropped: the method is known, two of the six arrays fail the absolute
+bound, two are deleted in the BCN additions, and the last two follow at once from Kovaľ's preprint (one of them
+without any fusion).
 
 ## Reproducing
 
     cd drgfusion
     python fetch_and_crosscheck.py      # downloads the tables into cache/ (not committed), about 3 minutes
+    # IA6b ... IA17b are not fetched by the script; put them into cache/drg by hand as IA6b_ext.txt etc.
+    python feasibility_sweep.py cache/drg feasibility_sweep.csv
+    python exact_check.py "14,10,3;1,5,12" "21,16,10,1;1,2,16,21"
