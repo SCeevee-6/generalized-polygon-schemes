@@ -75,7 +75,7 @@ Checks run on the contents of this commit:
 
 - Q-polynomial question: settled. Thick octagons are covered by De Bruyn–Vanhove (2015). `qpoly/` reproduces it.
 - Fusions of the commutative actions (degrees 1600, 2304, 2925): done. Fusions of the non-commutative schemes (23 and 24 non-trivial classes) were not searched.
-- SRG/DRG search for T: done up to 17550 vertices except one action (TomLib class 417, rank 54), which is running.
+- SRG/DRG search for T: complete up to 17550 vertices. Class 417 (rank 54) was closed with `search/dfs_numba.py`: only the four complete multipartite graphs from its block systems. Up to 17550 vertices the only non-trivial SRGs and DRGs of diameter >= 3 with a transitive T-action are the four of Crnković–Rukavina–Švob (2020). Status: **new** (search range), no new graph.
 - Forced fusions in the DRG tables: closed. All six candidate arrays are known or follow at once from Kovaľ (Oct 2026); see `drgfusion/drgfusion_note.md`.
 - Near polygons, non-commutative fusions and triple intersection numbers: done to the extent described in the notes; none of them gave a publishable new result.
 - Compile `fusion/fusion_note.tex` (needs a TeX installation outside the sandbox) and rewrite its Section 3 around the exact proof.

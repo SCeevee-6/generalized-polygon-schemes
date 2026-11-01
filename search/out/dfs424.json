@@ -1,0 +1,81 @@
+{
+ "input": "repo/search/schemes/tom424_intersection_numbers.csv",
+ "n": 7020,
+ "rank": 16,
+ "units": 12,
+ "order": "desc",
+ "prefix": "",
+ "nodes": 1218,
+ "candidates": [
+  {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "k": 7018,
+   "complete_multipartite": true,
+   "drg": {
+    "diameter": 2,
+    "b": [
+     7018,
+     1
+    ],
+    "c": [
+     1,
+     7018
+    ]
+   }
+  },
+  {
+   "S": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "k": 7016,
+   "complete_multipartite": true,
+   "drg": {
+    "diameter": 2,
+    "b": [
+     7016,
+     3
+    ],
+    "c": [
+     1,
+     7016
+    ]
+   }
+  },
+  {
+   "S": [
+    2,
+    3
+   ],
+   "k": 2,
+   "complete_multipartite": false,
+   "drg": "disconnected"
+  }
+ ],
+ "seconds": 9.7
+}
