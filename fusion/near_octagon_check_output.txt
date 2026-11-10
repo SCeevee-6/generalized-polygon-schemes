@@ -1,0 +1,19 @@
+family A {t2: m, t3: s*(m + 1), t: (m + 1)*(s**2 + 1) - 1}: [[1, 2], [3, 4]] closes identically: True
+family B {t2: 0, t3: 0, t: s}: [[1, 2, 3], [4]] closes identically: True
+family C {s: 2, t2: i, t3: 2*i, t: 2*i + 1}: [[1, 2, 4], [3]] closes identically: True
+family C {s: 2, t2: i, t3: 2*i, t: 2*i + 1}: [[1, 4], [2], [3]] closes identically: True
+family C1 {s: 2, t2: 1, t3: 2, t: 3}: [[1, 3, 4], [2]] closes identically: True
+family C1 {s: 2, t2: 1, t3: 2, t: 3}: [[1, 4], [2, 3]] closes identically: True
+family C1 {s: 2, t2: 1, t3: 2, t: 3}: [[1, 2, 4], [3]] closes identically: True
+family C1 {s: 2, t2: 1, t3: 2, t: 3}: [[1, 4], [2], [3]] closes identically: True
+family D {s: 3, t2: 1, t3: 2, t: 3}: [[1, 3], [2, 4]] closes identically: True
+[43s]
+box scan 2 <= s <= 10, 0 <= t2 <= t3 < t <= 30: 44640 points, closing (partition, point) pairs 53, disagreements with the families: 0 []
+  by partition: {"[[1, 2, 3], [4]]": 9, "[[1, 2, 4], [3]]": 15, "[[1, 2], [3, 4]]": 11, "[[1, 3, 4], [2]]": 1, "[[1, 3], [2, 4]]": 1, "[[1, 4], [2, 3]]": 1, "[[1, 4], [2], [3]]": 15}
+[620s]
+residual surface of [[1, 4], [2, 3]]: 2 <= s <= 200, 0 <= t3 <= 2000: integer roots t > t3: 43, of which t2 not an integer in [0, t3]: 43; new admissible points: []
+[663s]
+residual surface of [[1, 3], [2, 4]]: 2 <= s <= 200, 0 <= t3 <= 2000: integer roots t > t3: 1, of which t2 not an integer in [0, t3]: 0; new admissible points: []
+[697s]
+residual surface of [[1, 2, 4], [3]]: 2 <= s <= 200, 0 <= t3 <= 2000: integer roots t > t3: 0, of which t2 not an integer in [0, t3]: 0; new admissible points: []
+[703s]

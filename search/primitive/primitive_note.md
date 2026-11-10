@@ -36,14 +36,27 @@ primitive group of automorphisms?
    m(m-1)), which exist for every m. None of them is open. (Standard multiplier argument; see Ma's survey of
    partial difference sets.) As a check, all 116114 SRGs the DFS found on these degrees are of this type.
 4. Groups of rank above 30 that are not of degree p^2: first the fixed-parameter CP-SAT model
-   (`search/srg_fixed_cpsat.py`; exact, INFEASIBLE is a proof), which settled 14 groups. Where it was too slow, for
-   commutative configurations: eigenvalue MILP (`search/srg_spectral_milp.py`). A union S is an SRG(v,k,lambda,mu) iff
-   its valency is k and every non-principal eigenvalue sum_{a in S} P[j,a] is r or s, which is linear in binary
-   variables. HiGHS through scipy. Floating point; checked against the DFS on 30 groups and 712 (group, parameter
-   set) pairs with no disagreement (244 found, 179 infeasible).
-5. Non-commutative configurations where CP-SAT was too slow (1015/1, 1225/13; 1176/1 as a check against the DFS): MILP with the
-   exact walk-count conditions (lambda on S, mu off S, with y_ab = x_a x_b linearised) plus the eigenvalue
-   conditions from the one-dimensional representations of the orbital algebra (`search/srg_hybrid_milp.py`).
+   (`search/srg_fixed_cpsat.py`; exact, INFEASIBLE is a proof), which settled 14 groups. For the other 14 two
+   floating-point MILPs were used at first (`search/srg_spectral_milp.py` for commutative configurations,
+   `search/srg_hybrid_milp.py` for 1015/1 and 1225/13). Their answers are kept in `milp_results.jsonl` and
+   `hybrid_results.jsonl`, but the result no longer depends on them; see 5.
+5. Exact redo of those 14 groups.
+   - The twelve affine ones (625/109, 625/530, 729/296, 729/330, 729/331, 729/337, 729/346, 729/347, 1024/1,
+     1024/2, 1024/3, 1024/6): `affine_exact.py`. The group is N:G_0 with N elementary abelian of order p^n, an
+     invariant graph is Cay(N, D) with D a union of G_0-orbits, and its eigenvalue at the character chi_y is
+     sum_c N_c(y) zeta^c with N_c(y) = #{x in D : y.x = c}. That is a rational integer iff N_1 = ... = N_{p-1}, and
+     then it is N_0 - N_1. So "SRG with eigenvalues r, s" is a system of linear equations with integer coefficients
+     in the 0/1 indicators of the units, which CP-SAT decides exactly. The coordinates come from GAP
+     (`export_affine.g`, files in `affine/`). All open parameter sets: infeasible, or k is not a sum of unit sizes.
+     As a control the model finds srg(1024,495,238,240) on 1024/1, and the graph it returns was rebuilt as a
+     Cayley graph and checked directly (k = 495, lambda = 238, mu = 240).
+   - 1015/1 (socle PSL(2,29), rank 52, 43 units) and 1225/13 (PSL(2,49), rank 39, 32 units), both non-commutative:
+     `search/dfs_fixed.py`, a depth-first search with k, lambda, mu fixed. The numbers sum_{a,b in S} p^j_ab and
+     the valency are monotone in S, so each partial choice gives intervals and a branch is cut when a target
+     leaves its interval. Integer arithmetic only. No solution for any open parameter set (1225/13: 46 sets,
+     94 minutes; 1015/1: 6 sets, 97 minutes, the longest one 1.9e9 nodes). The search was checked on the T-action
+     on 1600 points, where it finds srg(1600,351,94,72) and its complement, and on TomLib class 424
+     (`search/out/dfs_fixed_validation.txt`).
 6. A parameter set whose k is not a sum of unit valencies is ruled out for that group at once.
 
 `aggregate.py` combines everything into `summary.csv` (one line per group: method, settled, hits).
@@ -60,11 +73,11 @@ realised by an SRG admitting a primitive group of automorphisms. Rank 3 groups a
 out because their graphs are known (rank 3) or trivial.
 
 Status: not found in the sources checked (BVM22 Table 11.9 covers primitive groups
-of rank <= 10 only, as cited by arXiv:2606.10652). It rests on exact computation for 2150 groups (DFS 2043, multiplier argument for degree p^2 93 more,
-CP-SAT 14). For 14 groups (625/109, 625/530, 729/296, 729/330, 729/331, 729/337, 729/346, 729/347, 1024/1, 1024/2,
-1024/3, 1024/6, 1015/1, 1225/13) at least one parameter set was settled only by a floating-point MILP, so those are
-numerical (the MILPs agree with the exact DFS wherever both ran).
+of rank <= 10 only, as cited by arXiv:2606.10652). Every group is now settled without floating point
+(`summary.csv`, column `exact`): DFS 2043, multiplier argument for degree p^2 93 more, CP-SAT with walk counts 14,
+CP-SAT with character sums 12, fixed-parameter DFS 2. The CP-SAT answers rely on the solver's infeasibility proofs;
+no independent certificate was produced.
 
 ## Summary
 
-None of the open SRG parameter sets in Brouwer's table up to 1300 vertices can be filled by a graph with a primitive automorphism group. That is a negative result, worth a line in the table or a section in a note rather than a paper. Finding an actual graph would need imprimitive groups (a much larger search space) or groups that are not transitive at all.
+None of the open SRG parameter sets in Brouwer's table up to 1300 vertices can be filled by a graph with a primitive automorphism group. That is a negative result, worth a line in the table or a section in a note rather than a paper. Finding an actual graph would need imprimitive groups or groups that are not transitive at all. The transitive groups library stops at degree 47 (48 with the extra package), below the smallest open v in the table (88), so the imprimitive case cannot be done from a library.

@@ -16,19 +16,19 @@ Work in progress, not peer reviewed. `fusion/fusion_note.tex` is the draft of th
 - **SRG/DRG search for T beyond Crnkovic-Rukavina-Svob** (`search/search_note.md`). Exhaustive search over all unions of orbitals for every T-action of degree 7020 to 17550 (TomLib classes), including the primitive actions on 12480 and 14976 points. No SRG and no DRG of diameter >= 3 on 12480 or 14976 points, so together with CRS 2020 the primitive case is done. On 7020, 8775, 11700 and the 17550-point actions only complete multipartite SRGs show up. No new graph.
 - **Brouwer's DRG tables** (`drgfusion/drgfusion_note.md`). Closed fusions of all tabled arrays of diameter <= 7, with the fused SRGs on at most 1300 vertices looked up in Brouwer's SRG table. Nothing new came out: of the six arrays that looked open, two fail the absolute bound, two are deleted in the BCN additions, and two follow from Koval's October 2026 preprint (conditional).
 - **Fusions of the non-commutative T schemes** (`search/fusions/fusion_note.md`). The 12480-point configurations have no proper fusion of rank >= 3. Every fusion of rank >= 3 of the 14976-point configuration refines the rank-16 2F4(2) orbital configuration and is non-commutative.
-- **Regular near hexagons and octagons** (`fusion/near_polygon_note.md`). Diameter 3 is BCN 4.2.17. For near octagons a box scan (s <= 8, t <= 24) only finds generalized octagons with s = t, Hamming graphs and the B_4/C_4 dual polar graphs. No general theorem.
+- **Regular near hexagons and octagons** (`fusion/near_polygon_note.md`, `fusion/near_octagon_note.md`). Diameter 3 is BCN 4.2.17. For regular near octagons (s, t2, t3, t) with s >= 2 the integer parameter sets with a proper fusion are: (s, m, s(m+1), (m+1)(s^2+1)-1) with {1,2}|{3,4} (m = s is B_4(s)/C_4(s)), (s,0,0,s), (2, i, 2i, 2i+1) (only the thin octagon (2,1) and H(4,3) are feasible), and H(4,4). This is proved for ten of the thirteen partitions. For {1,4}|{2,3}, {1,3}|{2,4} and {1,2,4}|{3} one residual surface each is left, with no further integer point for s <= 200, t3 <= 2000. All examples are known.
 - **GO(2,4) triple intersection numbers** (`triple/triple_note.md`). With q^4_44 = 0 the LP ranges only reproduce the octagon geometry for one triple type, so nothing on uniqueness.
-- **SRGs on open parameter sets from primitive groups** (`search/primitive/primitive_note.md`). All 2164 primitive groups of rank >= 4 on the 430 open degrees v <= 1300 are settled, and none realises an open parameter set in Brouwer's table (as of 1 Nov 2026). Exact for 2150 groups; the other 14 rely on floating-point MILPs.
+- **SRGs on open parameter sets from primitive groups** (`search/primitive/primitive_note.md`). All 2164 primitive groups of rank >= 4 on the 430 open degrees v <= 1300 are settled, and none realises an open parameter set in Brouwer's table (as of 1 Nov 2026). All of it is exact now: the 14 groups that used to rest on floating-point MILPs were redone with integer character sums in CP-SAT (12 affine groups) and a fixed-parameter DFS (the two non-commutative ones).
 
 ## Layout
 
 | Path | Content |
 |---|---|
-| `fusion/` | `fusion_note.tex` (draft); `verify_fusions.py` (exact sympy check for all integer (s,t) in [2,30]^2, hexagon cubic, Tits data, Krein and SRG parameters); `certify_fusions.py` (symbolic (s,t) proof); `near_polygon_fusions.py` (regular near polygons); notes and outputs |
+| `fusion/` | `fusion_note.tex` (draft); `verify_fusions.py` (exact sympy check for all integer (s,t) in [2,30]^2, hexagon cubic, Tits data, Krein and SRG parameters); `certify_fusions.py` (symbolic (s,t) proof); `near_polygon_fusions.py` (regular near polygons); `near_octagon_decompose.py`, `near_octagon_check.py`, `near_octagon_families.py` (regular near octagons); notes and outputs |
 | `qpoly/` | Q-polynomial ordering check for point schemes of generalized 2d-gons, d = 2,3,4 |
-| `thin/` | Fusions of thin octagon schemes of order (1,t) and (s,1) |
+| `thin/` | Fusions of thin octagon schemes of order (1,t) and (s,1); `verify_t10.py` |
 | `tits1755/` | The 1755-point scheme (`scheme_from_array.py`, `compute_tits1755.py`, `tightness_check.py`), coset schemes of the maximal subgroups (`coset_schemes.py`, `cosets/`, `out_cosets/`), GAP scripts in `gap/` |
-| `search/` | SRG/DRG search over unions of orbitals for T-actions (`srg_drg_search.py`, `dfs_numba.py`), fusions of the non-commutative schemes (`fusion_closure.py`), SRG search over primitive groups (`primitive/`) |
+| `search/` | SRG/DRG search over unions of orbitals for T-actions (`srg_drg_search.py`, `dfs_numba.py`), fusions of the non-commutative schemes (`fusion_closure.py`), fixed-parameter search (`dfs_fixed.py`), SRG search over primitive groups (`primitive/`) |
 | `drgfusion/` | Fusions of every array in Brouwer's DRG tables, SRG cross-check, feasibility sweep |
 | `triple/` | Triple intersection number LPs for GO(2,4) |
 | `code/`, `data/` | ATLAS orbital table, Bannai-Muzychuk cross-check, and the CSVs they and the other scripts write |
@@ -61,4 +61,4 @@ What has been checked on the current commit: `scheme_from_array.py --atlas` exit
 ## To do
 
 - Compile `fusion/fusion_note.tex` and rewrite Section 3 around the exact proof.
-- Check whether the SRG(45,16,8,4) from the thin octagon of order (2,1) is T(10) or only has its parameters.
+- Settle the three residual surfaces in `fusion/near_octagon_note.md`.

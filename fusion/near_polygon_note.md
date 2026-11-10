@@ -32,4 +32,4 @@ A direct check of the rank-4 dual polar families shows {1,2}|{3,4} closing for B
 
 ## Summary
 
-Everything thick that closes in the box is a generalized octagon with s = t (excluded by Feit-Higman), a Hamming graph, or a B_4/C_4 dual polar graph, all known. Turning the box scan into a theorem for all (s, t_2, t_3, t) would need a proper decomposition of the d = 4 ideals, which the grevlex bases don't give directly. I stopped there, since the expected answer is "only the known families" and diameter 3 is already in BCN.
+Everything thick that closes in the box is a generalized octagon with s = t (excluded by Feit-Higman), a Hamming graph, or a B_4/C_4 dual polar graph, all known. The decomposition for all (s, t_2, t_3, t) is now in `near_octagon_note.md`: complete for ten of the thirteen partitions, and reduced to one residual surface each for the other three.

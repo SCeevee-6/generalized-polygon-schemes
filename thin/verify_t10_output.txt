@@ -1,0 +1,3 @@
+octagon valencies [1, 4, 8, 16, 16]
+distance-3 graph: degree {16} lambda {8} mu {4}
+isomorphic to T(10): True
