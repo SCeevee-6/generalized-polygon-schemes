@@ -1,0 +1,4 @@
+|T| = 17971200 | equals 2^11.3^3.5^2.13 = 17971200: True
+rank = 5 suborbits [1, 10, 80, 640, 1024]
+A_1 spectrum {eig: mult} = {-5.0: 78, -3.0: 675, 1.0: 650, 5.0: 351, 10.0: 1}
+sum mult = 1755 ; #distinct eigenspaces == rank: True => pi multiplicity-free, 5 irreducible constituents

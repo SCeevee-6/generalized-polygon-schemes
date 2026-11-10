@@ -1,0 +1,27 @@
+table,array,fusion,fused_srg,srg_table_status,srg_table_comment,srg_table_refs
+IA3P.txt,"i(14,10,3; 1,5,12)",13|2,"srg(50,21,4,12)",does not exist,Absolute bound,
+IA3P.txt,"i(14,10,3; 1,5,12)",13|2,"srg(50,28,18,12)",does not exist,Absolute bound,
+IA3P.txt,"i(19,12,5; 1,4,15)",13|2,"srg(96,38,10,18)",does not exist,Degraer,Degraer07
+IA3P.txt,"i(19,12,5; 1,4,15)",13|2,"srg(96,57,36,30)",does not exist,,
+IA3P.txt,"i(39,30,4; 1,5,36)",12|3,"srg(300,273,248,252)",does not exist,,
+IA3P.txt,"i(39,30,4; 1,5,36)",12|3,"srg(300,26,4,2)",does not exist,Kovaľ + AI,Koval26h
+IA3P.txt,"i(44,35,3; 1,5,42)",12|3,"srg(375,352,330,336)",does not exist,,
+IA3P.txt,"i(44,35,3; 1,5,42)",12|3,"srg(375,22,5,1)",does not exist,mu=1,
+IA3P.txt,"i(112,77,16; 1,16,88)",13|2,"srg(750,210,55,60)",does not exist,Kovaľ + AI,Koval26h
+IA3P.txt,"i(112,77,16; 1,16,88)",13|2,"srg(750,539,388,385)",does not exist,,
+IA4A.txt,"i(21,16,10,1; 1,2,16,21)",14|23,"srg(300,26,4,2)",does not exist,Kovaľ + AI,Koval26h
+IA4A.txt,"i(21,16,10,1; 1,2,16,21)",14|23,"srg(300,273,248,252)",does not exist,,
+IA4A.txt,"i(25,24,2,1; 1,2,24,25)",12|34,"srg(352,325,300,300)",does not exist,,
+IA4A.txt,"i(25,24,2,1; 1,2,24,25)",12|34,"srg(352,26,0,2)",does not exist,Kovaľ + AI,Koval26h
+IA4A.txt,"i(25,24,2,1; 1,2,24,25)",14|23,"srg(352,26,0,2)",does not exist,Kovaľ + AI,Koval26h
+IA4A.txt,"i(25,24,2,1; 1,2,24,25)",14|23,"srg(352,325,300,300)",does not exist,,
+IA4B.txt,"i(36,35,27,6; 1,9,30,36)",14|23,"srg(324,57,0,12)",does not exist,Gavrilyuk & Makhnev and Kaski & Östergård,GavrilyukMakhnev05 KaskiOstergard07
+IA4B.txt,"i(36,35,27,6; 1,9,30,36)",14|23,"srg(324,266,220,210)",does not exist,,
+IA4a_ext.txt,"i(25,24,2,1; 1,2,24,25)",12|34,"srg(352,325,300,300)",does not exist,,
+IA4a_ext.txt,"i(25,24,2,1; 1,2,24,25)",12|34,"srg(352,26,0,2)",does not exist,Kovaľ + AI,Koval26h
+IA4a_ext.txt,"i(25,24,2,1; 1,2,24,25)",14|23,"srg(352,26,0,2)",does not exist,Kovaľ + AI,Koval26h
+IA4a_ext.txt,"i(25,24,2,1; 1,2,24,25)",14|23,"srg(352,325,300,300)",does not exist,,
+IA4a_ext.txt,"i(36,35,27,6; 1,9,30,36)",14|23,"srg(324,57,0,12)",does not exist,Gavrilyuk & Makhnev and Kaski & Östergård,GavrilyukMakhnev05 KaskiOstergard07
+IA4a_ext.txt,"i(36,35,27,6; 1,9,30,36)",14|23,"srg(324,266,220,210)",does not exist,,
+IA4a_ext.txt,"i(56,45,12,1; 1,12,45,56)",12|34,"srg(324,266,220,210)",does not exist,,
+IA4a_ext.txt,"i(56,45,12,1; 1,12,45,56)",12|34,"srg(324,57,0,12)",does not exist,Gavrilyuk & Makhnev and Kaski & Östergård,GavrilyukMakhnev05 KaskiOstergard07

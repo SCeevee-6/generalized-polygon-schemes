@@ -1,0 +1,14 @@
+ATLAS generators TF42G1-p1755B0, |Omega| = 1755, valencies [1, 10, 80, 640, 1024], multiplicities [1, 351, 650, 675, 78]
+22 class words evaluated; element order equals the order in the class name for every class: True
+non-integer character values: 0
+sum_e chi_e(g) = pi(g) = fix(g) on every class: True
+GAP library table found: 22 classes, class names agree with ATLAS words: True
+element orders agree with library: True
+chi_0 (deg 1): <chi,chi> = 1; equals library irreducible(s) ['X.1']
+chi_1 (deg 351): <chi,chi> = 1; equals library irreducible(s) ['X.9']
+chi_2 (deg 650): <chi,chi> = 1; equals library irreducible(s) ['X.14']
+chi_3 (deg 675): <chi,chi> = 1; equals library irreducible(s) ['X.15']
+chi_4 (deg 78): <chi,chi> = 1; equals library irreducible(s) ['X.6']
+<pi,pi> = 5 (rank 5 expected)
+pi equals library induced character 1_H^T: True
+|T| from library centralizer of 1A: 17971200

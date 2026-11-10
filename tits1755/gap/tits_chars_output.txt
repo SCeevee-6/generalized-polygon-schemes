@@ -1,0 +1,34 @@
+GAP 4.16.1, ctbllib 1.3.11, atlasrep 2.1.12
+Library table: 2F4(2)', |T| = 17971200, classes = 22
+Class names: [ "1a", "2a", "2b", "3a", "4a", "4b", "4c", "5a", "6a", "8a", "8b", "8c", "8d", "10a", "12a", "12b", "13a", "13b", "16a", "16b", "16c", "16d" ]
+Element orders: [ 1, 2, 2, 3, 4, 4, 4, 5, 6, 8, 8, 8, 8, 10, 12, 12, 13, 13, 16, 16, 16, 16 ]
+Centralizer orders: [ 17971200, 10240, 1536, 108, 192, 128, 64, 50, 12, 32, 32, 16, 16, 10, 12, 12, 13, 13, 16, 16, 16, 16 ]
+Character names: [ "X.1", "X.2", "X.3", "X.4", "X.5", "X.6", "X.7", "X.8", "X.9", "X.10", "X.11", "X.12", "X.13", "X.14", "X.15", "X.16", "X.17", "X.18", "X.19", "X.20", "X.21", "X.22" ]
+Degrees (library order): [ 1, 26, 26, 27, 27, 78, 300, 325, 351, 351, 351, 624, 624, 650, 675, 702, 702, 1300, 1300, 1728, 2048, 2048 ]
+Sorted degrees equal the recalled list: true
+Sum of squared degrees = 17971200, equals |T|: true
+Frobenius-Schur indicators: [ 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+Characters with all values rational: [ 1, 6, 7, 8, 9, 14, 15, 18, 19, 20 ]
+|G| from generators = 17971200, equals library |T|: true
+a has order 2, b has order 3, ab has order 13
+ATLAS class names found in library ClassNames: true
+Word representatives: element orders agree with library: true
+Word representatives: centralizer orders in G agree with library: true
+Word representatives pairwise non-conjugate in G: true
+Library maxes: [ "L3(3).2", "2F4(2)'M2", "2.2^8.f20", "L2(25)", "2^2.2^8:s3", "A6.2^2", "2F4(2)'M7", "5^2:4A4" ]
+Library max of index 1755: 2.2^8.f20 (order 10240)
+pi from fixed points of class reps: [ 1755, 91, 27, 0, 15, 3, 7, 5, 0, 3, 3, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 ]
+pi from library induction 1_H^T:      [ 1755, 91, 27, 0, 15, 3, 7, 5, 0, 3, 3, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 ]
+equal: true
+Multiplicities <pi, chi> (library order): [ 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0 ]
+Constituents: [ [ "X.1", 1, 1 ], [ "X.6", 78, 1 ], [ "X.9", 351, 1 ], [ "X.14", 650, 1 ], [ "X.15", 675, 1 ] ]
+<pi, pi> = 5, multiplicity-free: true
+Point stabilizer order 10240, suborbit lengths [ 1, 10, 80, 640, 1024 ]
+Eigenspace degrees chi_e(1A): [ 1, 351, 650, 675, 78 ]
+All values integers: true
+chi_0 (degree 1) = library X.1 (position 1), <chi,chi> = 1
+chi_1 (degree 351) = library X.9 (position 9), <chi,chi> = 1
+chi_2 (degree 650) = library X.14 (position 14), <chi,chi> = 1
+chi_3 (degree 675) = library X.15 (position 15), <chi,chi> = 1
+chi_4 (degree 78) = library X.6 (position 6), <chi,chi> = 1
+Sum of the five equals pi: true

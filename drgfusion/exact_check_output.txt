@@ -1,0 +1,8 @@
+array {14,10,3;1,5,12}  v=50  eigenvalues [14, 4, -1, -6]  multiplicities [1, 14, 28, 7]
+  q^h_{33} = [7, 1, 1, 0]  support sum 43  ABSOLUTE BOUND FAILS (43 > 28)
+array {19,12,5;1,4,15}  v=96  eigenvalues [19, 7, -1, -5]  multiplicities [1, 19, 57, 19]
+array {39,30,4;1,5,36}  v=300  eigenvalues [39, 9, -1, -6]  multiplicities [1, 78, 117, 104]
+array {112,77,16;1,16,88}  v=750  eigenvalues [112, 32, 2, -8]  multiplicities [1, 49, 392, 308]
+array {21,16,10,1;1,2,16,21}  v=300  eigenvalues [21, 7, 1, -3, -9]  multiplicities [1, 75, 42, 175, 7]
+  q^h_{44} = [7, 0, 1, 0, 0]  support sum 43  ABSOLUTE BOUND FAILS (43 > 28)
+array {25,24,2,1;1,2,24,25}  v=352  eigenvalues [25, 5, 3, -5, -7]  multiplicities [1, 88, 120, 88, 55]

@@ -1,0 +1,16 @@
+"partition_of_{1,2,3,4}",num_symbolic_violations,solutions_making_all_violations_vanish,feasible_for_thick_octagon?
+"[[1, 2, 3, 4]]",0,(trivial: full scheme),yes - trivial
+"[[1], [2, 3, 4]]",8,"none (no s,t solves system)",never
+"[[1, 2], [3, 4]]",8,none,never
+"[[2], [1, 3, 4]]",8,"s=1+sqrt(2), t=-1+sqrt(2)","no - irrational, not integers"
+"[[1], [2], [3, 4]]",8,none,never
+"[[1, 2, 3], [4]]",8,s=t,no - violates Feit-Higman 2st=square (2s^2 never a square for integer s)
+"[[2, 3], [1, 4]]",8,"s=sqrt(2)/2, t=sqrt(2)",no - irrational
+"[[1], [2, 3], [4]]",9,none,never
+"[[1, 3], [2, 4]]",8,s=1,no - violates thickness s>=2
+"[[3], [1, 2, 4]]",8,"s=2,t=1 (+3 irrational roots)",no - t=1 violates thickness t>=2 (degenerate/thin)
+"[[1], [3], [2, 4]]",9,none,never
+"[[1, 2], [3], [4]]",9,none,never
+"[[2], [1, 3], [4]]",9,"s=1 (or s=1,t=1)",no - violates thickness s>=2
+"[[2], [3], [1, 4]]",9,"s=2,t=1",no - t=1 violates thickness t>=2
+"[[1], [2], [3], [4]]",0,(trivial: identity partition),yes - trivial

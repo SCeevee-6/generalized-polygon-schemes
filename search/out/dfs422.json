@@ -1,0 +1,57 @@
+{
+ "input": "repo/search/schemes/tom422_intersection_numbers.csv",
+ "n": 11700,
+ "rank": 30,
+ "units": 22,
+ "order": "desc",
+ "prefix": "",
+ "nodes": 174334,
+ "candidates": [
+  {
+   "S": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "k": 11696,
+   "complete_multipartite": true,
+   "drg": {
+    "diameter": 2,
+    "b": [
+     11696,
+     3
+    ],
+    "c": [
+     1,
+     11696
+    ]
+   }
+  }
+ ],
+ "seconds": 2.7
+}

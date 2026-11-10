@@ -1,0 +1,1 @@
+Character table of G computed from the generators (Dixon-Schneider) in 11 s; equivalent to library table: true
