@@ -1,0 +1,3 @@
+{'groups': 4244, 'pairs': 12173, 'pass': 2088, 'rank too small': 3102, 'valencies do not split': 6882, 'pass (split undecided)': 101}
+survivor pairs 2189 groups 1752 arrays 132
+without Hamming arrays (q != 4): pairs 806 groups 663 arrays 117

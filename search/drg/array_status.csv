@@ -1,0 +1,9 @@
+array,status,source
+"{13,10,7;1,2,7}",does not exist,Coolsaet 1995 (BCN additions; sage-drg nonex.py)
+"{22,16,5;1,2,20}",does not exist,Sumalroj-Worawannotai 2016 (sage-drg nonex.py)
+"{36,28,4;1,2,24}",does not exist,BSW16 in sage-drg nonex.py
+"{55,36,11;1,4,45}",does not exist,Gavrilyuk 2011 (sage-drg nonex.py)
+"{104,66,8;1,12,88}",does not exist,"Urlep 2012 family, r = 3 (sage-drg nonex.py)"
+"{119,96,18;1,16,102}",does not exist,"Jurisic-Vidali 2012 family, r = 3 (sage-drg nonex.py)"
+"{39,30,4;1,5,36}",does not exist if Koval's preprint holds,fused SRG ruled out in Koval26h (drgfusion/drgfusion_note.md)
+"{33,30,15;1,2,15}",exists,"Shi-Krotov-Sole graph, DCC 87 (2019); Aut 2^10:(9:3):2 of order 55296 (DistanceRegular.org); no primitive group of degree 1024 has that order"
