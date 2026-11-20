@@ -63,8 +63,9 @@ H(3,4) over Z_2^3 (fibre 8), with the lifts checked as graphs. The Aut(G)-orbit 
   Z_27 x Z_9 x Z_3 and Z_27 x Z_3^3 (both solvers). Z_3^6 is the Shi-Krotov-Sole case. That leaves Z_9^3,
   Z_9^2 x Z_3^2 and Z_9 x Z_3^4, where the atom model doesn't finish. The quotient model for Z_9 x Z_9 x Z_3 with
   fibre 3 is infeasible (both solvers), and that group is a quotient of Z_9^3 and of Z_9^2 x Z_3^2, so those two are
-  out as well. Z_9 x Z_3^4 is still open: its quotients of order 243 are Z_9 x Z_3^3 and Z_3^5, and for the first
-  neither solver finished in 90 minutes. All quotients of order at most 81 that I tried have solutions.
+  out as well. Z_9 x Z_3^4 is still open: its quotients of order 243 are Z_9 x Z_3^3 and Z_3^5, and neither solver
+  finished on them (90 minutes for the first, 2 hours for the second). All quotients of order at most 81 that I
+  tried have solutions.
 
 ## What rests on what
 
