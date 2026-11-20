@@ -44,25 +44,34 @@ catalogue, and the other ten are J(10,4), the thin octagon GO(4,1), the thin hex
 GH(9,1), the hexagon GH(2,8), H(5,4), the thin dodecagon of order (3,1), GO(2,4) and GO(4,2). So no new graph.
 
 For the other 31 arrays no primitive group of degree v carries a graph with that array. So if a graph with
-one of these arrays exists, its automorphism group is not primitive on vertices. Status of the 31 arrays from
-the sources I checked (Vidali's sage-drg nonexistence lists `drg/nonex.py`, the BCN additions, the
-DistanceRegular.org catalogue, `array_status.csv`):
+one of these arrays exists, its automorphism group is not primitive on vertices. Status of the 31
+(`array_status.csv` has the sources):
 
-- does not exist (6): {13,10,7;1,2,7}, {22,16,5;1,2,20}, {36,28,4;1,2,24}, {55,36,11;1,4,45},
-  {104,66,8;1,12,88}, {119,96,18;1,16,102};
+- does not exist (8): {13,10,7;1,2,7}, {22,16,5;1,2,20}, {36,28,4;1,2,24}, {55,36,11;1,4,45},
+  {104,66,8;1,12,88}, {119,96,18;1,16,102} (all in the nonexistence lists of Vidali's sage-drg),
+  {25,24,3;1,3,20} (Zhurtov-Gerieva 2025) and {42,30,12;1,6,28} (Belousov-Makhnev 2018);
 - does not exist if Koval's October 2026 preprint holds (1): {39,30,4;1,5,36};
-- exists (1): {33,30,15;1,2,15}, the Shi-Krotov-Sole graph (Des. Codes Cryptogr. 87 (2019)). Its automorphism
-  group 2^10:(9:3):2 has order 55296 according to the catalogue, and no primitive group of degree 1024 has that
-  order, which agrees with the search;
-- none of these (23): {18,14,5;1,2,14}, {44,36,5;1,9,40}, {25,24,3;1,3,20}, {27,16,9;1,3,12},
-  {42,30,12;1,6,28}, {48,35,9;1,7,40}, {42,32,9;1,6,24}, {78,50,9;1,15,60}, {20,16,5;1,1,16},
-  {39,32,16;1,4,24}, {32,28,9;1,2,28}, {52,42,16;1,6,28}, {26,24,19;1,3,8}, {56,42,20;1,6,28},
-  {80,63,11;1,9,70}, {49,40,22;1,5,28}, {63,50,8;1,5,56}, {21,20,10;1,1,12}, {40,33,19;1,3,22},
-  {54,42,11;1,3,44}, {63,48,24;1,6,28}, {99,80,12;1,10,88}, {31,30,17;1,2,15}.
+- exists (3), each with an imprimitive automorphism group, as the search says it must be:
+  - {33,30,15;1,2,15}, the Shi-Krotov-Sole graph (Des. Codes Cryptogr. 87 (2019)); its group has order 55296
+    according to DistanceRegular.org, and no primitive group of degree 1024 has that order;
+  - {26,24,19;1,3,8}, the Brouwer graph Br(3) on F_3^3 x F_3^3, (a,b) ~ (c,d) iff a != c and b - d = a x c;
+  - {31,30,17;1,2,15}, the coset graph of the binary cyclic code of length 31 with zeros alpha and alpha^3
+    (zeros alpha and alpha^5 give the same array).
+  The last two are built in `known_graphs.py`, which checks the array exactly at every vertex, and
+  `aut_check.g` (GRAPE) gives |Aut| = 8188128 with blocks of size 27 for Br(3) and |Aut| = 158720 with
+  blocks of size 32 for the coset graphs (`known_graphs_output.txt`);
+- nonexistence reported but not confirmed (1): {20,16,5;1,1,16}, said to be done by Makhnev and coauthors in
+  Diskret. Mat.; I didn't find the paper;
+- no status found (18): {18,14,5;1,2,14}, {44,36,5;1,9,40}, {27,16,9;1,3,12}, {48,35,9;1,7,40},
+  {42,32,9;1,6,24}, {78,50,9;1,15,60}, {39,32,16;1,4,24}, {32,28,9;1,2,28}, {52,42,16;1,6,28},
+  {56,42,20;1,6,28}, {80,63,11;1,9,70}, {49,40,22;1,5,28}, {63,50,8;1,5,56}, {21,20,10;1,1,12},
+  {40,33,19;1,3,22}, {54,42,11;1,3,44}, {63,48,24;1,6,28}, {99,80,12;1,10,88}.
 
-For those 23 I don't know whether a graph exists. The sources above don't list one, but the catalogue isn't
-complete and I haven't gone through the literature array by array. Whatever their status, a graph with one of
-these arrays can't be vertex-primitive.
+For those 18 I know of no graph and no nonexistence proof. Some have partial results: automorphisms of a
+graph with {48,35,9;1,7,40} were studied by Makhnev, Bitkina and Gutnova (Vladikavkaz Mat. Zh. 22:2 (2020)),
+and arXiv:2206.00031 shows that several of these arrays can't come from a coset graph of a linear completely
+regular code. The new restriction here is that none of the 18 can have a vertex-primitive group. The three
+existing graphs above, which the search correctly misses, are the only test of that statement I have.
 
 ## What rests on what
 
@@ -70,10 +79,11 @@ these arrays can't be vertex-primitive.
 - The DFS and the exact distance-regularity check; `search/dfs_fixed.py` was checked on the T-actions
   (`search/out/dfs_fixed_validation.txt`).
 - For the two groups on 1024 points, CP-SAT's infeasibility answers, with no independent certificate.
-- The statuses come from the sources named, not from a review.
+- The statuses come from the sources named, not from a review. Two of the three existing graphs were
+  found because a pasted list pointed to them; the catalogue I checked first doesn't have them.
 
 ## Summary
 
 The search over the primitive groups library gives no new distance-regular graph, as expected, and shows that
-23 arrays with no known graph and no known nonexistence proof can't have a vertex-primitive realisation. That is
+18 arrays with no known graph and no known nonexistence proof can't have a vertex-primitive realisation. That is
 a table for a note, not a paper by itself.

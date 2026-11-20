@@ -20,7 +20,7 @@ Work in progress, not peer reviewed. `fusion/fusion_note.tex` is the draft of th
 - **GO(2,4) triple intersection numbers** (`triple/triple_note.md`). With q^4_44 = 0 the LP ranges only reproduce the octagon geometry for one triple type, so nothing on uniqueness.
 - **SRGs on open parameter sets from primitive groups** (`search/primitive/primitive_note.md`). All 2164 primitive groups of rank >= 4 on the 430 open degrees v <= 1300 are settled, and none realises an open parameter set in Brouwer's table (as of 1 Nov 2026). All of it is exact now: the 14 groups that used to rest on floating-point MILPs were redone with integer character sums in CP-SAT (12 affine groups) and a fixed-parameter DFS (the two non-commutative ones).
 
-- **Distance-regular graphs with a primitive group** (`search/drg/drg_note.md`). All 4244 primitive groups (not Sym/Alt) on the 156 degrees below 4096 that carry a primitive BCN array of diameter >= 3. 86 of the 117 arrays that survive the suborbit filter are realised, all by known graphs. For the other 31 no primitive group works; 6 of them are known not to exist, one is the Shi-Krotov-Sole graph (imprimitive group), one depends on Koval's preprint, and for 23 I found neither a graph nor a nonexistence proof, so any graph with one of those arrays has an imprimitive automorphism group.
+- **Distance-regular graphs with a primitive group** (`search/drg/drg_note.md`). All 4244 primitive groups (not Sym/Alt) on the 156 degrees below 4096 that carry a primitive BCN array of diameter >= 3. 86 of the 117 arrays that survive the suborbit filter are realised, all by known graphs. For the other 31 no primitive group works: 8 are known not to exist, one depends on Koval's preprint, three exist with imprimitive groups (Shi-Krotov-Sole graph, Brouwer graph Br(3), a coset graph on 1024 vertices; the last two built and checked here), one is reported nonexistent but unconfirmed, and for 18 I found no status, so any graph with one of those arrays has an imprimitive automorphism group.
 
 ## Layout
 
@@ -64,4 +64,4 @@ What has been checked on the current commit: `scheme_from_array.py --atlas` exit
 
 - Compile `fusion/fusion_note.tex` and rewrite Section 3 around the exact proof.
 - Settle the three residual surfaces in `fusion/near_octagon_note.md`.
-- Check the literature for the 23 arrays in `search/drg/drg_note.md` that have neither a known graph nor a nonexistence proof.
+- Check the literature for the 18 arrays in `search/drg/drg_note.md` with no known status, and find the paper on {20,16,5;1,1,16}.
