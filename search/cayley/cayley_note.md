@@ -94,6 +94,34 @@ attained by the 3-cube on Z4 x Z2, the 4-cube, the Clebsch graph and the folded 
 (`coset_lemma.py` checks the identity and the inequality on graphs found by `abelian_cayley.py`, and the two
 group facts by brute force).
 
+## Nonabelian groups: normal Cayley graphs
+
+Here S is a union of conjugacy classes. Then every distance class is too, and each eigenspace E_k is a sum of the
+central idempotents e_phi over a set of irreducible characters phi. If you compare the coefficient of phi in
+E_i o E_j, you get
+
+  q^k_ij phi(1) = sum over chi in E_i, psi in E_j of chi(1) psi(1) <chi psi, phi>,
+
+an integer, for every phi in E_k. So every q^k_ij is rational, and phi(1) is a multiple of D_k, the lcm of the
+denominators of the q^k_ij. Since phi(1) divides v and the phi(1)^2 over E_k sum to m_k, `normal_krein_filter.py`
+excludes all 13 arrays that fail the abelian Krein test, on every group of order v (`normal_krein_filter.csv`):
+
+- {18,14,5;1,2,14} and {40,33,19;1,3,22} have irrational Krein parameters;
+- for ten more arrays, D_1 or D_3 has a prime factor not dividing v (for example D_1 = 32 for v = 280);
+- {78,50,9;1,15,60}: D_1 = 7, so the irreducibles in E_1 have degree 7 or 14, but m_1 = 26 < 49.
+
+If phi is linear the condition says q^k_ij is an integer, which is the abelian Krein test again. I didn't find this
+filter in the literature, but I only did one keyword search. Integrality of normal Cayley graphs (S power-closed) is
+Godsil-Spiga.
+
+That leaves the five arrays that pass the abelian test. For them, `export_normal.g` exports the rational character
+data of the nonabelian groups of orders 625, 729, 750 and 1000. It skips groups with a normal cyclic Sylow subgroup,
+because every nontrivial central S-ring over such a group is imprimitive (Chen-Muzychuk-Ponomarenko,
+arXiv:1505.01352, Thm 1.3). `normal_cayley.py` is then the atom model with rational classes and Galois orbits of
+irreducibles in place of atoms. It finds the Clebsch graph, the Brouwer-Haemers graph, the 3-cube, H(3,4) and the
+4-cube on abelian groups, K_{3,3} on S_3 and K_{4x2} on Q_8. On Q_8 it finds no 3-cube, which is correct. The run
+over the nonabelian groups is still to do: the GAP connector was down.
+
 ## What rests on what
 
 - The Krein lemma and the atom lemma above.
