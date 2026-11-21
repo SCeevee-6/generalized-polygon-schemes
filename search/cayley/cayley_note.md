@@ -153,8 +153,23 @@ data of the nonabelian groups of orders 625, 729, 750 and 1000. It skips groups 
 because every nontrivial central S-ring over such a group is imprimitive (Chen-Muzychuk-Ponomarenko,
 arXiv:1505.01352, Thm 1.3). `normal_cayley.py` is then the atom model with rational classes and Galois orbits of
 irreducibles in place of atoms. It finds the Clebsch graph, the Brouwer-Haemers graph, the 3-cube, H(3,4) and the
-4-cube on abelian groups, K_{3,3} on S_3 and K_{4x2} on Q_8. On Q_8 it finds no 3-cube, which is correct. The run
-over the nonabelian groups is still to do: the GAP connector was down.
+4-cube on abelian groups, K_{3,3} on S_3 and K_{4x2} on Q_8. On Q_8 it finds no 3-cube, which is correct.
+
+Result of the run over all groups of these orders (GAP 4.16.1 SmallGroups library and character tables;
+`out_normal/tables_*.txt`, `out_normal/results.jsonl`, summary in `out_normal/normal_summary.csv`):
+
+| v | array | groups | abelian | skipped (normal cyclic Sylow) | modelled | candidates |
+|---:|---|---:|---:|---:|---:|---:|
+| 625 | {52,42,16;1,6,28} | 15 | 5 | 0 | 10 | 0 |
+| 729 | {56,42,20;1,6,28} | 504 | 11 | 0 | 493 | 0 |
+| 750 | {49,40,22;1,5,28} | 39 | 3 | 29 | 7 | 0 |
+| 1000 | {54,42,11;1,3,44} | 199 | 9 | 13 | 177 | 0 |
+| 1000 | {63,48,24;1,6,28} | 199 | 9 | 13 | 177 | 0 |
+
+Every model is infeasible (CP-SAT, 8 workers; the longest took 187 s, no time-outs), so there is no candidate
+to check in GAP. Together with the Krein-degree filter and the abelian result: none of the 18 arrays is the
+array of a normal Cayley graph on any group of order v. This says nothing about Cayley graphs whose
+connection set is not a union of conjugacy classes, where a new graph is still possible.
 
 ## What rests on what
 
@@ -162,11 +177,15 @@ over the nonabelian groups is still to do: the GAP connector was down.
 - CP-SAT and SCIP infeasibility answers. They agree everywhere I ran both, but there is no proof log.
 - For the quotient argument, only the identities in step 3, which are short to check by hand.
 - Bercov's Theorem 2.2 as stated in the 1969 paper; I did not read the 1965 proof.
+- For the normal case: GAP's character tables of the SmallGroups of orders 625, 729, 750, 1000, CP-SAT
+  infeasibility (no proof log), and Chen-Muzychuk-Ponomarenko Thm 1.3 for the 42 skipped groups.
 
 ## Summary
 
 None of the 18 open arrays from the primitive-group census is realised by a Cayley graph on an abelian group. Most
 of this follows from known results: the Krein test, Bercov's theorem on primitive S-rings and Shi-Krotov-Sole. What
 is mine is the computation for Z9^3, Z9^2 x Z3^2 and Z10^3, the atom bound, which settles Z25^2 and Z27^2 by
-hand, and the short counting argument, which is an elementary special case of Bercov's theorem. Not a paper. A graph with one of these arrays would need a group that
-is neither vertex-primitive nor contains a regular abelian subgroup.
+hand, and the short counting argument, which is an elementary special case of Bercov's theorem. No normal Cayley graph on any group of order v has one of these arrays either.
+Not a paper. A graph with one of these arrays would need a group that
+is neither vertex-primitive nor contains a regular abelian subgroup, and if it is a Cayley graph its
+connection set is not a union of conjugacy classes.

@@ -24,14 +24,28 @@ import abelian_cayley as ac
 from quotient_lift import PQ
 
 
+def top_level_lists(text):
+    """Split '[..] [..] [[..],..]' into its three top-level lists (GAP may print '[ [' with a space)."""
+    out, depth, start = [], 0, None
+    for k, ch in enumerate(text):
+        if ch == '[':
+            if depth == 0: start = k
+            depth += 1
+        elif ch == ']':
+            depth -= 1
+            if depth == 0: out.append(text[start:k + 1])
+    assert len(out) == 3, len(out)
+    return out
+
+
 def parse_tables(path):
     for line in open(path):
         line = line.strip()
         if not line.startswith('G '): continue
         _, n, i, rest = line.split(' ', 3)
         # rest = "[sizes] [norms] [[values]]"
-        parts = re.findall(r'\[\[.*\]\]|\[[^\[\]]*\]', rest)
-        sizes, norms, vals = ast.literal_eval(parts[0]), ast.literal_eval(parts[1]), ast.literal_eval(parts[2])
+        parts = top_level_lists(rest)
+        sizes, norms, vals = (ast.literal_eval(q) for q in parts)
         yield int(n), int(i), sizes, norms, vals
 
 

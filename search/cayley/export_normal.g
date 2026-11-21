@@ -4,6 +4,7 @@
 # Groups with a normal cyclic Sylow subgroup are skipped: every primitive central S-ring over them is trivial
 # (Chen-Muzychuk-Ponomarenko, arXiv:1505.01352, Thm 1.3), so they carry no primitive normal distance-regular Cayley graph
 # other than K_n.
+# Run: for i in [1..NrSmallGroups(n)] do DumpNC(n, i); od;;  (done in batches of 20-40 groups per GAP call)
 # Output lines:  A n i  (abelian) | W n i p (normal cyclic Sylow p) | G n i [sizes] [norms] [[values]]
 SetPrintFormattingStatus("*stdout*", false);;
 DumpNC := function(n, i)
