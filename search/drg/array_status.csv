@@ -11,4 +11,4 @@ array,status,source
 "{31,30,17;1,2,15}",exists,"coset graph of the binary cyclic code of length 31 with zeros alpha and alpha^3 (also alpha and alpha^5), built in known_graphs.py; Aut of order 158720, imprimitive with blocks of size 32 (GRAPE). Attribution to BCN Thm 11.2.1 (Kasami codes) not checked"
 "{25,24,3;1,3,20}",does not exist,"Zhurtov-Gerieva, Vladikavkaz Mat. Zh. 27:3 (2025) 60-67, doi 10.46698/e5951-0245-2570-i (abstract read)"
 "{42,30,12;1,6,28}",does not exist,"Belousov-Makhnev, Sib. Elektron. Mat. Izv. 15 (2018) 1506 (cited by Makhnev-Belousov 2023; paper not read)"
-"{20,16,5;1,1,16}",no vertex-primitive graph; nonexistence reported but not confirmed,said to be ruled out by Makhnev and coauthors in Diskret. Mat.; I didn't find the paper
+"{20,16,5;1,1,16}",does not exist,"Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87, doi 10.4213/dm1698; English: Discrete Math. Appl. 33:5 (2023) 273-281, doi 10.1515/dma-2023-0025 (the m = 3, n = 7 member of {mn-1,(m-1)(n+1),n-m+1;1,1,(m-1)(n+1)}; abstract read, full text not read)"

@@ -50,7 +50,7 @@ v,array,groups,unchecked,realising,status,source
 364,"{33,20,9;1,4,9}",2,0,6 7,exists (vertex-primitive),
 378,"{78,50,9;1,15,60}",3,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
 425,"{8,4,4,4;1,1,1,2}",1,0,1,exists (vertex-primitive),
-441,"{20,16,5;1,1,16}",4,0,,no vertex-primitive graph; nonexistence reported but not confirmed,said to be ruled out by Makhnev and coauthors in Diskret. Mat.; I didn't find the paper
+441,"{20,16,5;1,1,16}",4,0,,does not exist,"Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87; Discrete Math. Appl. 33:5 (2023) 273-281"
 455,"{36,22,10;1,4,9}",2,0,1 2,exists (vertex-primitive),
 456,"{14,7,7;1,1,2}",2,0,1 2,exists (vertex-primitive),
 462,"{30,20,12,6,2;1,4,9,16,25}",2,0,3 4,exists (vertex-primitive),

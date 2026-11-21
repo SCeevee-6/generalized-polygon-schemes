@@ -2,8 +2,9 @@
 
 A regular near octagon with parameters (s, t2, t3, t) has a distance-regular point graph with c_i = t_i + 1 and
 b_i = s(t - t_i) (t_1 = 0, t_4 = t). This note lists all integer parameter sets with s >= 2 and
-0 <= t2 <= t3 < t for which the distance scheme has a proper fusion, up to three surfaces that I could not finish.
-It replaces the box scan in `near_polygon_note.md`.
+0 <= t2 <= t3 < t for which the distance scheme has a proper fusion. It replaces the box scan in
+`near_polygon_note.md`. The three surfaces left open in the first version are settled in
+`near_octagon_residual.py` (last section).
 
 ## What is known
 
@@ -30,10 +31,12 @@ For integers s >= 2, 0 <= t2 <= t3 < t, a partition of {1,2,3,4} closes exactly 
 | (2, 1, 2, 3) | also {1,4}\|{2,3} and {1,3,4}\|{2} | H(4,3) |
 | D: (3, 1, 2, 3) | {1,3}\|{2,4} | H(4,4) |
 
-with one gap: for each of {1,4}|{2,3}, {1,3}|{2,4} and {1,2,4}|{3} the solution set has one more component, a
-surface of high degree, and for those three surfaces I only have a search (below), not a proof. Everything else
-is proved, including the six partitions into three blocks and the four two-block partitions {1}|{2,3,4},
-{1,2}|{3,4}, {1,3,4}|{2}, {1,2,3}|{4}.
+and in no other case. This is proved for all 13 partitions. For {1,4}|{2,3}, {1,3}|{2,4} and {1,2,4}|{3}
+the proof needs one extra step, for a residual surface of high degree; that step is the last section.
+
+In particular, for the distance-3 graph: Gamma_3 is strongly regular if and only if (s, t2, t3, t) =
+(2, i, 2i, 2i+1), and only i = 0 (the octagon of order (2,1), where Gamma_3 has the parameters of T(10)) and
+i = 1 (H(4,3)) pass the multiplicity test below.
 
 Which of these parameter sets can occur:
 
@@ -68,8 +71,9 @@ about 4 minutes). The integer points on the branches are then found by hand:
   t^2 + t(t3+1) = t3(t3+1)^2 with s = (t3+1)^2/t. Its integer points are t3 = n(n+1), t = n(n^2+n+1), and then
   s = (n^2+n+1)/n is an integer only for n = 1: H(4,4). One branch has t3^3 = t3 + 1, no integer root. The last
   branch is the residual surface.
-- {1,2,4}|{3}: one branch is t = (s-1)(t3+1), t2 = ((s-1)^2 (t3+1) - 1)/s. Then s divides t3, t3 = sj, and
-  t2 <= t3 forces s = 2: family C. The other branch is the residual surface.
+- {1,2,4}|{3}: one branch is t = (s-1)(t3+1), t2 = ((s-1)^2 (t3+1) - 1)/s. Here t2 <= t3
+  means (s^2 - 3s + 1)(t3+1) <= 1 - s < 0, so s = 2, t3 = 2t2, t = t3 + 1: family C. The other branch is the
+  residual surface.
 - {1,4}|{2}|{3}: one branch is t2 = (t+1-s)/s, t3 = (s-1)t - 1; t3 < t forces s = 2, family C. The other branches
   have t = (2s-1)/(cubic in s), which is an integer only for s = 2 and gives (2,1,2,3) and (2,0,0,1) again.
 - {1,3}|{2}|{4}: only s = 1. The other five partitions never close.
@@ -82,22 +86,73 @@ Checks (`near_octagon_check.py`, about 12 minutes):
 
 ## The three residual surfaces
 
-Each is given by t2 = N/D and one equation R(s, t, t3) = 0 of degree 3 or 4 in t (`near_octagon_decompose.json`).
-They do contain real points of the region, so a sign argument cannot work, and I did not find an arithmetic
-argument. What was done: for all 2 <= s <= 200 and 0 <= t3 <= 2000 the polynomial R(s, ., t3) was factored exactly
-and every integer root t > t3 tested.
+Each is given by t2 = N/D and one equation R(s, t3, t) = 0 of degree 3 or 4 in t (`near_octagon_decompose.json`).
+The first version only had a search: for 2 <= s <= 200 and 0 <= t3 <= 2000 every integer root t > t3 of R was
+tested, and none is admissible (for {1,4}|{2,3} the 43 integer roots have t3 = s(s+1), t = s(s^2+s+1),
+t2 = s^4 + s^3 - 1 > t3, and for {1,3}|{2,4} the only one is H(4,4), where N = D = 0). The surfaces do contain real
+admissible points, for s = 3 and 4 only, so a single sign argument can't work. `near_octagon_residual.py` now
+proves that none of the three has an admissible integer point (output in `near_octagon_residual_output.txt`,
+about 5 minutes).
 
-- {1,4}|{2,3}: 43 integer roots, all with t3 = s(s+1), t = s(s^2+s+1) and t2 = s^4 + s^3 - 1 > t3, so outside
-  the region.
-- {1,3}|{2,4}: one integer root, H(4,4), where D = N = 0.
-- {1,2,4}|{3}: no integer root.
+### {1,2,4}|{3} by hand
 
-So there is no further admissible point with s <= 200 and t3 <= 2000. Unproved beyond that.
+Gamma_3 is strongly regular iff p^1_33 = p^2_33 = p^4_33. Directly from the intersection array, the first
+equation is s(t - t2)(t2 + 1) E = 0 with E linear in t2, and on E = 0 the second becomes
+
+  (t3 + 1)(t2 + 1) u R = 0,   u = (s-1)(t3+1) - t,
+
+with R cubic in t and leading coefficient s(s^2 - s + 1) (the factor t2 + 1 appears through the numerator of
+t2 + 1 on that branch). u = 0 is family C. For R = 0 put n = t3 + 1 and M = (s-1)n + 1, so t + 1 = M - u. Then
+
+  s n t2 = n((s-1)^2 n - 1) - s u (t+1),
+
+so t2 <= t3 is the same as u(t+1) >= pL := n((s^2-3s+1)n + s - 1)/s. For s >= 3 this is positive, so u > 0,
+u >= pL/M and t <= M - 1 - pL/M < T := M - pL/M. Now
+
+- R(t3) = -n^2 ((n-1)(s^3 - 3s^2 + 2s - 1) - s(s-1)), negative for s >= 4, n >= 2 and for s = 3, n >= 3;
+- 8 R(t3/2) has positive coefficients after s = 3 + z, n = 2 + w, so R(t3/2) > 0;
+- R(T) = -Nc/(s^2 M^3) with Nc of degree 16; Nc has positive coefficients after s = 5 + z, n = 5 + w, and in one
+  variable for s = 4, n >= 7 and s = 3, n >= 122.
+
+A cubic with positive leading coefficient that is positive at t3/2 and negative at t3 and at T has no root in
+[t3, T]: two roots there would force a third beyond T, and then it would be negative on all of (-inf, t3].
+What is left is finite or one-dimensional. For s = 2, R(2, t3+1+x, t3) has positive coefficients. For t3 <= 3,
+t2 runs over 0..t3 and the resultant in t leaves no admissible point. For s = 3, t3 <= 120 and s = 4, t3 <= 5 the
+integer roots of R were checked exactly. None is admissible.
+
+### All three surfaces: a region argument
+
+For fixed (s, t3) count the real roots t of R with t > t3 and 0 <= N/D <= t3. This number can only change where
+one of lc_t(R), disc_t(R), R(s,t3,t3), Res_t(R,N), Res_t(R, N - t3 D), Res_t(R,D) vanishes. The script factors
+these and checks that every factor has constant sign on a region by substituting a parametrisation of the region
+and checking that all coefficients have one sign. Then one sample point gives the count everywhere in the
+region. For fixed s (or fixed t3) the same thing is done in one variable: beyond the largest real root of the
+boundary factors one sample decides, and the integer points below it are checked exactly.
+
+| partition | regions certified (count 0) | fixed lines checked exactly |
+|---|---|---|
+| {1,2,4}\|{3} | s >= 4, t3 >= 2 | s = 2, 3; t3 = 0, 1 |
+| {1,4}\|{2,3} | s >= 4, t3 >= 1 | s = 2, 3; t3 = 0 |
+| {1,3}\|{2,4} | s >= 6 split into t3 >= s^2-s-2, s <= t3 <= s^2-s-3, 1 <= t3 <= s | s = 2..5; t3 = 0 |
+
+For {1,3}|{2,4} two things needed care. The factor s(s-1)t3 - s - (t3+1)^2 is where R, N and D have a common
+root; its large root in t3 lies strictly between s^2-s-3 and s^2-s-2 for s >= 4, so it never vanishes inside
+the regions. And a degree-20 factor of the discriminant has leading form s^12 t3^6 (s - t3)^2 for t3 of order s,
+so plain coefficient checks fail on any region containing the line t3 = s; splitting there fixes it. The only
+integer point found on a line is (s, t3, t) = (3, 2, 3) with N = D = 0, which is H(4,4) on the branch
+s = (t3+1)^2/t treated above.
+
+This second argument also re-proves {1,2,4}|{3}. Both arguments rest on exact sympy arithmetic (resultants,
+factorisations, real root isolation) and on the factor-and-split case analysis of `near_octagon_decompose.py`
+for the other branches.
 
 ## Summary
 
-The classification of fusions of regular near octagons by parameters is complete for ten of the thirteen
-partitions and reduced to one surface each for the other three. Nothing new exists inside the searched range:
-the only feasible parameter sets with a fusion are those of B_4(q)/C_4(q), H(4,3) and H(4,4). This would make a
-section in the fusion note once the three surfaces are settled; on its own it is too close to the known
-diameter-4 criteria to be a paper.
+The fusions of regular near octagons with s >= 2 are now classified by parameters for all thirteen partitions.
+The only parameter sets with a fusion that pass the multiplicity test are those of B_4(q)/C_4(q) (for family A
+only checked for s <= 12, m <= 200), H(4,3), H(4,4) and the octagon of order (2,1); none of these is new. The
+statement that matters most is the distance-3 one: Gamma_3 is strongly regular only for (2, i, 2i, 2i+1). I
+haven't found this, or the two partitions {1,4}|{2,3} and {1,3}|{2,4}, treated for regular near octagons of
+arbitrary order (keyword searches only); Fiol's criterion covers Gamma_4, and BCN 4.2.17 covers diameter 3.
+It is a classification result with an empty answer, so it would fit as a section of the fusion note rather than as
+a paper of its own.

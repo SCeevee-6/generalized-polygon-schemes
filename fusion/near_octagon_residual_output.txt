@@ -1,0 +1,51 @@
+== Part 1: {1,2,4}|{3}, direct proof
+p^1_33 - p^2_33 numerator: s*(t - t2)*(t2 + 1)*(s**2*t*t3 + s**2*t - s**2*t3**2 - s**2*t3 - s*t**2 - s*t*t3 - 2*s*t + s*t2*t3 + s*t2 + 2*s*t3**2 + 3*s*t3 + s - t3**2 - t3)
+p^4_33 - p^2_33 on that branch: (t3 + 1)*(s*t3 + s - t - t3 - 1)*(s**2*t*t3 + s**2*t - s**2*t3**2 - s**2*t3 - s*t**2 - s*t*t3 - 2*s*t + 2*s*t3**2 + 2*s*t3 - t3**2 - t3)*(s**4*t**2*t3 + s**4*t**2 - s**4*t*t3**2 - s**4*t*t3 - s**3*t**3 - s**3*t**2*t3 - 3*s**3*t**2 + 3*s**3*t*t3**2 + 4*s**3*t*t3 + s**3*t3**2 + s**3*t3 + s**2*t**3 + 2*s**2*t**2 - 4*s**2*t*t3**2 - 6*s**2*t*t3 - s**2*t - 3*s**2*t3**2 - 4*s**2*t3 - s**2 - s*t**3 - 2*s*t**2 + 3*s*t*t3**2 + 4*s*t*t3 + 3*s*t3**2 + 4*s*t3 + s - t*t3**2 - t*t3 - t3**2 - t3)
+other factors: t3 + 1, and 1 factor(s) equal to the numerator of t2 + 1 (nonzero)
+so either t = (s-1)(t3+1) (family C) or R = 0 with R cubic in t
+t2 on t = (s-1)(t3+1): (s**2*t3 + s**2 - 2*s*t3 - 2*s + t3)/s ; t3 - t2 = -(s**2*t3 + s**2 - 3*s*t3 - 2*s + t3)/s
+s n t2 = n((s-1)^2 n - 1) - s u (t+1): True
+t2 <= t3  <=>  u (t+1) >= pL with pL = n((s^2-3s+1)n + s - 1)/s
+for s >= 3, pL > 0, so u > 0 and u >= pL/M, hence t <= M - 1 - pL/M < T := M - pL/M
+leading coefficient in t: s*(s**2 - s + 1)
+(b) R(t3) = -n**2*(n*s**3 - 3*n*s**2 + 2*n*s - n - s**3 + 2*s**2 - s + 1)
+R(T) = -Nc / s**2*(n*s - n + 1)**3
+(a) 8 R(t3/2) has positive coefficients for s = 3+zz, n = 2+ww: True
+(c) Nc has positive coefficients for s = 5+zz, n = 5+ww: True
+    Nc(4, n) > 0 for n >= 7: True
+    Nc(3, n) > 0 for n >= 122: True
+Root count: R(t3/2) > 0, R(t3) < 0, R(T) < 0 and lc > 0 leave no root in [t3, T]:
+  two roots in (t3, T) would force a third beyond T, and then R < 0 on (-inf, t3].
+(b) needs n >= 2 for s >= 4 and n >= 3 for s = 3.
+s = 2: R(2, t3+1+x, t3) has positive coefficients: True
+t3 <= 3, all s: admissible integer points: []
+s = 3, t3 <= 120 and s = 4, t3 <= 5: admissible integer points: []
+Part 1 conclusion: Gamma_3 is strongly regular only for (2, i, 2i, 2i+1).
+C on A at t3 = s^2-s-2+ww: -s**2*ww + s*ww - s - ww**2 + 2*ww - 1
+C at t3 = s^2-s-3: s**2 - 2*s - 4 (> 0 for s >= 4; C < 0 on A, so C has no zero in A, B1, B2)
+== Part 2: region argument
+-- {1,2,4}|{3}: 9 boundary factors, degrees [1, 1, 1, 2, 3, 4, 8, 9, 16]
+   region s >= 4, t3 >= 2: factors not sign-definite: []; real admissible roots at (5, 3): 0
+   s = 2: largest boundary root 2.000; real admissible roots at (2, 4): 0; integer points with t3 <= 3: []
+   s = 3: largest boundary root 31.483; real admissible roots at (3, 33): 0; integer points with t3 <= 32: []
+   t3 = 0, s >= 4: largest boundary root 4.000; real admissible roots at (6, 0): 0; integer points with s <= 5: []
+   t3 = 1, s >= 4: largest boundary root 4.928; real admissible roots at (6, 1): 0; integer points with s <= 5: []
+   (5 s)
+-- {1,4}|{2,3}: 10 boundary factors, degrees [1, 1, 2, 2, 3, 4, 5, 13, 16, 36]
+   region s >= 4, t3 >= 1: factors not sign-definite: []; real admissible roots at (5, 2): 0
+   s = 2: largest boundary root 4.020; real admissible roots at (2, 6): 0; integer points with t3 <= 5: []
+   s = 3: largest boundary root 1.415; real admissible roots at (3, 3): 0; integer points with t3 <= 2: []
+   t3 = 0, s >= 4: largest boundary root 4.000; real admissible roots at (6, 0): 0; integer points with s <= 5: []
+   (48 s)
+-- {1,3}|{2,4}: 10 boundary factors, degrees [1, 1, 1, 1, 2, 3, 4, 8, 10, 20]
+   region A: s >= 6, t3 >= s^2-s-2: factors not sign-definite: []; real admissible roots at (6, 28): 0
+   region B1: s >= 6, s <= t3 <= s^2-s-3: factors not sign-definite: []; real admissible roots at (6, 10): 0
+   region B2: s >= 6, 1 <= t3 <= s: factors not sign-definite: []; real admissible roots at (6, 3): 0
+   s = 2: largest boundary root 0.418; real admissible roots at (2, 2): 0; integer points with t3 <= 1: []
+   s = 3: largest boundary root 3.776; real admissible roots at (3, 5): 0; integer points with t3 <= 4: [(3, '0/0', 2, 3)]
+   s = 4: largest boundary root 9.472; real admissible roots at (4, 11): 0; integer points with t3 <= 10: []
+   s = 5: largest boundary root 17.660; real admissible roots at (5, 19): 0; integer points with t3 <= 18: []
+   t3 = 0, s >= 6: largest boundary root 6.000; real admissible roots at (8, 0): 0; integer points with s <= 7: []
+   (194 s)
+Points listed with N/0 lie on the base locus N = D = 0 of the branch; they are the
+branch s = (t3+1)^2/t of near_octagon_decompose.py, whose only admissible point is H(4,4).

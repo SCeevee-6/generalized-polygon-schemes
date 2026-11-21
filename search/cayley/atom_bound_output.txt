@@ -1,0 +1,42 @@
+{52,42,16;1,6,28}  v=625  eigenvalues=[-8, 2, 17, 52]  integral=True  max(a1,c2)=9
+  Z625                         excluded: phi(5^4) = 500 > 9
+  Z125xZ5                      excluded: phi(5^3) = 100 > 9
+  Z25xZ25                      excluded: phi(5^2) = 20 > 9
+  Z25xZ5xZ5                    excluded: phi(5^2) = 20 > 9
+  Z5xZ5xZ5xZ5                  not excluded: exponent squarefree
+{56,42,20;1,6,28}  v=729  eigenvalues=[-7, 2, 20, 56]  integral=True  max(a1,c2)=13
+  Z729                         excluded: phi(3^6) = 486 > 13
+  Z243xZ3                      excluded: phi(3^5) = 162 > 13
+  Z81xZ9                       excluded: phi(3^4) = 54 > 13
+  Z81xZ3xZ3                    excluded: phi(3^4) = 54 > 13
+  Z27xZ27                      excluded: phi(3^3) = 18 > 13
+  Z27xZ9xZ3                    excluded: phi(3^3) = 18 > 13
+  Z27xZ3xZ3xZ3                 excluded: phi(3^3) = 18 > 13
+  Z9xZ9xZ9                     not excluded: phi(3^2) = 6
+  Z9xZ9xZ3xZ3                  not excluded: phi(3^2) = 6
+  Z9xZ3xZ3xZ3xZ3               not excluded: phi(3^2) = 6
+  Z3xZ3xZ3xZ3xZ3xZ3            not excluded: exponent squarefree
+{49,40,22;1,5,28}  v=750  eigenvalues=[-11, -1, 14, 49]  integral=True  max(a1,c2)=8
+  Z2xZ3xZ125                   excluded: phi(5^3) = 100 > 8
+  Z2xZ3xZ25xZ5                 excluded: phi(5^2) = 20 > 8
+  Z2xZ3xZ5xZ5xZ5               not excluded: exponent squarefree
+{54,42,11;1,3,44}  v=1000  eigenvalues=[-6, -1, 14, 54]  integral=True  max(a1,c2)=11
+  Z8xZ125                      excluded: phi(5^3) = 100 > 11
+  Z8xZ25xZ5                    excluded: phi(5^2) = 20 > 11
+  Z8xZ5xZ5xZ5                  not excluded: phi(2^3) = 4
+  Z4xZ2xZ125                   excluded: phi(5^3) = 100 > 11
+  Z4xZ2xZ25xZ5                 excluded: phi(5^2) = 20 > 11
+  Z4xZ2xZ5xZ5xZ5               not excluded: phi(2^2) = 2
+  Z2xZ2xZ2xZ125                excluded: phi(5^3) = 100 > 11
+  Z2xZ2xZ2xZ25xZ5              excluded: phi(5^2) = 20 > 11
+  Z2xZ2xZ2xZ5xZ5xZ5            not excluded: exponent squarefree
+{63,48,24;1,6,28}  v=1000  eigenvalues=[-7, 3, 23, 63]  integral=True  max(a1,c2)=14
+  Z8xZ125                      excluded: phi(5^3) = 100 > 14
+  Z8xZ25xZ5                    excluded: phi(5^2) = 20 > 14
+  Z8xZ5xZ5xZ5                  not excluded: phi(2^3) = 4
+  Z4xZ2xZ125                   excluded: phi(5^3) = 100 > 14
+  Z4xZ2xZ25xZ5                 excluded: phi(5^2) = 20 > 14
+  Z4xZ2xZ5xZ5xZ5               not excluded: phi(2^2) = 2
+  Z2xZ2xZ2xZ125                excluded: phi(5^3) = 100 > 14
+  Z2xZ2xZ2xZ25xZ5              excluded: phi(5^2) = 20 > 14
+  Z2xZ2xZ2xZ5xZ5xZ5            not excluded: exponent squarefree

@@ -65,10 +65,15 @@ None of the 18 arrays is the array of a Cayley graph on an abelian group.
      Z2^3 x Z5^3.
   2. A short counting argument (below), for groups whose Sylow p-subgroup is Z_{p^e} x Z_p^r with e >= 2. It
      reproves most of the Bercov cases and also covers Z4 x Z2 x Z5^3.
-  3. Shi-Krotov-Sole for Z5^4 and Z3^6 (coset graphs of linear codes; their result is computational).
-  4. Computation: the atom model for Z25^2 and Z27^2, the quotient Z9 x Z9 x Z3 (fibre 3) for Z9^3 and
-     Z9^2 x Z3^2, and the quotient Z5^3 (fibre 8) for Z2^3 x Z5^3 = Z10^3. Both solvers give infeasible in each
-     case. The quotient Z5^3 also gives a second proof for Z5^4.
+  3. The atom bound (below): if the Sylow p-subgroup has exponent p^e with e >= 2, then
+     p^(e-1)(p-1) <= max(a_1, c_2). This covers every group with a cyclic factor of order 25, 125, 625, 27 or
+     more, in particular Z25^2 (20 > 9) and Z27^2 (18 > 13), which before needed the solver.
+  4. Shi-Krotov-Sole for Z5^4 and Z3^6 (coset graphs of linear codes; their result is computational).
+  5. Computation: the quotient Z9 x Z9 x Z3 (fibre 3) for Z9^3 and Z9^2 x Z3^2, and the quotient Z5^3 (fibre 8)
+     for Z2^3 x Z5^3 = Z10^3. Both solvers give infeasible in each case. The quotient Z5^3 also gives a second
+     proof for Z5^4. The atom model had also excluded Z25^2 and Z27^2.
+
+  `atom_bound_output.txt` applies the atom bound to every abelian group of the five orders.
 
   `coset_lemma_output.txt` lists every group with the argument that excludes it.
 
@@ -93,6 +98,35 @@ So (p-1)(k - theta_1)/p <= max(a_1, c_2). For {56,42,20;1,6,28} and p = 3 this s
 attained by the 3-cube on Z4 x Z2, the 4-cube, the Clebsch graph and the folded 7-cube on Z4 x Z2^r
 (`coset_lemma.py` checks the identity and the inequality on graphs found by `abelian_cayley.py`, and the two
 group facts by brute force).
+
+## The atom bound
+
+This is simpler than the argument above and works when the largest cyclic factor occurs more than once.
+Let s in S have order n with p^2 | n, and put h = (n/p)s. For every unit u mod n, u + n/p is again a unit,
+because every prime dividing n divides n/p. So the atom [s] is mapped to itself by translation by h. Since
+[s] is inside S, every element of [s] is a common neighbour of 0 and h, and h != 0, so
+
+  phi(n) <= |S cap (S - h)| <= max(a_1, c_2).
+
+If the Sylow p-subgroup of G has exponent p^e with e >= 2, the elements whose p-part has order less than p^e form
+a proper subgroup, so a connected S contains such an element and phi(p^e) <= max(a_1, c_2). The eigenvalues of
+the five arrays are integers (`atom_bound.py` checks this), so S is a union of atoms.
+
+| array | group | forced order | phi | max(a_1, c_2) |
+|---|---|---:|---:|---:|
+| {52,42,16;1,6,28} | Z25^2 | 25 | 20 | 9 |
+| {56,42,20;1,6,28} | Z27^2 | 27 | 18 | 13 |
+
+The general form (an integral distance-regular Cayley graph on an abelian p-group of exponent p^e, e >= 2, has
+p^(e-1)(p-1) <= max(a_1, c_2)) is elementary and very likely known in some form; I haven't found it stated.
+For {56,42,20;1,6,28} on Z9^3 and Z9^2 x Z3^2 it gives only 6 <= 13.
+
+A short proof for Z9^3 doesn't come out of this either. On Z9^3 the order-9 atoms in S correspond to points of
+PG(2,3) (the atom of s goes to <3s>) and the index-3 subgroups to lines. The bound above says at most two
+atoms over a point whose order-3 subgroup lies in S, at most one if it is at distance 2, none at distance 3.
+Each line must miss 4, 6 or 7 of the atoms (the eigenvalues 20, 2, -7), and MacWilliams on the subgroup 3G ties
+the class counts on 3G to the line counts. `occupancy_z93.py` finds 468 configurations that satisfy all of this
+(all with nine order-9 atoms), so the finer quotient model is really needed there.
 
 ## Nonabelian groups: normal Cayley graphs
 
@@ -133,6 +167,6 @@ over the nonabelian groups is still to do: the GAP connector was down.
 
 None of the 18 open arrays from the primitive-group census is realised by a Cayley graph on an abelian group. Most
 of this follows from known results: the Krein test, Bercov's theorem on primitive S-rings and Shi-Krotov-Sole. What
-is mine is the computation for Z25^2, Z27^2, Z9^3, Z9^2 x Z3^2 and Z10^3, and the short counting argument, which is
-an elementary special case of Bercov's theorem. Not a paper. A graph with one of these arrays would need a group that
+is mine is the computation for Z9^3, Z9^2 x Z3^2 and Z10^3, the atom bound, which settles Z25^2 and Z27^2 by
+hand, and the short counting argument, which is an elementary special case of Bercov's theorem. Not a paper. A graph with one of these arrays would need a group that
 is neither vertex-primitive nor contains a regular abelian subgroup.
