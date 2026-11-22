@@ -1,0 +1,10 @@
+python 3.11.17, numpy 2.4.6, python-igraph 1.0.0
+T-orbits on points: 1 (sizes [1755])
+distance distribution from point 0: [1, 10, 80, 640, 1024]
+lines 2925, distinct line neighbourhoods 2925
+Hoffman equality A_4 1_C = 16(1 - 1_C) on all 2925 line neighbourhoods: True
+candidates 730, edges 104805
+line neighbourhoods containing 0: 45
+A (igraph largest_cliques): size 27 through 0, 45 cliques, 45 distinct, equal to the line neighbourhoods through 0: True, 55 s
+B (own branch and bound): 45 cliques of size 26 in the candidate graph, 45 distinct, equal to the line neighbourhoods through 0: True, 8758 nodes, 1 s
+conclusion: maximum non-opposite sets have size 27; those through 0 are exactly the 45 line neighbourhoods; by transitivity there are 2925 in total, one per line

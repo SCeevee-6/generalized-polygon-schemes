@@ -69,6 +69,10 @@ For a line L, the 27 points at distance <= 1 from L are pairwise at distance <= 
 - CP-SAT: the largest clique of the distance-<=3 graph through a point has size 27, and with a cut excluding each of the 45 line neighbourhoods through that point the optimum drops to 26 (both OPTIMAL, a few seconds, no proof log). By transitivity the 27-cliques are exactly the 2925 line neighbourhoods, and L is recovered from its neighbourhood C as the points of C within distance 2 of all of C.
 - For order (s, s^2) in general the A_4 eigenvalues are s^10, -s^4, s^4, -s^4, s^6, and the ratio bound is (s+1)^2(s^2-s+1) = (s+1)(st+1), the size of a line neighbourhood. So line neighbourhoods are maximum sets of pairwise non-opposite points in every generalized octagon of order (s,s^2); the bound uses only the parameters. That they are the only maximum sets is checked only for the Ree-Tits octagon of order (2,4).
 
+
+Update 2026-11-22. The CP-SAT result is now backed by two more searches in `clique_certificate.py` (igraph 1.0.0 `largest_cliques`, and a separate colouring branch and bound written here): both return exactly the 45 line neighbourhoods through point 0, and T is checked to be transitive on points, so there are 2925. The Hoffman identity A_4 1_C = 16(1 - 1_C) holds on all 2925 line neighbourhoods, not just four.
+
+There is now also a hand proof (`max_nonopposite_proof.md`) that in **any** generalized octagon of order (2,4), every set of 27 pairwise non-opposite points is a line neighbourhood. It uses only the ratio-bound equality and the octagon axioms. Each lemma is checked numerically on the Ree-Tits octagon in `max_set_checks.py`.
 I could not find the source of the statement that the distance-1,2,3 graph of GO(2,4) has exactly 2925 cliques of size 27; it is checked here directly. Partial ovoids (pairwise opposite points) of GO(2,4) also have at most 27 points (Coolsaet-Van Maldeghem, J. Algebraic Combin. 12 (2000) 107-113), which is a different question.
 
 ## Not done
