@@ -15,12 +15,12 @@ Everything below is for the Ree-Tits octagon O(2), order (2,4), and its dual, or
 
 Each escaping 15-set has the same shape. It contains exactly one full line L, and its other 12 points are at distance 2 from L, pairwise non-collinear. Counting how many of the 12 project onto each point of L gives two profiles:
 
-| projection counts on L | sets per line L | in O(2) | T-orbits | largest overlap with a line neighbourhood |
-|---|---:|---:|---|---:|
-| (4,4,4) | 128 | 374400 | 187200 + 187200 | 7 |
-| (0,4,8) | 384 | 1123200 | 1123200 | 11 |
+| projection counts on L | sets per line L | in O(2) | T-orbits | 2F4(2)-orbits | largest overlap with a line neighbourhood |
+|---|---:|---:|---|---|---:|
+| (4,4,4) | 128 | 374400 | 187200 + 187200 | 374400 | 7 |
+| (0,4,8) | 384 | 1123200 | 1123200 | 1123200 | 11 |
 
-The orbits are orbits of the stabiliser of L in T (Schreier generators), times the 2925 lines. In the (0,4,8) sets, the 8 points behind one point p of L together with L lie in N[M] for a line M ≠ L on p, which is where the 11 comes from.
+The orbits are orbits of the stabiliser of L (Schreier generators), times the 2925 lines; the 2F4(2) column is the same run with `--gens atlas` (`out_escape/escape_bk_points_min15_T2.json`). So the outer automorphism swaps the two (4,4,4) orbits of T. In the (0,4,8) sets, the 8 points behind one point p of L together with L lie in N[M] for a line M ≠ L on p, which is where the 11 comes from.
 
 **Dual of O(2), lines.** `escape_bk.py --geom lines --min 25` does the same for the 2925 lines, with "opposite" meaning distance 4 in the line graph and the neighbourhoods N*[p] = lines meeting the closed neighbourhood of a point p (45 lines each). Through line 0 there are 128 maximal families of size 25, 27 of size 45 (the N*[p] containing line 0), and nothing else of size ≥ 25. So
 
@@ -62,4 +62,4 @@ What's not explained is why every escaping set of size 15 must have this shape i
 - `escape_local.py`, `escape_dual_orbit.py`: the local model and the dual orbit checks.
 - `out_escape/`: logs, JSON summaries and the full lists of sets (`N` = in a line neighbourhood, `E` = escaping). The committed runs use the T generators.
 
-A separate C++ Bron-Kerbosch, run on a graph built from the edge orbit of {0,72} under c, d rather than from the point stabiliser, gave the same counts 12800 and 45, the same profiles, and orbit sizes 128 and 384 under the stabiliser of L in 2F4(2). So under 2F4(2) the two (4,4,4) orbits of T fuse.
+A separate C++ Bron-Kerbosch, run on a graph built from the edge orbit of {0,72} under c, d rather than from the point stabiliser, gave the same counts 12800 and 45 and the same profiles.
