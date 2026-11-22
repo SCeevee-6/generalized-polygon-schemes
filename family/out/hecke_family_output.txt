@@ -1,0 +1,12 @@
+P_W = (s + 1)**2*(s**2 + 1)**2*(s**2 - s + 1)*(s**4 - s**2 + 1); number of flags (s+1)(1+st)(1+s^2t^2)(t+1) = (s + 1)**2*(s**2 + 1)**2*(s**2 - s + 1)*(s**4 - s**2 + 1); equal: True
+('lin', s**2, s): dim 1, quadratic relations True, braid relation True, generic degree D = 1
+('lin', s**2, -1): dim 1, quadratic relations True, braid relation True, generic degree D = s*(s**2 - s + 1)*(s**4 - s**2 + 1)
+('lin', -1, s): dim 1, quadratic relations True, braid relation True, generic degree D = s**5*(s**2 - s + 1)*(s**4 - s**2 + 1)
+('lin', -1, -1): dim 1, quadratic relations True, braid relation True, generic degree D = s**12
+('two', 1): dim 2, quadratic relations True, braid relation True, generic degree D = -r*s*(s - 1)**2*(s + 1)**3*(s**2 - s + 1)/4 + s**2*(s + 1)**2*(s**2 - s + 1)*(s**4 + s**3 - 2*s**2 + s + 1)/4
+('two', 2): dim 2, quadratic relations True, braid relation True, generic degree D = s**2*(s**2 + 1)**2*(s**4 - s**2 + 1)/2
+('two', 3): dim 2, quadratic relations True, braid relation True, generic degree D = r*s*(s - 1)**2*(s + 1)**3*(s**2 - s + 1)/4 + s**2*(s + 1)**2*(s**2 - s + 1)*(s**4 + s**3 - 2*s**2 + s + 1)/4
+s = 2: (multiplicity, degree) = [(1, 1), (1, 78), (1, 1248), (1, 4096), (2, 351), (2, 650), (2, 675)]; sum mult*degree = 8775; flags = 8775; rank = sum mult^2 = 16
+s = 8: (multiplicity, degree) = [(1, 1), (1, 1839048), (1, 7532740608), (1, 68719476736), (2, 201301200), (2, 545261600), (2, 461921616)]; sum mult*degree = 78671025225; flags = 78671025225; rank = sum mult^2 = 16
+s = 32: (multiplicity, degree) = [(1, 1), (1, 33287044128), (1, 34903995583561728), (1, 1152921504606846976), (2, 228559842720000), (2, 563499709760000), (2, 369026873968896)]; sum mult*degree = 1190147706330350625; flags = 1190147706330350625; rank = sum mult^2 = 16
+s = 2 check against the 2F4(2) flag decomposition: linear [1, 78, 1248, 4096], dimension 2 [351, 650, 675]: True

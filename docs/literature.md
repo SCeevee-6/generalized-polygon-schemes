@@ -44,3 +44,6 @@ These are keyword searches. BCN (1989) and Van Maldeghem's book (1998) were not 
   - Buekenhout and Van Maldeghem, Remarks on finite generalized hexagons and octagons with a point-transitive automorphism group, in Finite Geometries and Combinatorics (1993) 89-102, doi 10.1017/cbo9780511526336.011. Not read.
   - Coolsaet and Van Maldeghem, J. Algebraic Combin. 12 (2000) 107-113, doi 10.1023/a:1026579608364: partial ovoids of GO(2,4) have at most 27 points.
   - Not found: a source for 'the distance-1,2,3 graph of GO(2,4) has exactly 2925 cliques of size 27' (now checked in `triple/line_cliques.py` and `triple/clique_certificate.py`, and proved for every finite GO of order (s,s^2) in `triple/max_nonopposite_proof.md`), and any explicit treatment of the 2F4(2)'-orbital configuration on the 8775 flags.
+
+- Full text of Chen-Makhnev-Klimin (2024) located at mathnas.ejournal.by/jour/article/view/9 (PDF download/9/9); downloaded 22 Nov 2026, argument not checked here.
+- Iwahori-Hecke algebra of type I2(8) with parameters (q^2, q): generic degrees computed in family/hecke_family.py; not yet compared with the published unipotent character degrees of 2F4(q^2).

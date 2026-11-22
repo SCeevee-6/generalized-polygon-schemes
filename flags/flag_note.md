@@ -106,3 +106,7 @@ a table, not a theorem.
 - sympy for the order of the flag stabiliser (2048) and for the exact Wedderburn computation.
 - The fusion enumeration is exact; it relies on the closure argument above (every fusion is the meet of the
   closures of its classes).
+
+## GAP check (22 Nov 2026)
+
+The GAP 4.15.1 runs in `gap_runs/2026-11-22` (flags_check.g, flags_pi.g, flags_decomp.g) give the same answer as this note: T on the 8775 flags has rank 18 with suborbit lengths 1, 2, 4, 8, 8, 16, 32, 64, 64, 128, 256, 512, 512, 1024, 1024, 1024, 2048, 2048, and the permutation character is X.1 + X.6 + 2·X.9 + X.12 + X.13 + 2·X.14 + 2·X.15 + X.21 + X.22 (degrees 1, 78, 351, 624, 624, 650, 675, 2048, 2048), with <π,π> = 18. The family version (rank 16 for 2F4(q), generic degrees in s) is in `family/family_note.md`.

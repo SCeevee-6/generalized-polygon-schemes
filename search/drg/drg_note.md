@@ -102,3 +102,8 @@ out (arXiv:2610.05420) are outside this census, which only has primitive arrays,
 The search over the primitive groups library gives no new distance-regular graph, as expected, and shows that
 16 arrays with no known graph and no known nonexistence proof can't have a vertex-primitive realisation. That is
 a table for a note, not a paper by itself.
+
+## Status check, 22 Nov 2026
+
+- Chen-Makhnev-Klimin, Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63: the full text (7 pages, Russian) is on mathnas.ejournal.by (article 9). Its abstract states that DRGs with intersection arrays {44,36,5;1,9,40}, {44,36,12;1,3,33} and {44,42,5;1,7,40} do not exist, with triple intersection numbers listed among the methods. The PDF has been downloaded but I have not checked the argument line by line, so the status entry still rests on the paper, not on a check here.
+- Two further web searches (array strings of the 16 arrays without status, Makhnev and co-authors 2024-2026) found no new results. Shi-Krotov-Sole (arXiv:2206.00031) is already cited here; it rules out only the elementary abelian Cayley case. The 16 arrays keep the status 'no vertex-primitive graph', with nothing known either way.
