@@ -1,0 +1,8 @@
+order 17971200
+lines through point 1: 5
+lines: 2925
+flags: 8775
+|Gf| 17971200
+rank 18
+suborbit lengths [ 1, 2, 4, 8, 8, 16, 32, 64, 64, 128, 256, 512, 512, 1024, 
+  1024, 1024, 2048, 2048 ]
