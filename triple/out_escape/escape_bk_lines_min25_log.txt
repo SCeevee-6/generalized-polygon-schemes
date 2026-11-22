@@ -1,0 +1,4 @@
+lines: 2925 vertices, 876 candidates through 0, 1755 line neighbourhoods of size 45
+maximal sets through 0 by size: {25: 128, 45: 27}; 65081 search nodes; 30 s
+escaping structure (degree multiset, central line full, max dist to it, projection counts):
+   (((0, 25),), False) 128 largest overlap with a line neighbourhood: {5: 128}

@@ -1,0 +1,25 @@
+{
+ "geom": "lines",
+ "gens": "gap:TF42G1-p1755B0",
+ "min": 25,
+ "counts": {
+  "25": 128,
+  "45": 27
+ },
+ "nodes": 65081,
+ "seconds": 30,
+ "in_line_nbhd_by_size": {
+  "45": 27
+ },
+ "escaping_by_size": {
+  "25": 128
+ },
+ "escaping_structure": {
+  "(((0, 25),), False)": 128
+ },
+ "max_overlap_with_a_line_nbhd": {
+  "(((0, 25),), False)": {
+   "5": 128
+  }
+ }
+}

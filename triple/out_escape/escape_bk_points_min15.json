@@ -1,0 +1,46 @@
+{
+ "geom": "points",
+ "gens": "gap:TF42G1-p1755B0",
+ "min": 15,
+ "counts": {
+  "15": 12800,
+  "27": 45
+ },
+ "nodes": 1262329,
+ "seconds": 24,
+ "in_line_nbhd_by_size": {
+  "27": 45
+ },
+ "escaping_by_size": {
+  "15": 12800
+ },
+ "escaping_structure": {
+  "(((0, 12), (2, 3)), True, 2, (0, 4, 8))": 9600,
+  "(((0, 12), (2, 3)), True, 2, (4, 4, 4))": 3200
+ },
+ "max_overlap_with_a_line_nbhd": {
+  "(((0, 12), (2, 3)), True, 2, (0, 4, 8))": {
+   "11": 9600
+  },
+  "(((0, 12), (2, 3)), True, 2, (4, 4, 4))": {
+   "7": 3200
+  }
+ },
+ "central_line": [
+  0,
+  72,
+  1018
+ ],
+ "sets_on_central_line": 512,
+ "stabiliser_orbits_on_them": [
+  64,
+  64,
+  384
+ ],
+ "lines_in_orbit": 2925,
+ "global_orbit_sizes": [
+  187200,
+  187200,
+  1123200
+ ]
+}

@@ -1,0 +1,45 @@
+k_i = [1, s*(t + 1), s**2*t*(t + 1), s**3*t**2*(t + 1), s**4*t**3]; v = (s + 1)*(s*t + 1)*(s**2*t**2 + 1); a_i = [0, s - 1, s - 1, s - 1, s*t + s - t - 1]
+[ok] v = (s+1)(st+1)(s^2t^2+1)
+[ok] k is an eigenvalue of A_1
+[ok] th1 is an eigenvalue of A_1
+[ok] th2 is an eigenvalue of A_1
+[ok] th3 is an eigenvalue of A_1
+[ok] th4 is an eigenvalue of A_1
+P_4 = {'k': s**4*t**3, 'th1': -s**2*t, 'th2': s**2*t, 'th3': -s**2*t, 'th4': t**3}
+[ok] P_4(k) = s^4 t^3
+[ok] P_4(th1) = -s^2 t
+[ok] P_4(th2) = s^2 t
+[ok] P_4(th3) = -s^2 t
+[ok] P_4(th4) = t^3
+least eigenvalue of A_4 is -s^2 t: t^3 > 0 and s^2 t > 0
+[ok] Hoffman bound v/(1 + s^4t^3/(s^2t)) = K
+[ok] |N[L]| = (s+1)(1+st) = K
+[ok] constant term k+(s-1)^2-2st = s^2-s+1-st
+[ok] (k-th1)(k-th3) = s^2t^2+1
+[ok] member: n2 - (s-1)a + coefI = 1
+[ok] member: 1 + a + n2 + n3 + 0 = K
+[ok] nonmember: m2 - (s-1)m + 0 = 1
+[ok] nonmember: m + m2 + m3 + s^2t = K
+[ok] c_M = s(s-a)
+[ok] all lines incomplete: (t+1)s(s-a) - n3 = -sta, so a = 0
+[ok] k-point: n2(k) = s^2 t
+[ok] k-point: n3(k) = 0
+[ok] s-point: n2(s) = st
+s-point case: d_y = [t]
+isolated z: c_w = [-d_N + d_w*s + s]
+[ok] c_w = s + s d_w - d_N
+[ok] c_y = s^2 (d_y = t, d_N = s(t-s+1))
+[ok] s + (s-1)t - s^2 = (s-1)(t-s)
+  so c_y >= s + (s-1)t contradicts c_y = s^2 iff t > s; n2(0) = s(t-s+1) < 0 iff t <= s-2; t = s-1 gives n2(z) = 0 but x is at distance 2 from z
+[ok] rhs - lhs = h(st - s^2 + 2 - h) - 1
+[ok] st - s^2 + 2 - (t+1) = (s-1)(t-s-1)
+  h >= t-s+2 >= 4, s >= 2, t-s-1 >= 1 give rhs - lhs >= 4*1*1 - 1 > 0
+[ok] standard sequence of -(t+1) is (-1/s)^i
+mult(-(t+1)) = s**4*(s*t + 1)*(s**2*t**2 + 1)/((s + t)*(s**2 + t**2))
+[ok] mult = s^4(st+1)(s^2t^2+1)/((s+t)(s^2+t^2))
+[ok] t = s + 1: s^2+t^2 = 2st+1
+[ok] t = s + 1: 4((st)^2+1) - 5 is divisible by 2st+1
+[ok] t = s - 1: s^2+t^2 = 2st+1
+[ok] t = s - 1: 4((st)^2+1) - 5 is divisible by 2st+1
+numeric: integral multiplicity for some |s-t|=1, 2 <= s <= 10000: 0 cases
+all checks passed

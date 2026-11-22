@@ -1,0 +1,15 @@
+{
+ "families_through_line_0": 128,
+ "orbit_size": 14976,
+ "orbit_through_0_equals_list": true,
+ "stab_line0_orbits_on_them": [
+  128
+ ],
+ "pairwise_distances_in_a_family": {
+  "3": 300
+ },
+ "order5_samples": 50,
+ "order5 (families fixed, lines fixed, fixed-point-free on its family)": {
+  "(1, 0, True)": 50
+ }
+}

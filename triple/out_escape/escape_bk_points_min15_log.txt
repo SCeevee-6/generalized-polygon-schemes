@@ -1,0 +1,6 @@
+points: 1755 vertices, 730 candidates through 0, 2925 line neighbourhoods of size 27
+maximal sets through 0 by size: {15: 12800, 27: 45}; 1262329 search nodes; 24 s
+escaping structure (degree multiset, central line full, max dist to it, projection counts):
+   (((0, 12), (2, 3)), True, 2, (0, 4, 8)) 9600 largest overlap with a line neighbourhood: {11: 9600}
+   (((0, 12), (2, 3)), True, 2, (4, 4, 4)) 3200 largest overlap with a line neighbourhood: {7: 3200}
+central line (0, 72, 1018): 512 escaping sets, Stab orbits [64, 64, 384], 2925 lines, global [187200, 187200, 1123200]

@@ -1,0 +1,1 @@
+{"line": [0, 72, 1018], "choices": 64, "checks_passed": {"one point per line": 64, "max escaping sizes seen": 12}, "max_extra_points_by_choice": {"12": 64}, "patterns_of_size_12": {"(0, 4, 8)": 1536, "(4, 4, 4)": 128}, "twin_class_sizes (X_i w.r.t. X_j)": {"(4, 4, 4, 4)": 384}, "twin class graph is a cycle": {"True": 384}, "distinct twin partitions per X(p,M)": {"2": 12}}
