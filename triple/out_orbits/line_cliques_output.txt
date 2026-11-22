@@ -1,0 +1,5 @@
+eigenvalues of A_4 (for A_1 = 10, 5, 1, -3, -5): ['1024', '-16', '16', '-16', '64']; ratio bound n(-l)/(k-l) = 27
+line neighbourhoods: 2925 of size 27, all cliques; 45 contain point 0
+candidates 730, opposite pairs among them 161280
+max clique through 0, no cuts: status OPTIMAL, size 27, bound 27, 2 s
+max clique through 0 avoiding the 45 line neighbourhoods: status OPTIMAL, size 26, bound 26, 2 s

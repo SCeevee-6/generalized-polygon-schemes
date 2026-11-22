@@ -23,6 +23,10 @@ abelian group?
 - Distance-regular Cayley graphs on Z_p^s + Z_p, on cyclic, dihedral and dicyclic groups are classified in other
   papers. I found no treatment of these 18 arrays on general abelian groups. Keyword searches only.
 
+Two of the 18 have since turned out to be settled in the literature: {44,36,5;1,9,40} (Chen-Makhnev-Klimin 2024)
+and {49,40,22;1,5,28} (Gavrilyuk-Vidali, arXiv:2611.02986); see `search/drg/drg_note.md`. The computations below
+cover all 18 and are left as they were.
+
 ## Method
 
 1. `krein_filter.py`: exact Krein parameters of the 18 arrays (`krein_filter.csv`).

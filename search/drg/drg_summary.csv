@@ -30,7 +30,7 @@ v,array,groups,unchecked,realising,status,source
 210,"{24,15,8,3;1,4,9,16}",2,0,1 2,exists (vertex-primitive),
 220,"{27,16,7;1,4,9}",3,0,1 2 3,exists (vertex-primitive),
 243,"{22,16,5;1,2,20}",2,0,,does not exist,Sumalroj-Worawannotai 2016 (sage-drg nonex.py)
-243,"{44,36,5;1,9,40}",2,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
+243,"{44,36,5;1,9,40}",2,0,,does not exist,"Chen-Makhnev-Klimin, Trudy Inst. Mat. (Minsk) = Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63 (abstract read: also rules out {44,36,12;1,3,33} and {44,42,5;1,7,40}; full text not read)"
 256,"{12,9,6,3;1,2,3,4}",68,0,7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74,exists (vertex-primitive),
 256,"{25,24,3;1,3,20}",15,0,,does not exist,"Zhurtov-Gerieva, Vladikavkaz Mat. Zh. 27:3 (2025) 60-67, doi 10.46698/e5951-0245-2570-i (abstract read)"
 256,"{36,21,10,3;1,6,15,28}",9,0,55 59 64 70 74 145 157 218 222,exists (vertex-primitive),
@@ -50,7 +50,7 @@ v,array,groups,unchecked,realising,status,source
 364,"{33,20,9;1,4,9}",2,0,6 7,exists (vertex-primitive),
 378,"{78,50,9;1,15,60}",3,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
 425,"{8,4,4,4;1,1,1,2}",1,0,1,exists (vertex-primitive),
-441,"{20,16,5;1,1,16}",4,0,,does not exist,"Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87; Discrete Math. Appl. 33:5 (2023) 273-281"
+441,"{20,16,5;1,1,16}",4,0,,does not exist,"Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87, doi 10.4213/dm1698; English: Discrete Math. Appl. 33:5 (2023) 273-281, doi 10.1515/dma-2023-0025 (the m = 3, n = 7 member of {mn-1,(m-1)(n+1),n-m+1;1,1,(m-1)(n+1)}; abstract read, full text not read)"
 455,"{36,22,10;1,4,9}",2,0,1 2,exists (vertex-primitive),
 456,"{14,7,7;1,1,2}",2,0,1 2,exists (vertex-primitive),
 462,"{30,20,12,6,2;1,4,9,16,25}",2,0,3 4,exists (vertex-primitive),
@@ -76,7 +76,7 @@ v,array,groups,unchecked,realising,status,source
 729,"{26,24,19;1,3,8}",4,0,,exists,"Brouwer graph Br(3), built in known_graphs.py; Aut of order 8188128, transitive, imprimitive with blocks of size 27 (GRAPE, aut_check.g)"
 729,"{56,42,20;1,6,28}",39,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
 729,"{80,63,11;1,9,70}",36,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
-750,"{49,40,22;1,5,28}",1,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue
+750,"{49,40,22;1,5,28}",1,0,,does not exist,"Gavrilyuk-Vidali, arXiv:2611.02986 (2 Nov 2026), Thm 2.6(a): Terwilliger polynomial plus integrality of local multiplicities; preprint, read"
 759,"{30,28,24;1,3,15}",1,0,1,exists (vertex-primitive),
 765,"{28,24,16;1,3,7}",2,0,1 2,exists (vertex-primitive),
 784,"{63,50,8;1,5,56}",1,0,,no vertex-primitive graph,not in the sage-drg nonexistence lists or the DistanceRegular.org catalogue

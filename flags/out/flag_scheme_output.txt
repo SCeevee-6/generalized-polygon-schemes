@@ -1,0 +1,63 @@
+points 1755, lines 2925, flags 8775
+flag stabiliser in T: order 2048 certified with 12 Schreier generators
+T on flags: rank 18, suborbit lengths [1, 2, 4, 8, 8, 16, 32, 64, 64, 128, 256, 512, 512, 1024, 1024, 1024, 2048, 2048], 2 s
+Weyl distance of the T-orbitals (cell size -> T-suborbit lengths):
+  e         len 0  |cell|     1  T-classes [0]  lengths [1]
+  s         len 1  |cell|     4  T-classes [2]  lengths [4]
+  st        len 2  |cell|     8  T-classes [3]  lengths [8]
+  sts       len 3  |cell|    32  T-classes [6]  lengths [32]
+  stst      len 4  |cell|    64  T-classes [7]  lengths [64]
+  ststs     len 5  |cell|   256  T-classes [10]  lengths [256]
+  ststst    len 6  |cell|   512  T-classes [12]  lengths [512]
+  stststs   len 7  |cell|  2048  T-classes [14, 15]  lengths [1024, 1024]
+  t         len 1  |cell|     2  T-classes [1]  lengths [2]
+  ts        len 2  |cell|     8  T-classes [4]  lengths [8]
+  tst       len 3  |cell|    16  T-classes [5]  lengths [16]
+  tsts      len 4  |cell|    64  T-classes [8]  lengths [64]
+  tstst     len 5  |cell|   128  T-classes [9]  lengths [128]
+  tststs    len 6  |cell|   512  T-classes [11]  lengths [512]
+  tststst   len 7  |cell|  1024  T-classes [13]  lengths [1024]
+  w0        len 8  |cell|  4096  T-classes [16, 17]  lengths [2048, 2048]
+T.2 on flags: rank 16; classes [(0,), (1,), (2,), (3,), (4,), (5,), (6,), (7,), (8,), (9,), (10,), (11,), (12,), (13,), (14, 15), (16, 17)]
+T.2-orbitals = Weyl-distance relations: True
+Weyl-distance scheme = Iwahori-Hecke algebra H(D16; q_s=4, q_t=2), all 4096 structure constants equal: True
+T flag algebra (rank 18): centre dimension 9; components (m_i, chi(1)): [(1, 1), (1, 78), (2, 351), (1, 624), (1, 624), (2, 650), (2, 675), (1, 2048), (1, 2048)]; sum m^2 = 18; sum m chi(1) = 8775
+  char poly of a generic central element factors over Q as [('x - 198921', 1, 1), ('x + 11784', 1, 1), ('x - 1698', 1, 4), ('x - 106', 1, 4), ('x + 1914', 1, 4), ('x**2 - 627*x + 9801', 2, 1), ('x**2 + 48*x - 306624', 2, 1)]
+2F4(2) flag algebra = Hecke algebra (rank 16): centre dimension 7; components (m_i, chi(1)): [(1, 1), (1, 78), (2, 351), (2, 650), (2, 675), (1, 1248), (1, 4096)]; sum m^2 = 16; sum m chi(1) = 8775
+  char poly of a generic central element factors over Q as [('x - 331817', 1, 1), ('x - 4232', 1, 1), ('x - 2', 1, 1), ('4*x + 1267', 1, 1), ('x - 962', 1, 4), ('x - 590', 1, 4), ('x + 294', 1, 4)]
+T flag algebra commutative: False; symmetric classes: 12 of 18
+fusions of the T flag configuration: 8 (including the configuration itself and the trivial one), 388 s
+  rank 18 comm False symm False valencies [1, 2, 4, 8, 8, 16, 32, 64, 64, 128, 256, 512, 512, 1024, 1024, 1024, 2048, 2048]
+  rank 16 comm False symm False valencies [1, 2, 4, 8, 8, 16, 32, 64, 64, 128, 256, 512, 512, 1024, 2048, 4096]
+  rank  7 comm True  symm True  valencies [1, 2, 36, 288, 2304, 3072, 3072]
+  rank  6 comm True  symm True  valencies [1, 2, 36, 288, 2304, 6144]
+  rank  6 comm True  symm True  valencies [1, 50, 4, 400, 3200, 5120]
+  rank  3 comm True  symm True  valencies [1, 8770, 4]
+  rank  3 comm True  symm True  valencies [1, 2, 8772]
+  rank  2 comm True  symm True  valencies [1, 8774]
+fusions of the 2F4(2) flag scheme (Hecke algebra): 6
+  rank 16 comm False symm False blocks [['e'], ['s'], ['st'], ['sts'], ['stst'], ['ststs'], ['ststst'], ['stststs'], ['t'], ['ts'], ['tst'], ['tsts'], ['tstst'], ['tststs'], ['tststst'], ['w0']]
+  rank  6 comm True  symm True  blocks [['e'], ['s'], ['st', 'sts', 't', 'ts'], ['stst', 'ststs', 'tst', 'tsts'], ['ststst', 'stststs', 'tstst', 'tststs'], ['tststst', 'w0']]
+  rank  6 comm True  symm True  blocks [['e'], ['s', 'st', 'ts', 'tst'], ['sts', 'stst', 'tsts', 'tstst'], ['ststs', 'ststst', 'tststs', 'tststst'], ['stststs', 'w0'], ['t']]
+  rank  3 comm True  symm True  blocks [['e'], ['s', 'st', 'sts', 'stst', 'ststs', 'ststst', 'stststs', 'ts', 'tst', 'tsts', 'tstst', 'tststs', 'tststst', 'w0'], ['t']]
+  rank  3 comm True  symm True  blocks [['e'], ['s'], ['st', 'sts', 'stst', 'ststs', 'ststst', 'stststs', 't', 'ts', 'tst', 'tsts', 'tstst', 'tststs', 'tststst', 'w0']]
+  rank  2 comm True  symm True  blocks [['e'], ['s', 'st', 'sts', 'stst', 'ststs', 'ststst', 'stststs', 't', 'ts', 'tst', 'tsts', 'tstst', 'tststs', 'tststst', 'w0']]
+orbital -> (Weyl distance, point distance, line distance in the dual octagon):
+  class  0 length     1 transpose  0  ('e', 0, 0)
+  class  1 length     2 transpose  1  ('t', 1, 0)
+  class  2 length     4 transpose  2  ('s', 0, 1)
+  class  3 length     8 transpose  4  ('st', 1, 1)
+  class  4 length     8 transpose  3  ('ts', 1, 1)
+  class  5 length    16 transpose  5  ('tst', 2, 1)
+  class  6 length    32 transpose  6  ('sts', 1, 2)
+  class  7 length    64 transpose  8  ('stst', 2, 2)
+  class  8 length    64 transpose  7  ('tsts', 2, 2)
+  class  9 length   128 transpose  9  ('tstst', 3, 2)
+  class 10 length   256 transpose 10  ('ststs', 2, 3)
+  class 11 length   512 transpose 12  ('tststs', 3, 3)
+  class 12 length   512 transpose 11  ('ststst', 3, 3)
+  class 13 length  1024 transpose 13  ('tststst', 4, 3)
+  class 14 length  1024 transpose 14  ('stststs', 3, 4)
+  class 15 length  1024 transpose 15  ('stststs', 3, 4)
+  class 16 length  2048 transpose 16  ('w0', 4, 4)
+  class 17 length  2048 transpose 17  ('w0', 4, 4)

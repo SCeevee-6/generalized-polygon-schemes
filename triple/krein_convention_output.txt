@@ -1,0 +1,6 @@
+1. line inner distribution: 1 + s*theta/k = 0  <=>  theta = [-t - 1]
+2. theta = -(t+1): sum_l k_l u_l^3 = (s - 1)*(s + 1)*(s**2 - t)*(s**4 + t**2)/s**8
+   multiplicity of -(t+1): s**4*(s*t + 1)*(s**2*t**2 + 1)/((s + t)*(s**2 + t**2)) ; at (2,4): 78
+3. (2,4): eigenvalues [10, 5, 1, -3, -5] multiplicities [1, 351, 650, 675, 78]
+   vanishing q^h_ij (i<=j, i,j,h != 0) in this ordering: [(4, 4, 4)]
+   so Bamberg-Lansdown q^2_22 (E_2 = eigenspace of -(t+1)) is q^4_44 here (eigenvalue -5, multiplicity 78 )

@@ -1,0 +1,8 @@
+t = s^2 : eigenvalues of A_4: [s**10, -s**4, s**4, -s**4, s**6]
+  s = 2: A_4 spectrum [1024, -16, 16, -16, 64]; ratio bound 27; (s+1)(st+1) = 27
+  s = 8: A_4 spectrum [1073741824, -4096, 4096, -4096, 262144]; ratio bound 4617; (s+1)(st+1) = 4617
+  s = 32: A_4 spectrum [1125899906842624, -1048576, 1048576, -1048576, 1073741824]; ratio bound 1081377; (s+1)(st+1) = 1081377
+  s = 128: A_4 spectrum [1180591620717411303424, -268435456, 268435456, -268435456, 4398046511104]; ratio bound 270532737; (s+1)(st+1) = 270532737
+  ratio bound if l_min = eigenvalue #1: (s + 1)**2*(s**2 - s + 1)
+  ratio bound if l_min = eigenvalue #3: (s + 1)**2*(s**2 - s + 1)
+  ratio bound if l_min = eigenvalue #4: -(s + 1)*(s**2 - s + 1)*(s**4 - s**2 + 1)/(s - 1)

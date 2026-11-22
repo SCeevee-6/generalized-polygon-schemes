@@ -44,16 +44,21 @@ catalogue, and the other ten are J(10,4), the thin octagon GO(4,1), the thin hex
 GH(9,1), the hexagon GH(2,8), H(5,4), the thin dodecagon of order (3,1), GO(2,4) and GO(4,2). So no new graph.
 
 For the other 31 arrays no primitive group of degree v carries a graph with that array. So if a graph with
-one of these arrays exists, its automorphism group is not primitive on vertices. Status of the 31
-(`array_status.csv` has the sources):
+one of these arrays exists, its automorphism group is not primitive on vertices: it is either intransitive, or
+transitive with a system of imprimitivity. Both are possible for distance-regular graphs in general; a DRG
+does not have to be vertex-transitive (the twisted Grassmann graphs of van Dam and Koolen have the parameters
+of Grassmann graphs and are not vertex-transitive, Fujisaki-Koolen-Tagami, Innov. Incidence Geom. 3 (2006)
+81-87). Status of the 31 (`array_status.csv` has the sources):
 
-- does not exist (9): {13,10,7;1,2,7}, {22,16,5;1,2,20}, {36,28,4;1,2,24}, {55,36,11;1,4,45},
+- does not exist (11): {13,10,7;1,2,7}, {22,16,5;1,2,20}, {36,28,4;1,2,24}, {55,36,11;1,4,45},
   {104,66,8;1,12,88}, {119,96,18;1,16,102} (all in the nonexistence lists of Vidali's sage-drg),
   {25,24,3;1,3,20} (Zhurtov-Gerieva 2025), {42,30,12;1,6,28} (Belousov-Makhnev 2018) and {20,16,5;1,1,16}
   (Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87, English version Discrete Math. Appl. 33:5 (2023)
   273-281; the paper treats the family {mn-1,(m-1)(n+1),n-m+1;1,1,(m-1)(n+1)} and also rules out
   {39,36,4;1,1,36} and {90,84,7;1,1,84}, which are not in this census. A search for the exact array misses it
-  because the array only appears inside the paper);
+  because the array only appears inside the paper), {44,36,5;1,9,40} (Chen-Makhnev-Klimin, Proc. Inst. Math.
+  NAS Belarus 32:1 (2024) 57-63; abstract read) and {49,40,22;1,5,28} (Gavrilyuk-Vidali, arXiv:2611.02986,
+  Thm 2.6(a), posted 2 Nov 2026);
 - does not exist if Koval's October 2026 preprint holds (1): {39,30,4;1,5,36};
 - exists (3), each with an imprimitive automorphism group, as the search says it must be:
   - {33,30,15;1,2,15}, the Shi-Krotov-Sole graph (Des. Codes Cryptogr. 87 (2019)); its group has order 55296
@@ -64,16 +69,24 @@ one of these arrays exists, its automorphism group is not primitive on vertices.
   The last two are built in `known_graphs.py`, which checks the array exactly at every vertex, and
   `aut_check.g` (GRAPE) gives |Aut| = 8188128 with blocks of size 27 for Br(3) and |Aut| = 158720 with
   blocks of size 32 for the coset graphs (`known_graphs_output.txt`);
-- no status found (18): {18,14,5;1,2,14}, {44,36,5;1,9,40}, {27,16,9;1,3,12}, {48,35,9;1,7,40},
+- no status found (16): {18,14,5;1,2,14}, {27,16,9;1,3,12}, {48,35,9;1,7,40},
   {42,32,9;1,6,24}, {78,50,9;1,15,60}, {39,32,16;1,4,24}, {32,28,9;1,2,28}, {52,42,16;1,6,28},
-  {56,42,20;1,6,28}, {80,63,11;1,9,70}, {49,40,22;1,5,28}, {63,50,8;1,5,56}, {21,20,10;1,1,12},
+  {56,42,20;1,6,28}, {80,63,11;1,9,70}, {63,50,8;1,5,56}, {21,20,10;1,1,12},
   {40,33,19;1,3,22}, {54,42,11;1,3,44}, {63,48,24;1,6,28}, {99,80,12;1,10,88}.
 
-For those 18 I know of no graph and no nonexistence proof. Some have partial results: automorphisms of a
+For those 16 I know of no graph and no nonexistence proof. Some have partial results: automorphisms of a
 graph with {48,35,9;1,7,40} were studied by Makhnev, Bitkina and Gutnova (Vladikavkaz Mat. Zh. 22:2 (2020)),
 and arXiv:2206.00031 shows that several of these arrays can't come from a coset graph of a linear completely
-regular code. The new restriction here is that none of the 18 can have a vertex-primitive group. The three
+regular code. The new restriction here is that none of the 16 can have a vertex-primitive group. The three
 existing graphs above, which the search correctly misses, are the only test of that statement I have.
+
+Status check of 22 Nov 2026. The 18 arrays of the first version were 'no status found' after keyword searches;
+two of them turned out to be settled: {44,36,5;1,9,40} by Chen, Makhnev and Klimin (2024; the earlier keyword
+searches missed it) and {49,40,22;1,5,28} by Gavrilyuk and Vidali
+(2026). For the other 16 a Crossref and OpenAlex search on each array string found only the automorphism
+papers on {48,35,9;1,7,40} mentioned above and a paper that lists {18,14,5;1,2,14} without a result
+(Efimov-Makhnev, Ural Math. J. 2020). The four antipodal diameter-4 arrays that Cesarz and Williford rule
+out (arXiv:2610.05420) are outside this census, which only has primitive arrays, so they don't overlap.
 
 ## What rests on what
 
@@ -87,5 +100,5 @@ existing graphs above, which the search correctly misses, are the only test of t
 ## Summary
 
 The search over the primitive groups library gives no new distance-regular graph, as expected, and shows that
-18 arrays with no known graph and no known nonexistence proof can't have a vertex-primitive realisation. That is
+16 arrays with no known graph and no known nonexistence proof can't have a vertex-primitive realisation. That is
 a table for a note, not a paper by itself.
