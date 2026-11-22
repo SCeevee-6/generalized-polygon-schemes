@@ -1,0 +1,39 @@
+k_i = [1, s*(s**2 + 1), s**4*(s**2 + 1), s**7*(s**2 + 1), s**10]; v = (s + 1)**2*(s**2 + 1)*(s**2 - s + 1)*(s**4 - s**2 + 1); a_i = [0, s - 1, s - 1, s - 1, s**3 - s**2 + s - 1]
+[ok] v = (1+s)(1+s^3)(1+s^6)
+[ok] k is an eigenvalue of A_1
+[ok] th1 is an eigenvalue of A_1
+[ok] th2 is an eigenvalue of A_1
+[ok] th3 is an eigenvalue of A_1
+[ok] th4 is an eigenvalue of A_1
+P_4 = {'k': s**10, 'th1': -s**4, 'th2': s**4, 'th3': -s**4, 'th4': s**6}
+[ok] P_4(k) = s^10
+[ok] P_4(th1) = -s^4
+[ok] P_4(th2) = s^4
+[ok] P_4(th3) = -s^4
+[ok] P_4(th4) = s^6
+ratio bound K = (s + 1)**2*(s**2 - s + 1)
+[ok] K = (s+1)(s^3+1)
+[ok] line neighbourhood size (s+1)(1 + s t) = K
+[ok] operator = A2 - (s-1)A1 - (s-1)(s^2+1) I: A1 coefficient
+[ok] operator = A2 - (s-1)A1 - (s-1)(s^2+1) I: I coefficient
+[ok] operator on the constant part (K/v)(k2 - (s-1)k - (s-1)(s^2+1)) = 1
+[ok] n2 = (s-1)a + s^3 - s^2 + s
+[ok] n3 = s^4 + s^2 - s a
+[ok] m3 = s^3 + s - s m
+[ok] Lemma A: c_M = s(s - a)
+[ok] Lemma B (f = 0): (t+1) c_M - n3 = -s^3 a
+[ok] Case I: n2(k) = s^4
+[ok] Case I: n3(k) = 0
+[ok] Case I: s^4 / (k - s) = s
+Case II: d_y(x) = [s**2]
+[ok] Case II: m3(y) = 0 for m1 = s^2 + 1
+[ok] Lemma D: c_w = s + s d_w - d_N
+[ok] Lemma D from m2 gives the same c_w
+[ok] Case II: c_y(z) = s^2
+Case II: lower bound minus value = s*(s - 1)**2  (positive for s >= 2)
+[ok] Case II gap = s(s-1)^2
+[ok] Case III: g = k(s^3 - s^2 + 2 - k) - 1
+Case III: g(s^2-s+2) = s**5 - 3*s**4 + 5*s**3 - 5*s**2 + 2*s - 1, g(s^2+1) = s**5 - 2*s**4 + s**3 - s**2; g is concave in k
+[ok] Case III: g(lo) at s -> s+2 has positive coefficients: s**5 + 7*s**4 + 21*s**3 + 33*s**2 + 26*s + 7
+[ok] Case III: g(hi) at s -> s+2 has positive coefficients: s**5 + 8*s**4 + 25*s**3 + 37*s**2 + 24*s + 4
+s = 2: {'K': 27, 'n2': a + 6, 'n3': 20 - 2*a, 'm3': 10 - 2*m, 'c_M': 4 - 2*a, 'P4': [1024, -16, 16, -16, 64]}

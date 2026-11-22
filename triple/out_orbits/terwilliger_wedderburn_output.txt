@@ -1,0 +1,51 @@
+H = 2F4(2)_x: 258 orbits on ordered pairs (5 diagonal) (21 s)
+T(x): dimension 174 inside the 258-dimensional centraliser algebra; closed under left mult. by A, E*_i: True (39 s)
+centre of T(x): dimension 15
+T(x): centre of dimension 15; a central element with squarefree char. polynomial on the centre found (attempt 1); Q-irreducible factors of degrees [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+T(x): mod-p ranks of the block ideals sum to 174 (dimension 174); each mod-p rank is at most the rank over Q, so equality of the sums makes every block dimension exact
+T(x)-irreducible modules W (deg = number of Galois-conjugate components; d = dim W; m = multiplicity in C^1755):
+  deg  d   m  endpt dual_endpt diam dual_diam thin dual_thin  dim E*_iW          dim E_jW
+    1  5   1      0          0    4         4 True  True      [1, 1, 1, 1, 1] [1, 1, 1, 1, 1]
+    1  3   4      1          1    2         2 True  True      [0, 1, 1, 1, 0] [0, 1, 1, 1, 0]
+    1  4   5      1          1    3         3 True  True      [0, 1, 1, 1, 1] [0, 1, 1, 1, 1]
+    1  3  30      2          1    2         2 True  True      [0, 0, 1, 1, 1] [0, 1, 1, 1, 0]
+    1  7  40      2          1    2         3 False False     [0, 0, 1, 3, 3] [0, 2, 2, 2, 1]
+    1  2  10      3          1    1         2 True  True      [0, 0, 0, 1, 1] [0, 1, 0, 1, 0]
+    1  2  40      3          1    1         2 True  True      [0, 0, 0, 1, 1] [0, 1, 0, 1, 0]
+    1  3  20      3          1    1         2 False True      [0, 0, 0, 1, 2] [0, 1, 1, 1, 0]
+    1  4  32      3          1    1         3 False True      [0, 0, 0, 1, 3] [0, 1, 1, 1, 1]
+    1  5 128      3          1    1         2 False False     [0, 0, 0, 2, 3] [0, 1, 2, 2, 0]
+    1  1  42      3          2    0         0 True  True      [0, 0, 0, 1, 0] [0, 0, 1, 0, 0]
+    1  2  80      3          2    1         1 True  True      [0, 0, 0, 1, 1] [0, 0, 1, 1, 0]
+    1  1   1      4          1    0         0 True  True      [0, 0, 0, 0, 1] [0, 1, 0, 0, 0]
+    1  1 100      4          2    0         0 True  True      [0, 0, 0, 0, 1] [0, 0, 1, 0, 0]
+    1  1 117      4          3    0         0 True  True      [0, 0, 0, 0, 1] [0, 0, 0, 1, 0]
+checks: sum deg*d^2 = 174, sum deg*d*m = 1755; all thin: False; all dual thin: False
+centre of C: dimension 26 (each basis element commutes with all 258 orbit matrices, exact: True)
+C: centre of dimension 26; a central element with squarefree char. polynomial on the centre found (attempt 1); Q-irreducible factors of degrees [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2]
+C: mod-p block ranks sum to 258 (dimension 258)
+C = End_H(C^1755): simple components (deg, m_rho = dim of simple C-module, n_rho = dim of the H-irreducible):
+  (1,1,1), (1,1,5), (1,1,10), (2,1,10), (2,1,16), (2,1,16), (1,2,10), (1,2,40), (1,2,40), (1,2,40), (1,3,4), (1,3,10), (2,3,10), (1,3,20), (1,4,5), (2,4,16), (1,4,40), (1,5,1), (2,5,64), (1,7,40)
+checks: sum deg*m^2 = 258, sum deg*m*n = 1755
+restriction of simple C-modules to T(x): K[rho, W] = trace_V(e_rho e_W) / (n_rho d_W), summed over Galois conjugates; columns are the T(x)-modules in the order of the table above:
+  rho (deg 1, m=1, n=1): 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+  rho (deg 1, m=1, n=5): 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+  rho (deg 1, m=1, n=10): 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+  rho (deg 2, m=1, n=10): 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0
+  rho (deg 2, m=1, n=16): 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2
+  rho (deg 2, m=1, n=16): 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0
+  rho (deg 1, m=2, n=10): 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+  rho (deg 1, m=2, n=40): 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+  rho (deg 1, m=2, n=40): 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
+  rho (deg 1, m=2, n=40): 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+  rho (deg 1, m=3, n=4): 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+  rho (deg 1, m=3, n=10): 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+  rho (deg 2, m=3, n=10): 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+  rho (deg 1, m=3, n=20): 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+  rho (deg 1, m=4, n=5): 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+  rho (deg 2, m=4, n=16): 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0
+  rho (deg 1, m=4, n=40): 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1
+  rho (deg 1, m=5, n=1): 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+  rho (deg 2, m=5, n=64): 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0
+  rho (deg 1, m=7, n=40): 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+total 464 s

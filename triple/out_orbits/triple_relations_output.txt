@@ -1,0 +1,19 @@
+   proved for every GO(2,4): {'113': 0, '122': 0, '212': 0, '231': 0, '232': 0, '321': 0, '322': 0}; with these added the LP free dimension drops by 7; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: [113]=0, [122]=0, [212]=0, [231]=0, [232]=0, [321]=0, [322]=0; they account for 7 of the 15 relations
+type (2, 3, 3): 54 unknowns, LP rank 37, free dim 17 (free vars ['133', '212', '213', '221', '222', '223', '231', '232', '233', '312', '313', '321', '322', '323', '331', '332', '333']); 6 T-orbits, 4 distinct vectors, affine span 2; relations 15 (checked on all orbits); max |coeff| 4; free vars with all indices <= 3: 17 of 17
+   proved for every GO(2,4): {'123': 0, '222': 0, '313': 4}; with these added the LP free dimension drops by 3; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: [123]=0, [222]=0, [313]=4, [332]=16; they account for 4 of the 12 relations
+type (2, 3, 4): 48 unknowns, LP rank 35, free dim 13 (free vars ['133', '213', '222', '223', '231', '232', '233', '313', '322', '323', '331', '332', '333']); 3 T-orbits, 2 distinct vectors, affine span 1; relations 12 (checked on all orbits); max |coeff| 3; free vars with all indices <= 3: 13 of 13
+   proved for every GO(2,4): {'133': 4, '313': 4}; with these added the LP free dimension drops by 2; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: [133]=4, [313]=4; they account for 2 of the 9 relations
+type (2, 4, 4): 44 unknowns, LP rank 33, free dim 11 (free vars ['213', '222', '223', '232', '233', '313', '322', '323', '331', '332', '333']); 8 T-orbits, 4 distinct vectors, affine span 2; relations 9 (checked on all orbits); max |coeff| 6; free vars with all indices <= 3: 11 of 11
+   proved for every GO(2,4): {'222': 0}; with these added the LP free dimension drops by 1; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: [222]=0; they account for 1 of the 14 relations
+type (3, 3, 3): 57 unknowns, LP rank 38, free dim 19 (free vars ['123', '132', '133', '212', '213', '221', '222', '223', '231', '232', '233', '312', '313', '321', '322', '323', '331', '332', '333']); 18 T-orbits, 6 distinct vectors, affine span 5; relations 14 (checked on all orbits); max |coeff| 50; free vars with all indices <= 3: 19 of 19
+   proved for every GO(2,4): {'222': 0}; with these added the LP free dimension drops by 1; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: [222]=0; they account for 1 of the 7 relations
+type (3, 3, 4): 51 unknowns, LP rank 36, free dim 15 (free vars ['123', '132', '133', '213', '222', '223', '231', '232', '233', '313', '322', '323', '331', '332', '333']); 28 T-orbits, 14 distinct vectors, affine span 8; relations 7 (checked on all orbits); max |coeff| 8; free vars with all indices <= 3: 15 of 15
+   proved for every GO(2,4): {}; with these added the LP free dimension drops by 0; other observed constants implied by them: []
+   constant over all orbits and not fixed by the LP: ; they account for 0 of the 3 relations
+type (3, 4, 4): 46 unknowns, LP rank 34, free dim 12 (free vars ['133', '213', '222', '223', '232', '233', '313', '322', '323', '331', '332', '333']); 40 T-orbits, 18 distinct vectors, affine span 9; relations 3 (checked on all orbits); max |coeff| 7; free vars with all indices <= 3: 12 of 12
+total relations: 60; accounted for by constants proved for every GO(2,4): 14 {(2, 3, 3): 7, (2, 3, 4): 3, (2, 4, 4): 2, (3, 3, 3): 1, (3, 3, 4): 1, (3, 4, 4): 0}

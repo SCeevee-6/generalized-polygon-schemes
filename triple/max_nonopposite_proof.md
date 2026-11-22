@@ -1,84 +1,131 @@
-# Maximum sets of pairwise non-opposite points in a generalized octagon of order (2,4)
+# Maximum sets of pairwise non-opposite points in generalized octagons of order (s, s²)
 
-Status: **new** as far as I can tell (I haven't found it in the EKR-for-buildings literature I've read so far, which deals with polar spaces, projective spaces and flags). Hand proof, not refereed. Every lemma below has been checked numerically on the Ree-Tits octagon (`max_set_checks.py`), and the end result for the Ree-Tits octagon has been checked by two independent clique searches (`line_cliques.py` with CP-SAT, `clique_certificate.py` with igraph/Cliquer and a separate branch and bound). The proof itself uses only the octagon axioms and the parameters (s,t) = (2,4), so it applies to **any** GO(2,4), not just the Ree-Tits one.
+Status: **new** as far as I can tell. I haven't found it in the EKR-for-buildings literature I've read so far, which deals with polar spaces, projective spaces and flags; a proper literature check is still to be done. Hand proof, not refereed.
 
-**Theorem.** Let S be a finite generalized octagon of order (2,4) and let C be a set of points, no two of them opposite. Then |C| ≤ 27, and |C| = 27 if and only if C is the set of points at distance at most 1 from some line L (the three points of L and the 24 points collinear with one of them). L is unique.
+Checks:
+- `max_set_general_checks.py` (sympy) verifies every identity and inequality below as an exact statement in s.
+- `max_set_checks.py` checks each lemma numerically on the Ree-Tits octagon O(2) (order (2,4)), on all 2925 line neighbourhoods.
+- For O(2) the end result is also confirmed by three independent clique searches (`line_cliques.py` with CP-SAT, `clique_certificate.py` with igraph/Cliquer and a separate branch and bound).
+
+The proof uses only the octagon axioms and the order (s, s²), so it applies to every finite generalized octagon of that order, not only the Ree-Tits octagons (s = 2^(2e+1)). The numbers in brackets are the values for s = 2.
+
+**Theorem.** Let S be a finite generalized octagon of order (s, s²) with s ≥ 2, and let C be a set of points, no two of them opposite. Then |C| ≤ (s+1)(s³+1) [27]. Equality holds if and only if C is the set of points at distance at most 1 from some line L (the s+1 points of L and the (s+1)s³ points collinear with one of them). L is unique.
 
 ## Setup
 
-Distances are in the collinearity graph, so they run from 0 to 4 and "opposite" means distance 4. The graph is distance-regular with intersection array {10,8,8,8; 1,1,1,5}, v = 1755, k_i = 1, 10, 80, 640, 1024, a_1 = a_2 = a_3 = 1. A_i is the distance-i matrix. The eigenvalues of A_1 are 10, 5, 1, −3, −5, and A_4 = P_4(A_1) takes the values
+Write t = s². Distances are in the collinearity graph, so they run from 0 to 4 and "opposite" means distance 4. The graph is distance-regular with intersection array {s(t+1), st, st, st; 1, 1, 1, t+1}, so
 
-| θ | 10 | 5 | 1 | −3 | −5 |
+- k = s(s²+1) [10] and k_4 = s^10 [1024];
+- a_1 = a_2 = a_3 = s − 1;
+- v = (1+s)(1+s³)(1+s⁶) [1755].
+
+A_i is the distance-i matrix. The eigenvalues of A_1 are k, θ_1 = s−1+√(2s³), θ_2 = s−1, θ_3 = s−1−√(2s³), θ_4 = −(s²+1) [10, 5, 1, −3, −5], and A_4 = P_4(A_1) takes the values
+
+| θ | k | θ_1 | θ_2 | θ_3 | θ_4 |
 |---|---|---|---|---|---|
-| P_4(θ) | 1024 | −16 | 16 | −16 | 64 |
+| P_4(θ) | s^10 | −s⁴ | s⁴ | −s⁴ | s⁶ |
 
-(exact, printed by `max_set_checks.py`). Two facts about generalized octagons are used throughout:
+Two facts about generalized octagons are used throughout:
 
-* (G1) A path x_0 ∼ x_1 ∼ … ∼ x_r with r ≤ 4 in which consecutive steps use different lines is a geodesic, so d(x_0, x_r) = r. (It is a non-backtracking path of length 2r ≤ 8 in the incidence graph, which has girth 16.)
-* (G2) If d(x,z) ≤ 3 the geodesic from x to z is unique. For a line M on x, say z is *behind M* (from x) if that geodesic starts along M.
+* (G1) Let x_0 ∼ x_1 ∼ … ∼ x_r be a path with r ≤ 4 in which consecutive steps use different lines. Then it is a geodesic, so d(x_0, x_r) = r. (It is a non-backtracking path of length 2r ≤ 8 in the incidence graph, which has girth 16.)
+* (G2) If d(x,z) ≤ 3, the geodesic from x to z is unique. For a line M on x, z is *behind M* (from x) if that geodesic starts along M.
 
-For x ∈ C write n_i(x) = |C ∩ Γ_i(x)| and a(x) = n_1(x). For y ∉ C write m_i(y) = |C ∩ Γ_i(y)|. For x ∈ C and a line M on x write d_M(x), c_M(x) for the number of points of C at distance 2, resp. 3, from x behind M, and for a point y ∈ M \ {x} write d_y(x), c_y(x) for those whose geodesic from x passes through y.
+Notation:
+- For x ∈ C write n_i(x) = |C ∩ Γ_i(x)| and a(x) = n_1(x).
+- For y ∉ C write m_i(y) = |C ∩ Γ_i(y)|.
+- For x ∈ C and a line M on x, d_M(x) and c_M(x) are the numbers of points of C at distance 2, resp. 3, from x behind M.
+- For y ∈ M \ {x}, d_y(x) and c_y(x) count the points among those whose geodesic from x passes through y.
+
+Put K = (s+1)(s³+1).
 
 ## Step 1: the ratio bound and what equality gives
 
-C is a coclique of the opposition graph Γ_4, which is 1024-regular with least eigenvalue −16, so |C| ≤ 1755·16/(1024+16) = 27. If |C| = 27, equality in the ratio bound puts 1_C − (27/1755)·1 in the −16-eigenspace of A_4, which by the table is the sum of the A_1-eigenspaces for θ = 5 and θ = −3. So
+C is a coclique of the opposition graph Γ_4. That graph is s^10-regular with least eigenvalue −s⁴, so |C| ≤ v s⁴/(s^10 + s⁴) = K. Now suppose |C| = K.
 
-* A_4 1_C = 16(1 − 1_C), and
-* (A_1 − 5I)(A_1 + 3I) 1_C is a multiple of 1. Using A_1² = 10I + A_1 + A_2 this operator is A_2 − A_1 − 5I, and applying it to the constant part gives (27/1755)(80 − 10 − 5) = 1. So (A_2 − A_1 − 5I) 1_C = 1.
+Equality in the ratio bound puts 1_C − (K/v)·1 in the −s⁴-eigenspace of A_4. By the table, that eigenspace is the sum of the A_1-eigenspaces for θ_1 and θ_3. So:
 
-Reading these off at a point (together with n_0 + … + n_4 = 27):
+* A_4 1_C = s⁴(1 − 1_C).
+* (A_1 − θ_1)(A_1 − θ_3) 1_C is a multiple of 1. Using A_1² = kI + (s−1)A_1 + A_2, this operator is A_2 − (s−1)A_1 − (s−1)(s²+1)I [A_2 − A_1 − 5I]. On the constant part it gives (K/v)(k_2 − (s−1)k − (s−1)(s²+1)) = 1, so (A_2 − (s−1)A_1 − (s−1)(s²+1)I) 1_C = 1.
 
-* for x ∈ C: (n_1, n_2, n_3, n_4) = (a, a + 6, 20 − 2a, 0);
-* for y ∉ C: (m_1, m_2, m_3, m_4) = (m, m + 1, 10 − 2m, 16), so in particular m_1(y) ≤ 5.
+Reading these off at a point, together with n_0 + … + n_4 = K:
+
+* for x ∈ C: n_2 = (s−1)a + s³ − s² + s [a + 6], n_3 = s⁴ + s² − s·a [20 − 2a], n_4 = 0;
+* for y ∉ C: m_2 = (s−1)m_1 + 1 [m_1 + 1], m_3 = s³ + s − s·m_1 [10 − 2m_1], m_4 = s⁴ [16]. In particular m_1(y) ≤ s² + 1.
 
 ## Step 2: local lemmas
 
-**Lemma A.** Let x ∈ C, let M be a line on x that is not contained in C, and let y ∈ M \ C. Then c_M(x) = 4 − 2a(x).
+**Lemma A.** Let x ∈ C, let M be a line on x that is not contained in C, and let y ∈ M \ C. Then c_M(x) = s(s − a(x)) [4 − 2a].
 
-*Proof.* Take z ∈ C. If d(x,z) ≤ 2, or d(x,z) = 3 and z is behind M, then d(y,z) ≤ 3. If d(x,z) = 3 and z is not behind M, the path y, x, … , z is non-backtracking of length 4, so d(y,z) = 4 by (G1). Since C ∩ Γ_4(x) = ∅, this gives m_4(y) = n_3(x) − c_M(x), i.e. 16 = 20 − 2a(x) − c_M(x). ∎
+*Proof.* Take z ∈ C.
+- If d(x,z) ≤ 2, or d(x,z) = 3 and z is behind M, then d(y,z) ≤ 3.
+- If d(x,z) = 3 and z is not behind M, the path y, x, … , z is non-backtracking of length 4, so d(y,z) = 4 by (G1).
 
-**Lemma B.** For x ∈ C, a(x) ∈ {0, 2, 10}. If a(x) = 2, exactly one line on x lies in C and the other four lines on x meet C only in x. If a(x) = 10, all five lines on x lie in C.
+Since C ∩ Γ_4(x) = ∅, m_4(y) = n_3(x) − c_M(x), i.e. s⁴ = s⁴ + s² − s·a(x) − c_M(x). ∎
 
-*Proof.* Let f be the number of lines on x inside C and p the number that meet C in exactly two points, so a = 2f + p. If some line on x is not inside C, Lemma A gives c_M = 4 − 2a ≥ 0 for it, so a ≤ 2. Hence a ≥ 3 forces f = 5, a = 10. If a = 1, all five lines are not inside C and Σ_M c_M = 5·2 = 10 ≠ 18 = n_3. If a = 2 and f = 0, then Σ_M c_M = 0 ≠ 16 = n_3. ∎
+**Lemma B.** For x ∈ C, a(x) ∈ {0, s, k}.
+- If a(x) = s, exactly one line on x lies in C, and the other lines on x meet C only in x.
+- If a(x) = k, all lines on x lie in C.
 
-So if no point of C has a = 10, every collinear pair in C lies on a line contained in C, and every line through a point y ∉ C carries at most one point of C.
+*Proof.* Let f be the number of lines on x inside C. Every other line M on x has r_M = |M ∩ C| − 1 ∈ [0, s−1], and a = s·f + Σ r_M.
+- If some line on x is not inside C, Lemma A gives s(s − a) ≥ 0, so a ≤ s. Hence a > s forces every line on x into C, and a = k.
+- If f ≥ 1 and some line is not inside C, then a ≥ s and a ≤ s, so a = s, f = 1 and every r_M = 0.
+- If f = 0, Lemma A applies to all t+1 lines, and Σ_M c_M = n_3 reads (s²+1)·s(s − a) = s⁴ + s² − s·a, i.e. s³a = 0. ∎
 
-**Lemma C.** Let x ∈ C. If two points z, z' of C are at distance 2 from x and behind different lines on x, then z and z' are opposite. Hence, when a(x) ≤ 2 and the points of C collinear with x have a ≠ 10, all points of C ∩ Γ_2(x) are behind one line on x.
+So if no point of C has a = k, every collinear pair in C lies on a line contained in C. It follows that every line through a point y ∉ C carries at most one point of C.
 
-*Proof.* z, y, x, y', z' is non-backtracking of length 4 (z is not on xy because d(x,z) = 2), so d(z,z') = 4 by (G1). For the second sentence: a point of C at distance 2 from x behind a line inside C would be collinear with a point p of that line off the line, giving p two lines meeting C, so a(p) = 10 by Lemma B. ∎
+**Lemma C.** Let x ∈ C. If two points z, z' of C are at distance 2 from x and behind different lines on x, then z and z' are opposite. Hence, if a(x) ≤ s and no point of C collinear with x has a = k, all points of C ∩ Γ_2(x) are behind one line on x.
 
-**Lemma D.** Let x ∈ C with a(x) = 0, let M be a line on x and y, y' its other points (both outside C). Then m_1(y) = 1 + d_y(x) and c_y(x) = 2 + d_y(x) − d_{y'}(x).
+*Proof.* z, y, x, y', z' is non-backtracking of length 4 (z is not on xy because d(x,z) = 2), so d(z,z') = 4 by (G1).
 
-*Proof.* The points of C collinear with y are x and the d_y(x) points at distance 2 from x through y. Points of C at distance 3 from y: those at distance 2 from x not behind M, and those at distance 3 from x through y'. So m_3(y) = (6 − d_M(x)) + c_{y'}(x). Put this into m_3(y) = 10 − 2m_1(y) and swap y and y'. ∎
+For the second sentence, suppose a point z of C at distance 2 from x lies behind a line inside C, through a point p of that line. Then z is collinear with p off the line, so two lines on p meet C in at least two points. Then a(p) > s, so a(p) = k by Lemma B. ∎
+
+**Lemma D.** Let z ∈ C with a(z) = 0, let N be a line on z, and let w ∈ N \ {z} (all points of N \ {z} are outside C). Then m_1(w) = 1 + d_w(z) and c_w(z) = s + s·d_w(z) − d_N(z) [2 + d_w − d_{w'}].
+
+*Proof.* The points of C collinear with w are z and the d_w(z) points at distance 2 from z through w. The points of C at distance 3 from w are of two kinds:
+- those at distance 2 from z not behind N;
+- those at distance 3 from z through a point of N other than w.
+
+So m_3(w) = (n_2(z) − d_N(z)) + (c_N(z) − c_w(z)). By Step 1 n_2(z) = s³ − s² + s, and by Lemma A c_N(z) = s². Put these into m_3(w) = s³ + s − s·m_1(w). ∎
 
 ## Step 3: the case analysis
 
-**Case I: some x ∈ C has a(x) = 10.** Then n_2(x) = 16 and n_3(x) = 0. All ten neighbours of x are in C. A point of C at distance 2 from x has a unique middle point y, which is in C and is collinear with it off the line xy, so a(y) ≥ 3 and a(y) = 10. Each neighbour y with a(y) = 10 contributes its 8 neighbours off xy, and these sets are disjoint, so exactly two neighbours y_1, y_2 have a = 10. If they were on different lines on x, a neighbour w of y_2 off xy_2 would satisfy d(y_1, w) = 3 by (G1), against n_3(y_1) = 0. So y_1, y_2 and x form a line L, every point of L has all its neighbours in C, and C contains the 27 points at distance ≤ 1 from L. Since |C| = 27, C is that set.
+**Case I: some x ∈ C has a(x) = k.** Then n_2(x) = s⁴ and n_3(x) = 0, and all k neighbours of x are in C.
+- A point of C at distance 2 from x has a unique middle point y. That point is in C and is collinear with it off the line xy, so a(y) > s and therefore a(y) = k.
+- Each neighbour y with a(y) = k contributes its k − s = s³ neighbours off xy, and these sets are disjoint. So exactly s⁴/s³ = s neighbours of x have a = k.
+- If two of them, y_1 and y_2, were on different lines on x, a neighbour w of y_2 off xy_2 would satisfy d(y_1, w) = 3 by (G1). That contradicts n_3(y_1) = 0.
 
-**Case II: no point has a = 10, some x ∈ C has a(x) = 2.** Let L be the line on x inside C (Lemma B). By Lemma C the 8 points of C ∩ Γ_2(x) are behind one line M ≠ L; call its other points y, y' (outside C). Lemma A gives c_M(x) = 0. Counting as in Lemma D:
+So these s neighbours and x form a line L, and every point of L has all its neighbours in C. Then C contains the (s+1)(1 + s³) = K points at distance ≤ 1 from L, so C is that set.
 
-* m_1(y) = 1 + d_y(x),
-* m_2(y) = 2 + d_{y'}(x) (the two other points of L, the points through y', and c_y(x) = 0),
+**Case II: no point has a = k, and some x ∈ C has a(x) = s.** Let L be the line on x inside C (Lemma B).
+- By Lemma C the s³ points of C ∩ Γ_2(x) are behind one line M ≠ L. Its other s points are outside C, and Lemma A gives c_M(x) = 0.
+- For y ∈ M \ {x}, counting as in Lemma D gives m_1(y) = 1 + d_y(x). It also gives m_2(y) = s + (s³ − d_y(x)): the s points of L \ {x}, the points through the other points of M, and c_y(x) = 0. So m_2 = (s−1)m_1 + 1 forces d_y(x) = s², and m_1(y) = s² + 1.
 
-so m_2 = m_1 + 1 forces d_y(x) = d_{y'}(x) = 4 and m_1(y) = 5. Take z ∈ C collinear with y, z ≠ x, and let N = zy with third point w.
+Now take z ∈ C collinear with y, z ≠ x, and let N = zy.
+- a(z) = 0. Otherwise z lies on a line L_z inside C, and the other points of L_z would be at distance 3 from x behind M (path x, y, z, q, (G1)), against c_M(x) = 0.
+- From z, the point x is behind N. So by Lemma C all s³ − s² + s points of C ∩ Γ_2(z) are behind N, i.e. d_N(z) = s³ − s² + s. Through y there are the s² other points of C collinear with y, one on each line on y other than N, so d_y(z) = s².
+- Lemma D at z gives c_y(z) = s + s·s² − (s³ − s² + s) = s².
+- But the following points are all at distance 3 from z through y by (G1): the s points of L \ {x} (path z, y, x, p), and for each of the s − 1 points y' ∈ M \ {x, y}, the s² points of C collinear with y' off M (path z, y, y', z''). So c_y(z) ≥ s + (s−1)s², which exceeds s² by s(s−1)² > 0.
 
-* a(z) = 0: if z were on a line L_z inside C, the other points of L_z would be at distance 3 from x behind M (path x, y, z, q, (G1)), against c_M(x) = 0.
-* From z, the point x is behind N, so by Lemma C all 6 points of C ∩ Γ_2(z) are behind N. Through y there are the 4 other points of C collinear with y (one on each line on y other than N), so d_y(z) = 4 and d_w(z) = 2.
-* Lemma D at z gives c_y(z) = 2 + 4 − 2 = 4. But the two other points of L (path z, y, x, p) and the 4 points of C collinear with y' off M (path z, y, y', z'') are all at distance 3 from z through y by (G1), so c_y(z) ≥ 6.
+This is a contradiction, so Case II does not occur.
 
-Contradiction, so Case II does not occur.
+**Case III: a(x) = 0 for every x ∈ C.**
+- Take x ∈ C. By Lemma C its s³ − s² + s points of C at distance 2 are behind one line M_0(x). So the s points y ∈ M_0(x) \ {x} have Σ d_y(x) = s³ − s² + s.
+- Pick y with d_y(x) ≥ s² − s + 1, and put k_y = m_1(y) = 1 + d_y(x) ≥ s² − s + 2. Step 1 gives k_y ≤ s² + 1.
+- The k_y points x_1, …, x_{k_y} of C collinear with y lie on distinct lines N_i through y. From x_i there are k_y − 1 ≥ 1 points of C at distance 2 through y, so N_i = M_0(x_i). Therefore the other s − 1 points of N_i carry, between them, (s³ − s² + s) − (k_y − 1) points of C at distance 2 from x_i.
+- Those points are collinear with a point of N_i \ {x_i, y} off N_i, so they are at distance 2 from y by (G1). They are different for different i, by uniqueness of geodesics.
 
-**Case III: a(x) = 0 for every x ∈ C.** Take x ∈ C. By Lemma C its 6 points of C at distance 2 are behind one line M_0(x), so d_y(x) + d_{y'}(x) = 6 for the two other points y, y' of M_0(x). Pick y with d_y(x) ≥ 3 and put k = m_1(y) = 1 + d_y(x) ≥ 4; Step 1 gives k ≤ 5. The k points x_1, …, x_k of C collinear with y lie on distinct lines N_i through y. From x_i there are k − 1 ≥ 1 points of C at distance 2 through y, so N_i = M_0(x_i), and the third point y_i of N_i has d_{y_i}(x_i) = 6 − (k − 1) = 7 − k. Those 7 − k points are collinear with y_i off N_i, so they are at distance 2 from y by (G1), and they are different for different i. So m_2(y) ≥ k(7 − k) ≥ 10, but m_2(y) = k + 1 ≤ 6. Contradiction.
+So m_2(y) ≥ k_y(s³ − s² + s + 1 − k_y), while m_2(y) = (s−1)k_y + 1. The difference g(k_y) = k_y(s³ − s² + 2 − k_y) − 1 is concave in k_y. At the two ends of [s² − s + 2, s² + 1] it equals s⁵ − 3s⁴ + 5s³ − 5s² + 2s − 1 and s⁵ − 2s⁴ + s³ − s². Both are positive for s ≥ 2 [7 and 4 at s = 2]. This is a contradiction.
 
 Only Case I is possible, which proves the theorem. ∎
 
 ## Remarks
 
-* Uniqueness of L: the points of C with a = 10 are exactly the three points of L.
-* For the Ree-Tits octagon this gives exactly 2925 maximum sets, one per line, matching the two computer searches.
-* The ratio bound (s+1)(s³+1) and the line-neighbourhood example exist for every order (s, s²), and the proof above is written with the numbers for s = 2. I have not checked whether each step goes through for general s; that is the obvious next thing to try.
+* Uniqueness of L: the points of C with a = k are exactly the s + 1 points of L.
+* For the Ree-Tits octagon O(2) this gives exactly 2925 maximum sets, one per line, matching the computer searches.
+* What is used about the geometry: (G1), (G2) and the parameters. The Hoffman step only needs the order (s, s²). What makes Step 1 work is that the least eigenvalue −s⁴ of A_4 occurs at θ_1 and θ_3 and nowhere else. I haven't looked at other orders (s,t).
 
 ## Files
 
-* `clique_certificate.py`, `out_orbits/clique_certificate_output.txt`: second and third independent searches (igraph 1.0.0 largest_cliques, and our own colouring branch and bound) for the maximum sets through point 0; both give exactly the 45 line neighbourhoods. Transitivity of T on points is checked from the generators. Hoffman equality checked on all 2925 lines.
-* `max_set_checks.py`, `out_orbits/max_set_checks_output.txt`: exact eigenvalues, the identities of Step 1 and Lemma A on all 2925 line neighbourhoods (280800 (C, x, M) triples).
+* `max_set_general_checks.py`, `out_orbits/max_set_general_checks_output.txt`: exact symbolic checks for general s.
+* `max_set_checks.py`, `out_orbits/max_set_checks_output.txt`: numerical checks of Step 1 and Lemma A on the Ree-Tits octagon O(2) (all 2925 line neighbourhoods, 280800 (C, x, M) triples).
+* `clique_certificate.py`, `out_orbits/clique_certificate_output.txt`: independent clique searches for O(2) (igraph 1.0.0 `largest_cliques`, and our own colouring branch and bound). Both find exactly the 45 line neighbourhoods through point 0. T is transitive on points, so there are 2925 in all.

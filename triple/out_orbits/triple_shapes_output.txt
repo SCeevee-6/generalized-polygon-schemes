@@ -1,0 +1,26 @@
+type (2, 3, 3): 6 T-orbits, 2 base shapes (base cycle lengths [(16,), ()], orbits per shape [2, 4])
+  shape 0 (base cycles [16]): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18,)]
+  shape 1 (base cycles []): tree part same on all its orbits: True; c16 part same: False; long part same: False; new-cycle patterns seen: [(16, 16), (16, 18)]
+  relations constant on the tree+c16 part alone: 5 of 15; on the long part alone: 5 of 15
+type (2, 3, 4): 3 T-orbits, 2 base shapes (base cycle lengths [(), ()], orbits per shape [2, 1])
+  shape 0 (base cycles []): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18,)]
+  shape 1 (base cycles []): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18)]
+  relations constant on the tree+c16 part alone: 2 of 12; on the long part alone: 2 of 12
+type (2, 4, 4): 8 T-orbits, 1 base shapes (base cycle lengths [()], orbits per shape [8])
+  shape 0 (base cycles []): tree part same on all its orbits: False; c16 part same: False; long part same: True; new-cycle patterns seen: [(16,)]
+  relations constant on the tree+c16 part alone: 9 of 9; on the long part alone: 9 of 9
+type (3, 3, 3): 18 T-orbits, 5 base shapes (base cycle lengths [(), (18,), (16,), (16,), (16,)], orbits per shape [6, 6, 2, 2, 2])
+  shape 0 (base cycles []): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16, 16)]
+  shape 1 (base cycles [18]): tree part same on all its orbits: True; c16 part same: False; long part same: False; new-cycle patterns seen: [(16,), (16, 16), (16, 16, 16), (16, 18), (18, 18)]
+  shape 2 (base cycles [16]): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18, 18)]
+  shape 3 (base cycles [16]): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18, 18)]
+  shape 4 (base cycles [16]): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18, 18)]
+  relations constant on the tree+c16 part alone: 9 of 14; on the long part alone: 9 of 14
+type (3, 3, 4): 28 T-orbits, 3 base shapes (base cycle lengths [(), (), ()], orbits per shape [2, 20, 6])
+  shape 0 (base cycles []): tree part same on all its orbits: True; c16 part same: True; long part same: True; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18, 18)]
+  shape 1 (base cycles []): tree part same on all its orbits: True; c16 part same: False; long part same: False; new-cycle patterns seen: [(16,), (16, 16), (16, 18), (18,), (18, 18)]
+  shape 2 (base cycles []): tree part same on all its orbits: True; c16 part same: False; long part same: False; new-cycle patterns seen: [(16, 16), (16, 18), (18, 18)]
+  relations constant on the tree+c16 part alone: 1 of 7; on the long part alone: 1 of 7
+type (3, 4, 4): 40 T-orbits, 1 base shapes (base cycle lengths [()], orbits per shape [40])
+  shape 0 (base cycles []): tree part same on all its orbits: False; c16 part same: False; long part same: False; new-cycle patterns seen: [(16,), (18,)]
+  relations constant on the tree+c16 part alone: 1 of 3; on the long part alone: 1 of 3
