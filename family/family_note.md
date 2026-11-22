@@ -82,7 +82,54 @@ Free dimension left after LP + G + implicit zeros:
   on pairs of points, which is out of reach with the explicit permutation approach used for
   q = 2.
 
+## Triples: exact tree counts (`tree_counts.py`, `triple_tree_family.py`)
+
+A stronger general constraint is to count, exactly and for every GO(s, t), the points x that hang off the base
+configuration as a tree.
+
+- **Base configuration.** Take the union B of the geodesics between the non-opposite pairs of u, v, w. With at most
+  one opposite pair, B is a tripod whose legs are fixed by the distances. The one exception is an opposite pair,
+  where the shared leg can vary; each choice is a separate base shape.
+- **Lemma.** Let i, j, k ≤ 3 and suppose 2(i_a + i_b) + diam(B) < 16 for every pair a, b. Then every x with these
+  distances hangs off B. Every way of hanging a path off B in the free biregular tree that ends at the right tree
+  distances is realised by exactly one x. A circuit in the union would be shorter than 16, a shortcut would close
+  a circuit shorter than 12, and geodesics are unique.
+- **Consequence.** [ijk] equals an explicit polynomial in s and t that depends only on the base shape. At s = 2 these
+  counts agree with every Ree-Tits orbit vector whose base is a tripod.
+- **Not covered.** Types with two opposite pairs have no tree base and are skipped. For all-non-opposite types,
+  the apartment-shaped and longer-circuit bases are not covered either.
+
+Free dimension after LP + G + tree counts + implicit zeros, per tripod shape:
+
+| type | s = 2 | s = 8 |
+|---|---:|---:|
+| (1,1,1), (1,1,2), (1,2,3) | 0 | 0 |
+| (1,2,2) | 1 | 1 |
+| (1,3,3) | 3 | 3 |
+| (1,3,4) | 2 | 2 |
+| (2,2,2) | 3 | 3 |
+| (2,2,3) | 4 | 5 |
+| (2,2,4) | 2 | 2 |
+| (2,3,3) tripod | 7 | 7 |
+| (2,3,4), both shapes | 10 | 11 |
+| (3,3,3) tripod | 6 | 6 |
+| (3,3,4), all three shapes | 14 | 14 |
+
+- Where the free dimension is 0, the unique solution at s = 2 equals the Ree-Tits vector.
+- Compared with LP + G alone, the tree counts lower the free dimension for (2,2,2) (4 → 3), the (2,3,3) tripod
+  (10 → 7) and the (3,3,3) tripod (18 → 6). They change nothing for the types with an opposite pair.
+- So the remaining rigidity of O(2) on the small types, for example (1,2,2) with 1 free dimension and (2,2,2)
+  with 3, comes from points that close a circuit with the base: apartments, or longer circuits. These counts are
+  not given by the tree lemma, and an argument for them is still missing at every q.
+- For the opposite-pair types the tree counts do not tell the base shapes apart in the LP. Every Ree-Tits vector
+  of type (2,3,4) or (3,3,4) satisfies the counts of every shape of its type, so "orbits of this shape" in the
+  output means orbits consistent with that shape's counts.
+
+Item 7 therefore ends here. The flag side is settled for the whole family. On the triple side, the general
+constraints fix (1,1,1), (1,1,2) and (1,2,3) for every q. The rest needs circuit counting, which I haven't done.
+
 ## Files
 
 - `hecke_family.py` → `out/hecke_family_output.txt`
 - `triple_family.py` → `out/triple_family_output.txt`, `out/triple_family.csv`
+- `tree_counts.py` (library), `triple_tree_family.py` → `out/triple_tree_family_output.txt`, `out/triple_tree_family.csv`

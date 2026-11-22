@@ -105,5 +105,17 @@ a table for a note, not a paper by itself.
 
 ## Status check, 22 Nov 2026
 
-- Chen-Makhnev-Klimin, Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63: the full text (7 pages, Russian) is on mathnas.ejournal.by (article 9). Its abstract states that DRGs with intersection arrays {44,36,5;1,9,40}, {44,36,12;1,3,33} and {44,42,5;1,7,40} do not exist, with triple intersection numbers listed among the methods. The PDF has been downloaded but I have not checked the argument line by line, so the status entry still rests on the paper, not on a check here.
-- Two further web searches (array strings of the 16 arrays without status, Makhnev and co-authors 2024-2026) found no new results. Shi-Krotov-Sole (arXiv:2206.00031) is already cited here; it rules out only the elementary abelian Cayley case. The 16 arrays keep the status 'no vertex-primitive graph', with nothing known either way.
+**Chen-Makhnev-Klimin (2024), checked.** The full text (Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63, Russian, 7 pages) is on mathnas.ejournal.by (article 9) and has now been read. For {44,36,5;1,9,40} (Theorem 1, section 2) the argument is:
+
+1. Fix u, v with d(u,v) = 3 and count the edges y ~ z with y in {uv;31}, z in {uv;32}.
+2. Via y (Lemma 2) this number f1 is at most 4·3 = 12.
+3. Via z (Lemma 4) it equals sum_z ([231] − [321]) − 16, so sum_z ([231] − [321]) lies in [16, 28].
+4. The paper then states that this sum is 0, from "[231] = r68 = [321]* = r*66", and calls that a contradiction.
+
+The sum in step 4 is, as I read it, sum over z in {uv;32} of [231](u,v,z) minus the same sum of [321](u,v,z): the number of edges between {uv;23} and {uv;32} minus the number of ordered adjacent pairs inside {uv;32}. It is not zero for distance-regular graphs in general: `cmk_check.py` gives 8 (Odd graph O4), −9 (J(9,3)), −54 (J(10,3)), 3 (H(3,3)), −12 (H(3,4)), −81 (H(3,5)). The star notation swaps u and v, which turns a triple of type d(u,w) = 3, d(v,w) = 2 into one of type d(u,w) = 2, d(v,w) = 3, so it does not give a relation inside the sum over z in {uv;32}. Without step 4, steps 2 and 3 are consistent and there is no contradiction. The same step closes section 3 ({44,36,12;1,3,33}, with r101 = [231], r102 = [321]). Theorem 2 ({44,42,5;1,7,40}) uses a different count and was not checked.
+
+The paper also takes Γ3 to be the Berlekamp-van Lint-Seidel graph. It gives no reference that this is the only SRG(243,22,1,2), and I have not looked this up.
+
+So I now list {44,36,5;1,9,40} as "claimed not to exist; proof step not verified" and treat it as open. The census becomes 10 nonexistent, 1 claimed with an unverified step, 1 conditional on Koval, 3 existing with imprimitive groups, and 16 with no status. I may be misreading the paper, so the authors should be asked before anything is said publicly.
+
+**Other arrays.** Two more web searches (on the array strings of the 16 arrays, and on Makhnev and co-authors 2024-2026) found no new results. Shi-Krotov-Sole (arXiv:2206.00031) is already cited here; it only rules out the elementary abelian Cayley case. The 16 arrays keep the status "no vertex-primitive graph", with nothing known either way.

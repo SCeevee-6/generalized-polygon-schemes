@@ -30,7 +30,7 @@ v,array,groups,unchecked,realising,status,source
 210,"{24,15,8,3;1,4,9,16}",2,0,1 2,exists (vertex-primitive),
 220,"{27,16,7;1,4,9}",3,0,1 2 3,exists (vertex-primitive),
 243,"{22,16,5;1,2,20}",2,0,,does not exist,Sumalroj-Worawannotai 2016 (sage-drg nonex.py)
-243,"{44,36,5;1,9,40}",2,0,,does not exist,"Chen-Makhnev-Klimin, Trudy Inst. Mat. (Minsk) = Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63 (abstract read: also rules out {44,36,12;1,3,33} and {44,42,5;1,7,40}; full text not read)"
+243,"{44,36,5;1,9,40}",2,0,,claimed not to exist; proof step not verified,"Chen-Makhnev-Klimin, Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63, Thm 1. The last step uses sum_z [231] = sum_z [321] over z in {uv;32}, which fails in known DRGs (search/drg/cmk_check.py); treated as open here"
 256,"{12,9,6,3;1,2,3,4}",68,0,7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74,exists (vertex-primitive),
 256,"{25,24,3;1,3,20}",15,0,,does not exist,"Zhurtov-Gerieva, Vladikavkaz Mat. Zh. 27:3 (2025) 60-67, doi 10.46698/e5951-0245-2570-i (abstract read)"
 256,"{36,21,10,3;1,6,15,28}",9,0,55 59 64 70 74 145 157 218 222,exists (vertex-primitive),

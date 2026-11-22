@@ -1,0 +1,42 @@
+(s, t) = (2, 4)
+  (1, 1, 1) legs (1, 1, 1): 64 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 25/25; Ree-Tits orbits of this shape 1; unique solution equals them: True
+  (1, 1, 2) legs (0, 2, 2): 54 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 29/29; Ree-Tits orbits of this shape 1; unique solution equals them: True
+  (1, 2, 2) legs (1, 1, 3): 54 tree counts, free dim after LP+G+tree+implicit zeros = 1, determined unknowns 25/37; Ree-Tits orbits of this shape 1, distinct vectors 1
+  (1, 2, 3) legs (0, 2, 4): 39 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 37/37; Ree-Tits orbits of this shape 1; unique solution equals them: True
+  (1, 3, 3) legs (1, 1, 5): 39 tree counts, free dim after LP+G+tree+implicit zeros = 3, determined unknowns 18/40; Ree-Tits orbits of this shape 1, distinct vectors 1
+  (1, 3, 4) legs (0, 2, 6): 23 tree counts, free dim after LP+G+tree+implicit zeros = 2, determined unknowns 18/36; Ree-Tits orbits of this shape 1, distinct vectors 1
+  (1, 4, 4): no tree base (two opposite pairs), skipped
+  (2, 2, 2) legs (2, 2, 2): 54 tree counts, free dim after LP+G+tree+implicit zeros = 3, determined unknowns 29/49; Ree-Tits orbits of this shape 3, distinct vectors 1
+  (2, 2, 3) legs (1, 3, 3): 39 tree counts, free dim after LP+G+tree+implicit zeros = 4, determined unknowns 27/50; Ree-Tits orbits of this shape 1, distinct vectors 1
+  (2, 2, 4) legs (0, 4, 4): 23 tree counts, free dim after LP+G+tree+implicit zeros = 2, determined unknowns 28/44; Ree-Tits orbits of this shape 1, distinct vectors 1
+  (2, 3, 3) legs (2, 2, 4): 39 tree counts, free dim after LP+G+tree+implicit zeros = 7, determined unknowns 20/54; Ree-Tits orbits of this shape 4, distinct vectors 3
+  (2, 3, 4) legs (0, 4, 6): 11 tree counts, free dim after LP+G+tree+implicit zeros = 10, determined unknowns 7/48; Ree-Tits orbits of this shape 3, distinct vectors 2
+  (2, 3, 4) legs (1, 3, 5): 23 tree counts, free dim after LP+G+tree+implicit zeros = 10, determined unknowns 7/48; Ree-Tits orbits of this shape 3, distinct vectors 2
+  (2, 4, 4): no tree base (two opposite pairs), skipped
+  (3, 3, 3) legs (3, 3, 3): 39 tree counts, free dim after LP+G+tree+implicit zeros = 6, determined unknowns 25/57; Ree-Tits orbits of this shape 6, distinct vectors 1
+  (3, 3, 4) legs (0, 6, 6): 4 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; Ree-Tits orbits of this shape 28, distinct vectors 14
+  (3, 3, 4) legs (1, 5, 5): 11 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; Ree-Tits orbits of this shape 28, distinct vectors 14
+  (3, 3, 4) legs (2, 4, 4): 23 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; Ree-Tits orbits of this shape 28, distinct vectors 14
+  (3, 4, 4): no tree base (two opposite pairs), skipped
+  (4, 4, 4): no tree base (two opposite pairs), skipped
+(s, t) = (8, 64)
+  (1, 1, 1) legs (1, 1, 1): 64 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 25/25; 
+  (1, 1, 2) legs (0, 2, 2): 54 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 29/29; 
+  (1, 2, 2) legs (1, 1, 3): 54 tree counts, free dim after LP+G+tree+implicit zeros = 1, determined unknowns 25/37; 
+  (1, 2, 3) legs (0, 2, 4): 39 tree counts, free dim after LP+G+tree+implicit zeros = 0, determined unknowns 37/37; 
+  (1, 3, 3) legs (1, 1, 5): 39 tree counts, free dim after LP+G+tree+implicit zeros = 3, determined unknowns 18/40; 
+  (1, 3, 4) legs (0, 2, 6): 23 tree counts, free dim after LP+G+tree+implicit zeros = 2, determined unknowns 18/36; 
+  (1, 4, 4): no tree base (two opposite pairs), skipped
+  (2, 2, 2) legs (2, 2, 2): 54 tree counts, free dim after LP+G+tree+implicit zeros = 3, determined unknowns 29/49; 
+  (2, 2, 3) legs (1, 3, 3): 39 tree counts, free dim after LP+G+tree+implicit zeros = 5, determined unknowns 26/50; 
+  (2, 2, 4) legs (0, 4, 4): 23 tree counts, free dim after LP+G+tree+implicit zeros = 2, determined unknowns 28/44; 
+  (2, 3, 3) legs (2, 2, 4): 39 tree counts, free dim after LP+G+tree+implicit zeros = 7, determined unknowns 20/54; 
+  (2, 3, 4) legs (0, 4, 6): 11 tree counts, free dim after LP+G+tree+implicit zeros = 11, determined unknowns 6/48; 
+  (2, 3, 4) legs (1, 3, 5): 23 tree counts, free dim after LP+G+tree+implicit zeros = 11, determined unknowns 6/48; 
+  (2, 4, 4): no tree base (two opposite pairs), skipped
+  (3, 3, 3) legs (3, 3, 3): 39 tree counts, free dim after LP+G+tree+implicit zeros = 6, determined unknowns 25/57; 
+  (3, 3, 4) legs (0, 6, 6): 4 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; 
+  (3, 3, 4) legs (1, 5, 5): 11 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; 
+  (3, 3, 4) legs (2, 4, 4): 23 tree counts, free dim after LP+G+tree+implicit zeros = 14, determined unknowns 4/51; 
+  (3, 4, 4): no tree base (two opposite pairs), skipped
+  (4, 4, 4): no tree base (two opposite pairs), skipped

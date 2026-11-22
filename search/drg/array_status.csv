@@ -12,5 +12,5 @@ array,status,source
 "{25,24,3;1,3,20}",does not exist,"Zhurtov-Gerieva, Vladikavkaz Mat. Zh. 27:3 (2025) 60-67, doi 10.46698/e5951-0245-2570-i (abstract read)"
 "{42,30,12;1,6,28}",does not exist,"Belousov-Makhnev, Sib. Elektron. Mat. Izv. 15 (2018) 1506 (cited by Makhnev-Belousov 2023; paper not read)"
 "{20,16,5;1,1,16}",does not exist,"Makhnev-Golubyatnikov, Diskret. Mat. 34:1 (2022) 76-87, doi 10.4213/dm1698; English: Discrete Math. Appl. 33:5 (2023) 273-281, doi 10.1515/dma-2023-0025 (the m = 3, n = 7 member of {mn-1,(m-1)(n+1),n-m+1;1,1,(m-1)(n+1)}; abstract read, full text not read)"
-"{44,36,5;1,9,40}",does not exist,"Chen-Makhnev-Klimin, Trudy Inst. Mat. (Minsk) = Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63 (abstract read: also rules out {44,36,12;1,3,33} and {44,42,5;1,7,40}; full text not read)"
+"{44,36,5;1,9,40}",claimed not to exist; proof step not verified,"Chen-Makhnev-Klimin, Proc. Inst. Math. NAS Belarus 32:1 (2024) 57-63, Thm 1. The last step uses sum_z [231] = sum_z [321] over z in {uv;32}, which fails in known DRGs (search/drg/cmk_check.py); treated as open here"
 "{49,40,22;1,5,28}",does not exist,"Gavrilyuk-Vidali, arXiv:2611.02986 (2 Nov 2026), Thm 2.6(a): Terwilliger polynomial plus integrality of local multiplicities; preprint, read"

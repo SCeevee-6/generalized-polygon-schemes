@@ -1,0 +1,8 @@
+Odd graph O4: intersection array {4,3,3;1,1,2}, 35 vertices; S(u,v) over all pairs at distance 3: [8]
+Johnson J(9,3): intersection array {18,10,4;1,4,9}, 84 vertices; S(u,v) over all pairs at distance 3: [-9]
+Johnson J(10,3): intersection array {21,12,5;1,4,9}, 120 vertices; S(u,v) over all pairs at distance 3: [-54]
+Hamming H(3,4): intersection array {9,6,3;1,2,3}, 64 vertices; S(u,v) over all pairs at distance 3: [-12]
+Hamming H(3,5): intersection array {12,8,4;1,2,3}, 125 vertices; S(u,v) over all pairs at distance 3: [-81]
+Hamming H(3,3): intersection array {6,4,2;1,2,3}, 27 vertices; S(u,v) over all pairs at distance 3: [3]
+graphs where (*) fails for some pair: ['O4', 'J93', 'J103', 'H34', 'H35', 'H33']
+Conclusion: (*) is not a consequence of distance-regularity, so the last step of Theorem 1 (both arrays) needs an argument that is not in the paper as I read it. The two counts of f1 only give sum_z([231] - [321]) in [16, 28] for {44,36,5;1,9,40}, which is not a contradiction by itself.
