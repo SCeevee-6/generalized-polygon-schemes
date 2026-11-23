@@ -3,7 +3,9 @@
 The unrestricted uniqueness question remains open. The new exclusions cover seven explicit bare graphs on 512 vertices and every
 256-point trace component with 2-group monodromy, including nonregular covers.
 A second end-to-end implementation also reproduces the regular 256 exclusion. A symmetry error
-reopens the earlier cross-edge search.
+reopened the earlier cross-edge search; the corrected search is now complete and
+leaves nothing, so among elementary abelian regular 512 covers only the Ree–Tits
+component survives.
 
 ## An obstruction on the bare outer graph
 
@@ -92,10 +94,21 @@ With the corrected action there are 15,086 depth-eight cross prefixes (old:
 prefixes; prefix 0 again rejected 128 leaves at stage two. The original
 10,779,630,523-node same-edge generation has not been repeated independently. Its effective symmetries are unchanged, and all 25 unmarked chord
 voltages must be nonzero because their fundamental cycles have length 4 or 5.
-The full corrected cross sweep is pending. Use `python octagon/elem_run.py 1 LO HI`
-for half-open prefix ranges; new cross shard filenames include `switched`.
-The runner now errors on truncation. Old cross shards cannot fill gaps in the
-new indexing.
+The corrected cross sweep has been run over all 15,086 prefixes (split into four
+half-open ranges, no prefix truncated). It visited 1,442,239,465 nodes. Of the
+leaves, 3,889 failed the stage-two H-sibling test, 18 gave disconnected covers and
+96 were left. Stage three rejects 95 of them. The bare-graph sibling obstruction,
+run with the witness recheck on all 96 regardless of the stage-three verdict,
+excludes every one, including the stage-three survivor (row 22). Voltages and
+per-category data are in `stage3_fp1_switched.json`, the obstruction witnesses in
+`sibling_stage3_fp1_switched.json`, totals and survivor sequences in
+`elem_fp1_switched_summary.json`. Rerun with
+
+    python octagon/elem_run.py 1 LO HI
+    python octagon/stage3.py 1 elem_fp1_switched_*.json   # writes stage3_fp1.json, saved here as stage3_fp1_switched.json
+    python octagon/sibling_check.py octagon/stage3_fp1_switched.json
+
+Old cross shards cannot fill gaps in the new indexing.
 
 A further exact pruning rule applies to the residual case in which all
 geometrically used mates cross between distinct base edges. In each category
@@ -216,8 +229,9 @@ The current universal proof allows the following patterns at a fixed root.
 | 512 + 256 + 256 | Both 256 covers must escape the double-tower exclusion and the 512 cover must escape recognition. |
 | 256 + 256 + 256 + 256 | Each of the four monodromy groups must have an odd prime divisor. |
 
-The immediate finite task is to finish the corrected elementary cross
-case. Even a complete elementary classification gives no reason for an
+The elementary classification is now complete: an elementary abelian regular
+512 component is the Ree–Tits one. The next finite task is regular 512 covers
+with the other 50 groups of order 32. Even a complete classification gives no reason for an
 arbitrary octagon to have an elementary component, a 512 component, or
 this component pattern at every root. A root-independent forcing theorem
 for a thin suboctagon, or a component argument covering all these

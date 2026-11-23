@@ -102,14 +102,15 @@ Historical run at 2d1ca19. The cross row used a fixed-translate symmetry which f
 |---|---:|---:|---:|---:|---:|---:|---:|
 | cross orbit (4,17,t) | 9914 | 1,720,076,943 | 4776 | 18 | 152 | 152 | 0 |
 | same-edge orbit (4,4,t) | 5925 | 10,779,630,523 | 5,646,997 | 8 | 912 | 866 | 46 |
+| cross orbit (4,17,t), corrected action | 15,086 | 1,442,239,465 | 3889 | 18 | 96 | 95 | 1 (excluded by the sibling obstruction) |
 
 In the same-edge case one of the 46 survivors passed stage 2 outright and is isomorphic to K (BLISS). The other 45 are
 labelled covers falling into 7 isomorphism classes of uncoloured graphs (girth 8, diameter 7 or 8, automorphism
 groups of orders 128, 512, 2048, 2048, 3072, 4096, 6144). None of them is K. They pass stage 3 in every category, and
 `stage4.py` (unit propagation of the boundary pairing, then the H-sibling test) retains them. Their voltages
 are in `stage4_fp0.json`. The subsequent uncoloured sibling test in `sibling_obstruction.py` excludes all 45.
-Only row 6 remains and is isomorphic to both known components. The corrected cross search has 15,086
-depth-eight prefixes. The archived cross results do not exhaust the corrected search. See [status.md](status.md).
+Only row 6 remains and is isomorphic to both known components. The corrected cross search (row below) leaves 96 covers; stage 3 rejects 95 and `sibling_check.py`
+excludes all 96. See [status.md](status.md).
 
 
 Stage 3 is now run on every category, not only triangle-free ones. This is valid because, by the boundary count,
