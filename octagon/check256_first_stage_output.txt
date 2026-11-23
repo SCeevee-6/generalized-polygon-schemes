@@ -1,0 +1,3 @@
+orbits of all signings (Burnside) 19132
+spectral: signings 330719 orbits 245
+capacity: orbits 48 signings 27979

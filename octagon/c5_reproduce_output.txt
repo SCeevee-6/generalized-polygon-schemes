@@ -1,0 +1,10 @@
+cycle lengths [(4, 40), (5, 192), (6, 320), (7, 960)]
+dims 5 20
+labelled covers 2167056 surviving girth 8: 251
+mate-count histogram {(np.int64(0), np.int64(0)): 217, (np.int64(0), np.int64(1)): 28, (np.int64(1), np.int64(1)): 5, (np.int64(5), np.int64(5)): 1}
+cover False level 2 Counter({1: 640})
+cover False level 2 Counter({1: 640})
+cover False level 2 Counter({1: 640})
+cover False level 2 Counter({1: 640})
+cover True None 
+cover False mate counts 

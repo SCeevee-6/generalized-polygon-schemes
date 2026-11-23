@@ -1,0 +1,23 @@
+{
+ "case": "fp0 same-edge orbit (4,4,t)",
+ "tasks": 5925,
+ "nodes": 10779630523,
+ "leaf_stat": {
+  "rejected_H_sibling": 5646997,
+  "survivor_all_tested": 1,
+  "survivor_untested_category": 911,
+  "disconnected": 8
+ },
+ "stage3_rejected": 866,
+ "remaining": 46,
+ "remaining_isoK": 1,
+ "remaining_nonK_iso_classes": [
+  19,
+  5,
+  4,
+  3,
+  9,
+  3,
+  2
+ ]
+}

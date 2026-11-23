@@ -1,0 +1,12 @@
+{
+ "case": "fp1 cross orbit (4,17)",
+ "tasks": 9914,
+ "nodes": 1720076943,
+ "leaf_stat": {
+  "rejected_H_sibling": 4776,
+  "survivor_all_tested": 0,
+  "survivor_untested_category": 152,
+  "disconnected": 18
+ },
+ "stage3_rejected": 152
+}

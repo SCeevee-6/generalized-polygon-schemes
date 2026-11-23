@@ -1,0 +1,2 @@
+component 0 mates forced True pairing correct True six merges correct True GO(2,1) seed [0, 146, 314, 1256]
+component 1 mates forced True pairing correct True six merges correct True GO(2,1) seed [0, 491, 1579, 1663]

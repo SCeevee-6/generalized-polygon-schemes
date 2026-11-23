@@ -72,3 +72,15 @@ What has been checked on the current commit: `scheme_from_array.py --atlas` exit
 
 - Compile `fusion/fusion_note.tex` and rewrite Section 3 around the exact proof.
 - See whether the extra linear relations among the GO(2,4) triple intersection numbers (`triple/triple_note.md`) follow from the octagon axioms.
+
+## Opposite components of GO(2,4) and related checks
+
+- **Recognition from one opposite component** (`octagon/`). Rechecked with separate code on both 512-point components of O(2): the bare graph forces the boundary pairing and the whole inward tree, and the reconstructed half contains a full GO(2,1), so De Bruyn's theorem identifies the octagon. The C5-invariant cover count 2,167,056 → 251 → 1 is reproduced by a different method.
+- **Component sizes** (`octagon/README.md`). In any GO(2,4) every boundary point lies on exactly |C|/256 lines of each opposite component C, so components have 256, 512, 768 or 1024 points, and the least eigenvalue of every component is at least −13/3.
+- **Regular 256-point components are impossible** (`octagon/regular256/`), by a spectral window and a tower of double covers. The first stage (19,132 / 245 / 48 / 27,979) is reproduced independently; the later stages are not rerun yet.
+- **Elementary abelian 512-point components without the five-cycle.** Exhaustive search with the boundary pairing and sibling tests: the cross-orbit case has no survivor; the same-edge case leaves K and 45 explicit covers (7 isomorphism classes) that the current tests do not reject.
+- **Thin suboctagons** (`thin/overlap_note.md`). One component of the 13-overlap graph has automorphism group exactly T, and four local rules recover the centres and the collinearity of O(2) from the bare graph.
+- **Maximum flag families** (`flags/max_family_note.md`). The −64 eigenspace is the 2052-dimensional sum pulled back from point and line eigenspaces, so membership in a maximum family has the form a_p + b_L with integer potentials; two occupancy identities follow.
+- **Dual packings** (`packing/`). A packing with 133 centres in GO(4,2); upper bound still 223.
+- **Smith factor 2** (`smith/`). Point (26, 272) and line (246, 350) benchmarks recomputed through the ker → coker map.
+- **Cayley test at order 625** (`search/cayley/trace_note.md`). Second implementation of the trace model; hand proofs for eight of the ten nonabelian groups.
