@@ -1,7 +1,5 @@
 """Model-only checks for the 512 inputs and the dual packing. Requires igraph."""
-import io
 import json
-import zipfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -16,9 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def model():
-    archive = ROOT / "octagon-regular-256-exclusion/generalized-octagon-research.zip"
-    with zipfile.ZipFile(archive) as z:
-        generators = np.load(io.BytesIO(z.read("generators.npy")))
+    generators = np.load(ROOT / "data" / "generators.npy")
     # Orbit of the collinear pair (0,72) under the two stored ATLAS generators.
     edges = [(0, 72)]
     seen = set(edges)

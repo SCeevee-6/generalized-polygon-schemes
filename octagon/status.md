@@ -1,7 +1,6 @@
-# GO(2,4) uniqueness audit and the sibling obstruction
+# Where GO(2,4) uniqueness stands, and the sibling obstruction
 
-Baseline: `2d1ca19da3f0fb8b0411688cd2c528fb85a5c94a`. The unrestricted
-uniqueness question remains open. The new exclusions cover seven explicit bare graphs on 512 vertices and every
+The unrestricted uniqueness question remains open. The new exclusions cover seven explicit bare graphs on 512 vertices and every
 256-point trace component with 2-group monodromy, including nonregular covers.
 A second end-to-end implementation also reproduces the regular 256 exclusion. A symmetry error
 reopens the earlier cross-edge search.
@@ -91,8 +90,7 @@ actual column-support arrays sent to the search kernel.
 With the corrected action there are 15,086 depth-eight cross prefixes (old:
 9,914). Prefix 0 completed with zero leaves. The same-edge run has 5,925
 prefixes; prefix 0 again rejected 128 leaves at stage two. The original
-10,779,630,523-node same-edge generation was not independently repeated in
-this audit. Its effective symmetries are unchanged, and all 25 unmarked chord
+10,779,630,523-node same-edge generation has not been repeated independently. Its effective symmetries are unchanged, and all 25 unmarked chord
 voltages must be nonzero because their fundamental cycles have length 4 or 5.
 The full corrected cross sweep is pending. Use `python octagon/elem_run.py 1 LO HI`
 for half-open prefix ranges; new cross shard filenames include `switched`.
@@ -174,34 +172,33 @@ divisor of its monodromy order. The degree alone imposes no contradiction.
 
 ## Other constraints
 
-| Result | Audit | Scope |
+| Result | Check | Scope |
 |---|---|---|
 | 13-overlap graph | 24,960 copies, two components of 12,480; shells 1/45/1170/9300/1964; BLISS order 17,971,200. Transport of the two local rules from one edge under a checked transitive edge action gave 3,510 classes of 80, then 1,755 centres and exactly the 8,775 true collinear pairs. | Recognizes the known overlap graph. An arbitrary octagon must first supply thin suboctagons. |
 | Maximum flag families | Numerical pullback dimensions 351, 675, 675, 351; rank 2052. Both canonical families have 135 flags, zero opposition pairs and occupancies with constants 5 and 3. An exact incidence-operator argument now proves the potential description for any GO(2,4). | Existence of a mixed maximum family remains undecided. See [flag note](../flags/max_family_note.md). |
 | Dual packing | 133 distinct indices. Among unordered pairs, 3,187 have dual distance 3 and 5,591 have distance 4. The disjoint balls cover 1,729 vertices. | Lower bound in the known dual. The upper bound 223 uses published nonexistence of a perfect packing and the defect-one argument. |
 | Smith | Point opposition (binary rank, multiplicity of valuation one) = (26,272); line opposition = (246,350). | Exact integer-valued sums in the ker-to-coker calculation for the known model. |
-| Cayley trace | HiGHS returned INFEASIBLE for order-625 group IDs 3,4,6,7,8,9,10,12,13,14. The trace and multiplicity equations and the eight table-based arithmetic exclusions were audited. | These are tests on the separate diameter-three array {52,42,16;1,6,28}. Groups 12 and 13 in the trace note still use solver infeasibility. No octagon component is excluded by that computation. |
+| Cayley trace | HiGHS returned INFEASIBLE for order-625 group IDs 3,4,6,7,8,9,10,12,13,14. The trace and multiplicity equations and the eight table-based arithmetic exclusions were rechecked. | These are tests on the separate diameter-three array {52,42,16;1,6,28}. Groups 12 and 13 in the trace note still use solver infeasibility. No octagon component is excluded by that computation. |
 
-The class sizes and the packing histogram can be reproduced with `python octagon/check_audit_model.py`. The ATLAS checks used files TF42G1-p1755B0.g1 and .g2 (SHA-256
+The class sizes and the packing histogram can be reproduced with `python octagon/check_model.py`. The ATLAS checks used files TF42G1-p1755B0.g1 and .g2 (SHA-256
 8428995642391eb0e360492598c1e7fbcd17e01f335676ce88bb467661d5413f and
 ff46d1bb2d9a6affeb9faa4ce4eaff6fb723745cc19ddecd601f2921d8d4f813).
-The sorted-line checks use generators.npy from the tracked
-octagon-regular-256-exclusion/generalized-octagon-research.zip.
+The sorted-line checks use `data/generators.npy` (the ATLAS generators c, d of 2F4(2) as permutations of the 1755 points).
 
-The audit used Python 3.12, NumPy 2.3.5, SciPy 1.17.0, python-sat 1.9.dev24,
+These runs used Python 3.12, NumPy 2.3.5, SciPy 1.17.0, python-sat 1.9.dev24,
 igraph 1.0.0, NetworkX 3.7 and Numba 0.68.1. Commands from the repository root
-(the ATLAS directory and extracted generator path are local inputs):
+(the ATLAS directory is a local input):
 
     ATLAS_DIR=/path/to/atlas python octagon/verify_recognition.py
-    python octagon/check_audit_model.py
+    python octagon/check_model.py
     python octagon/check_mate_action.py
     python octagon/sibling_obstruction.py --verify
     OPENBLAS_NUM_THREADS=1 python octagon/regular256/check_quotients.py
     python octagon/regular256/check_terminal.py
     OPENBLAS_NUM_THREADS=1 python octagon/regular256/double_towers.py
     OPENBLAS_NUM_THREADS=1 python octagon/regular256/double_towers.py --sat-terminal
-    python flags/flag_structure.py /path/to/generators.npy
-    python smith/smith_two.py /path/to/generators.npy
+    python flags/flag_structure.py data/generators.npy
+    python smith/smith_two.py data/generators.npy
     python search/cayley/cayley_trace.py search/cayley/out_normal/tables_625.txt '[52,42,16]' '[1,6,28]' /tmp/trace625.json
 
 ## Logical route to full uniqueness

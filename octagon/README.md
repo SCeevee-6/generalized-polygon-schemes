@@ -1,6 +1,6 @@
 # Opposite components and GO(2,4) uniqueness
 
-[Latest audit, sibling obstruction, symmetry correction and open cases](audit.md).
+[Current status: sibling obstruction, symmetry correction and open cases](status.md).
 
 Fix a point x of a generalized octagon of order (2,4), let B be the 640 points at distance 3 and O the 1024 points
 opposite x, and let the outer graph be collinearity on O. Each component is a cover of the Clebsch graph (even
@@ -109,7 +109,7 @@ groups of orders 128, 512, 2048, 2048, 3072, 4096, 6144). None of them is K. The
 `stage4.py` (unit propagation of the boundary pairing, then the H-sibling test) retains them. Their voltages
 are in `stage4_fp0.json`. The subsequent uncoloured sibling test in `sibling_obstruction.py` excludes all 45.
 Only row 6 remains and is isomorphic to both known components. The corrected cross search has 15,086
-depth-eight prefixes. The archived cross results do not exhaust the corrected search. See [audit.md](audit.md).
+depth-eight prefixes. The archived cross results do not exhaust the corrected search. See [status.md](status.md).
 
 
 Stage 3 is now run on every category, not only triangle-free ones. This is valid because, by the boundary count,
