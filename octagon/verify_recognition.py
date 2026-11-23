@@ -1,5 +1,5 @@
 """Independent check of the one-component recognition of O(2).
-Needs ATLAS_DIR pointing at TF42G1-p1755B0.g1/.g2. Prints one line per component."""
+Uses the stored generators by default. ATLAS_DIR can select GAP permutations instead."""
 import sys, os, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import geom, recog

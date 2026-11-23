@@ -199,10 +199,10 @@ ff46d1bb2d9a6affeb9faa4ce4eaff6fb723745cc19ddecd601f2921d8d4f813).
 The sorted-line checks use `data/generators.npy` (the ATLAS generators c, d of 2F4(2) as permutations of the 1755 points).
 
 These runs used Python 3.12, NumPy 2.3.5, SciPy 1.17.0, python-sat 1.9.dev24,
-igraph 1.0.0, NetworkX 3.7 and Numba 0.68.1. Commands from the repository root
-(the ATLAS directory is a local input):
+igraph 1.0.0, NetworkX 3.7 and Numba 0.68.1. Commands from the repository root (the recognition check can also use
+the stored point permutations):
 
-    ATLAS_DIR=/path/to/atlas python octagon/verify_recognition.py
+    python octagon/verify_recognition.py
     python octagon/check_model.py
     python octagon/check_mate_action.py
     python octagon/sibling_obstruction.py --verify
@@ -236,3 +236,18 @@ arbitrary octagon to have an elementary component, a 512 component, or
 this component pattern at every root. A root-independent forcing theorem
 for a thin suboctagon, or a component argument covering all these
 possibilities and forcing a recognized root, remains necessary.
+
+A direct alternative is to force one four-cycle in the cubic graph on
+opposite-line pairs and one centered transversal in the resulting grid.
+Both conditions together force a thin suboctagon without a component or
+monodromy hypothesis. If no transversal is centered, 26 direction classes
+survive exact tests on 81 points. The [opposite-line argument](../thin/opposite_seed.md)
+gives the proof, model counts, integer witnesses and the remaining existence
+question.
+
+A fresh check of the 96 stored corrected cross-orbit inputs reproduced the
+archived sibling witnesses byte for byte. The final line was
+
+    covers 96 left after stage 3 1 left after sibling obstruction []
+
+This replay starts at the output of the generation sweep.

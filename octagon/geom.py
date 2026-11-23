@@ -1,8 +1,9 @@
-"""Ree-Tits octagon O(2) from ATLAS generators of T = 2F4(2)' on 1755 points (independent rebuild)."""
+"""Rebuild the Ree–Tits octagon from its ATLAS action on 1755 points."""
 import re, numpy as np
 from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import connected_components, shortest_path
 import os
+from pathlib import Path
 GG = os.environ.get('ATLAS_DIR', '.')  # folder with TF42G1-p1755B0.g1 and .g2 (ATLAS v3)
 def parse_perm(path, n=1755):
     t = open(path).read(); t = t[t.index(':=')+2:].replace('\n','').replace(' ','').rstrip(';')
@@ -12,7 +13,10 @@ def parse_perm(path, n=1755):
         for i,a in enumerate(c): p[a] = c[(i+1)%len(c)]
     return p
 def gens():
-    return [parse_perm(os.path.join(GG, 'TF42G1-p1755B0.g%d' % i)) for i in (1,2)]
+    paths = [Path(GG) / ('TF42G1-p1755B0.g%d' % i) for i in (1, 2)]
+    if 'ATLAS_DIR' in os.environ or any(path.exists() for path in paths):
+        return [parse_perm(path) for path in paths]
+    return list(np.load(Path(__file__).resolve().parents[1] / 'data' / 'generators.npy'))
 def orbitals(G, n=1755):
     idx = np.arange(n*n); a, b = idx//n, idx%n
     r = np.concatenate([idx]*len(G)); c = np.concatenate([g[a]*n+g[b] for g in G])
