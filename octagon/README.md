@@ -1,5 +1,7 @@
 # Opposite components and GO(2,4) uniqueness
 
+[Latest audit, sibling obstruction, symmetry correction and open cases](audit.md).
+
 Fix a point x of a generalized octagon of order (2,4), let B be the 640 points at distance 3 and O the 1024 points
 opposite x, and let the outer graph be collinearity on O. Each component is a cover of the Clebsch graph (even
 five-bit words, adjacency at Hamming distance 4) through the trace words, and the sheet numbers add up to 64.
@@ -76,7 +78,7 @@ automorphisms. The cover is a voltage map on the 25 chords of a BFS spanning tre
 
 Reduction. Every category has a mate orbit, and Aut(Clebsch) (order 1920, coordinate permutations and even
 translations) is transitive on edges, so some mate orbit can be moved onto base edge 4. Its stabiliser (order 48) has
-two orbits on the other three edges of that category, so there are two cases: a same-edge orbit (4, 4, t) and a cross
+one orbit on the other three edges of that category, so there are two cases: a same-edge orbit (4, 4, t) and a cross
 orbit (4, 17, t). The translate t is nonzero and becomes the first basis vector.
 
 Search (`elem_setup.py`, `elem_fast.py`): columns are t and the 25 chord voltages in a greedy order; GL(5,2) is broken
@@ -94,7 +96,7 @@ category (the bound only uses constraints whose walks are fully assigned). Leave
 Controls: K is found (as the lex-minimal image of its voltage map) and passes all three stages; in a sample of 2000
 leaves 1997 failed stage 2; the lex-leader pruning was checked against unpruned subtrees.
 
-Results.
+Historical run at 2d1ca19. The cross row used a fixed-translate symmetry which fails for 28 of its 32 group elements. The saved leaf tests reproduce, but that row does not establish completeness.
 
 | case | prefixes at depth 8 | nodes | leaves rejected at stage 2 | disconnected | left for stage 3 | rejected at stage 3 | survivors |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -104,10 +106,11 @@ Results.
 In the same-edge case one of the 46 survivors passed stage 2 outright and is isomorphic to K (BLISS). The other 45 are
 labelled covers falling into 7 isomorphism classes of uncoloured graphs (girth 8, diameter 7 or 8, automorphism
 groups of orders 128, 512, 2048, 2048, 3072, 4096, 6144). None of them is K. They pass stage 3 in every category, and
-`stage4.py` (unit propagation of the boundary pairing, then the H-sibling test) does not reject them either. Their
-voltages are in `stage4_fp0.json`. **So the elementary case is reduced to these 45 explicit covers, not finished.**
-The next test to run on them is the full inward-tree problem: choose the perfect matching of each mate graph and the
-sibling, p2 and M groupings jointly, with H-distances recomputed as the pairing grows.
+`stage4.py` (unit propagation of the boundary pairing, then the H-sibling test) retains them. Their voltages
+are in `stage4_fp0.json`. The subsequent uncoloured sibling test in `sibling_obstruction.py` excludes all 45.
+Only row 6 remains and is isomorphic to both known components. The corrected cross search has 15,086
+depth-eight prefixes. The archived cross results do not exhaust the corrected search. See [audit.md](audit.md).
+
 
 Stage 3 is now run on every category, not only triangle-free ones. This is valid because, by the boundary count,
 every boundary point carries exactly two K-edges.
@@ -120,8 +123,9 @@ conditions do the work.
 * Component sizes are 256, 512, 768 or 1024 (§3), so the patterns are 1024, 768 + 256, 512 + 512, 512 + 256 + 256 and
   4 × 256. `regular256/` excludes every 256-point component that is a regular cover (all deck groups of order 16),
   through the spectral window [−4, −2] ∪ [−1, 1 + √6] for nonprincipal eigenvalues of such a component and a tower of
-  double covers. Its first stage is reproduced independently in `regular256/check_first_stage.md`; the later stages
-  have not been rerun here. Nonregular 256-point components, 768- and 1024-point components, and 512-point components
+  double covers. A second end-to-end implementation now checks all stages, including the 168 order-four records
+  and the terminal bipartiteness tests. See [regular256/README.md](regular256/README.md). The [double-tower extension](regular256/PROOF.md) also excludes every 256-point cover with 2-group monodromy.
+  The other 256-point components, 768- and 1024-point components, and 512-point components
   that are not regular elementary abelian covers are all still open.
 * The Gram representation gives the eigenvalue bound of §3 but I have no case where it rejects a 512-point cover that
   the distance tests keep. For two mates at one boundary point all four endpoint distances are 2, which already makes

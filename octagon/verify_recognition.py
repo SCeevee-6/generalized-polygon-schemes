@@ -39,8 +39,20 @@ for c in (0, 1):
     pairing_ok = all(third[i] == third[r['mate'][i]] for i in range(len(E)))
     bt = {r['bid'][i]: third[i] for i in range(len(E))}
     levels_ok = all(len({ancestors(bt[j])[lev] for j in g}) == 1 for lev, gs in enumerate(r['levels']) for g in gs)
+    assert pairing_ok and levels_ok
+    assert [len(groups) for groups in r['levels']] == [320, 80, 40, 10, 5, 1]
+    # Two neighbours per line and four neighbours from this component at each boundary point.
+    boundary = np.flatnonzero(D[0] == 3)
+    assert np.all(A[np.ix_(boundary, Y)].sum(axis=1) == 4)
     allowed = set(np.flatnonzero(D[0] <= 3).tolist()) | set(Y.tolist()); found = None
     for _ in range(5000):
         s = [0] + list(map(int, rng.choice(Y, 3, replace=False))); cl = closure(s, allowed)
         if cl is not None and len(cl) == 45 and thin(cl): found = s; break
+    assert found is not None
+    # Every selected line belongs to the forced half. A line reaching shell
+    # four has exactly its two outer endpoints there, joined by a K-edge.
+    for line in lines:
+        if set(line) <= cl and (D[0, line] == 4).any():
+            outer = line[D[0, line] == 4]
+            assert len(outer) == 2 and set(outer) <= set(Y)
     print('component', c, 'mates forced', True, 'pairing correct', pairing_ok, 'six merges correct', levels_ok, 'GO(2,1) seed', found)

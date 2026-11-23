@@ -16,4 +16,4 @@ points in the −5 representation has spectrum 4, 12^45, 15^32, both 512-point c
 −3.9624 > −13/3, and every boundary point lies on exactly two lines of each component. The boundary count itself has a
 short proof (octagon/README.md, §3).
 
-The order-four and final double-cover stages (`towers.py`, `fours.cpp`, `finish.py`) were not rerun here.
+This earlier floating-point check covered the first stage. The [subsequent independent implementation](README.md) covers the first stage with exact arithmetic and checks both later stages.

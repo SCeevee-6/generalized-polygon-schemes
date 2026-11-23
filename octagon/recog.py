@@ -46,7 +46,7 @@ def recognise(edges, n=512):
         for i in range(k):
             if seen[i]: continue
             cl = np.flatnonzero(ok[i])
-            if len(cl) != width or not ok[np.ix_(cl, cl)].all(): return dict(ok=False, why='level %d'%L, row=ok.sum(1).tolist())
+            if len(cl) != width or not np.all(ok[cl] == ok[i]): return dict(ok=False, why='level %d'%L, row=ok.sum(1).tolist())
             seen[cl] = True; new.append(sorted(x for c in cl for x in groups[c]))
         levels.append(new); groups = new
     return dict(ok=True, mate=mate, bid=bid, levels=levels, dist=dist, adj=adj)

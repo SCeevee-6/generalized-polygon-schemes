@@ -230,6 +230,19 @@ for k in CHORDS:
 def pair_stabiliser(fp):
     k, k2 = PAIR_EDGES[fp]
     return [g for g in AUT if {eimg(g, k), eimg(g, k2)} == {k, k2}]
+def mate_shift(fp, h):
+    """Chord mask correcting a marked translate under pullback by h and tree switching."""
+    mask = 0
+    for k in PAIR_EDGES[fp]:
+        start = EDGES[k][0]
+        for e in tree_path(start):
+            mask ^= 1 << eimg(h, e)
+        # The marked sheet is measured at the smaller endpoint of an oriented edge.
+        image = eimg(h, k)
+        if h[start] != EDGES[image][0]:
+            mask ^= 1 << image
+    return chord_coords(mask)
+
 def sym_arrays(A, group):
     """gsupp[g,p]: support (search positions) of column at position p of g.q; identity removed."""
     m = A['m']; ncol = A['ncol']; order = list(A['order']); pos = {b: j for j, b in enumerate(order)}
@@ -238,7 +251,9 @@ def sym_arrays(A, group):
     for gi, g in enumerate(G):
         h = ginv(g)
         for p, o in enumerate(order):
-            if o < m: sup = 1 << pos[o]
+            if o < m:
+                shift = mate_shift(A['forced'][o], h)
+                sup = (1 << pos[o]) | sum(1 << pos[m+i] for i in range(25) if shift >> i & 1)
             else:
                 mm = FUND[o-m]; img = sum(1 << eimg(h, kk) for kk in range(40) if mm >> kk & 1)
                 cc = chord_coords(img); sup = sum(1 << pos[m+i] for i in range(25) if cc >> i & 1)

@@ -6,7 +6,7 @@ using namespace std;
 vector<int> read(const char*s){FILE*f=fopen(s,"rb");fseek(f,0,SEEK_END);vector<int>v(ftell(f)/4);rewind(f);fread(v.data(),4,v.size(),f);fclose(f);return v;}
 int main(int argc,char**argv){auto g=read("good.bin"),ids=read("ids.bin");vector<int>ix(1<<25,-1);vector<char>seen(20000);int n=g.size();
 for(int i=0;i<n;i++)ix[g[i]]=i;vector<array<signed char,640>>L(n);signed char B[640];FILE*f=fopen("loads.bin","rb");fread(L.data(),640,n,f);fclose(f);f=fopen("B.bin","rb");fread(B,1,640,f);fclose(f);FILE*out=fopen("four.txt","w");
-for(int i=0;i<n;i++){int a=g[i],h=ids[a];if(seen[h]++)continue;for(int j=0;j<n;j++){int b=g[j],c=a^b;if(b>=c||ix[c]<0||ids[b]<h||ids[c]<h)continue;bool ok=true;
+for(int i=0;i<n;i++){int a=g[i],h=ids[a];if(seen[h])continue;seen[h]=1;for(int j=0;j<n;j++){int b=g[j],c=a^b;if(b>=c||ix[c]<0||ids[b]<h||ids[c]<h)continue;bool ok=true;
 for(int t=0;t<640;t++){int x=L[i][t],y=L[j][t],z=L[ix[c]][t];if(B[t]+max({x+y+z,x-y-z,-x+y-z,-x-y+z})>16){ok=false;break;}}
 if(ok)fprintf(out,"0 %d %d\n",a,b);}}
 for(int j=1;j<argc;j++){f=fopen(argv[j],"r");int a,n,v,b[25],s;fscanf(f,"%d%d%d",&a,&n,&v);for(int i=0;i<n;i++)fscanf(f,"%d",&b[i]);vector<array<int,9>>rows;

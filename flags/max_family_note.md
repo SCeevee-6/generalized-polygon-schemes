@@ -37,3 +37,34 @@ constant (all flags on the 45 lines of a dual point neighbourhood). A mixed fami
 non-constant. `flag_mixed_ilp.py` searches for one: fix a point p0 with one flag in and one out (the stabiliser of a
 point is 2-transitive on its five lines), integer α, β in [−4, 5], the two identities, and α non-constant. HiGHS ran 3000 s without finding a solution or
 proving there is none, so the classification is still open; the potential form is the reduction it should start from.
+
+## Exact argument for every octagon of order (2,4)
+
+The pullback calculation also follows from unique geodesics. Write O for flag
+opposition, A₄ for point opposition and B₄ for line opposition. For a flag
+(p,L) and a point q opposite p, the unique point of L nearest q is at distance
+three. The first line on the unique geodesic from q to that point is at dual
+distance three from L. The other four lines through q are opposite L, by girth
+16. Exchanging points and lines gives the dual count of two. Thus
+
+    O Nᵀ = 4 Nᵀ A₄,         O N_Lᵀ = 2 N_Lᵀ B₄.
+
+The intersection arrays give the following eigenvalues in the adjacency
+orderings above.
+
+| | Principal | Second | Third | Fourth | Last |
+|---|---:|---:|---:|---:|---:|
+| A₄ | 1024 | −16 | 16 | −16 | 64 |
+| B₄ | 2048 | −32 | 32 | −32 | 8 |
+
+The two full pullback spaces intersect in the constants. Indeed, if an
+assignment to points and an assignment to lines agree on all flags,
+connectedness forces one common value. Consequently the nonconstant blocks
+have the dimensions stated above, exactly. The trace and trace-square
+calculation gives the last 4096 eigenvalues. This proves the potential
+description for every GO(2,4). For the occupancy identities, point–line
+incidence intertwines B with A+2I on corresponding line and point modules:
+if J has rows indexed by points and columns by lines, then JJᵀ=A+5I
+and JᵀJ=B+3I, so JB=(A+2I)J. Applying the distance polynomials to the
+occupancies gives the constants 5 and 3. Existence of a mixed maximum
+family remains open in this investigation.

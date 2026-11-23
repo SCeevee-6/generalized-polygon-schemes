@@ -48,4 +48,57 @@ If H_s denotes the signed adjacency, the signed visit counts for the edge tree a
 
 This excludes all deck groups of order 16. It also excludes any 256-point component, regular or otherwise, factoring through one of the regular order-four quotients followed by two double lifts. A nonregular degree-sixteen action need not admit such a chain. In particular the argument does not yet remove 256 from the general list of possible component sizes. The known Ree–Tits model has two 512-point components. Recognizing one of them suffices by the previous half-reconstruction and De Bruyn's theorem on thin suboctagons. [De Bruyn](https://doi.org/10.1016/j.disc.2015.04.022)
 
-The 512-point branch is treated separately in `../README.md`. This new exclusion calls for independent reproduction.
+The 512-point branch is treated separately in `../README.md`. An [independent implementation](README.md) now reproduces the exclusion and bypasses the cyclic spectral filter in the terminal check.
+
+## Extension to every tower of four double covers
+
+**Claim.** A 256-vertex opposite component cannot factor as four successive
+connected double covers of its trace base. In particular, the monodromy
+of a hypothetical 256 component must have order divisible by an odd prime.
+
+Take one of the 48 possible first double quotients. For its next double
+cover, fix zero voltage on a spanning tree and vary all 80−32+1=49 binary
+chord voltages. There is no condition of regularity over the 16-vertex
+base. Group the two height-three edge trees by destination in the 32-vertex
+graph. Each walk determines the parity of its chord mask. At the 64-vertex
+stage each bin splits into two of size at most four. Forbid all five-element
+monochromatic subsets in each bin and enumerate every satisfying assignment.
+This gives 632 four-sheet records, with possible repetitions up to isomorphism.
+
+For such a signing, the signed adjacency M on the 32 vertices acts on the
+antisymmetric subspace of the double lift. Its eigenvalues occur in the final
+graph. Search numerically for a unit vector near an eigenvalue in one of the
+forbidden intervals (−∞,−4), (−2,−1), (69/20,5). Round the centre to t/1000
+and the vector to an integer vector w. Let d be the distance from integer t
+to the complement of the selected interval scaled by 1000. Reject only if
+the following **integer** inequality holds:
+
+    ||1000 M w − t w||² < d² ||w||².
+
+The spectral theorem puts an eigenvalue strictly inside the interval. Failed
+rounding simply keeps a candidate. This is an exclusion certificate even with
+a different numerical eigensolver. The remaining four-sheet records are
+expanded through the same exhaustive capacity-based double lifts as above.
+A two-colouring of every final graph contradicts the universal lower bound
+−13/3.
+
+    four-sheet capacity records                       632
+    retained after certified spectral exclusions      66
+    eight-sheet capacity records                     106
+    sixteen-sheet capacity records                    64
+    bipartite sixteen-sheet records                   64
+
+To relate this calculation to monodromy, let G be the permutation group on
+the 16 sheets induced by closed walks and H the stabilizer of one sheet.
+If G is a 2-group, choose successive maximal overgroups from H up to G
+with each smaller subgroup maximal in the next. Every such index is two.
+The corresponding equivariant maps of coset spaces give four connected
+double covers. Conversely the permutations preserving a tower of binary
+fibres lie in the automorphism group of a depth-four rooted binary tree,
+which is a 2-group. This covers nonregular examples as well as regular
+ones. Transitive degree sixteen alone does not imply 2-group monodromy.
+
+Run `OPENBLAS_NUM_THREADS=1 python octagon/regular256/double_towers.py`.
+The [first-quotient breakdown](double_towers_output.txt) records every
+count. The table counts switching classes above a fixed representative at
+each earlier stage, rather than isomorphism classes of final graphs.
