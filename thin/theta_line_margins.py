@@ -64,11 +64,12 @@ def geometry():
     return D, P, L, labels, ll, pp, lp
 
 
-def system():
-    D, P, L, pl, ll, pp, lp = geometry()
+def system(data=None):
+    D, P, L, pl, ll, pp, lp = geometry() if data is None else data
     n = int(pl.max()) + 1
     m = int(ll.max()) + 1
-    assert (len(P), n, len(L), m) == (753, 78, 8982, 824)
+    if data is None:
+        assert (len(P), n, len(L), m) == (753, 78, 8982, 824)
     print("profiles", len(P), n, "line types", len(L), m, flush=True)
     rows = {}
 

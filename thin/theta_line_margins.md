@@ -105,3 +105,8 @@ stars. Those individual star partitions, integrality, compatibility
 of distances between unnamed vertices and the remaining girth constraints
 are possible further restrictions. The existence of a grid somewhere in
 an arbitrary generalized octagon of order $(2,4)$ remains open.
+
+[Incidence directions and five-line star partitions](theta_star_margins.md)
+reduce the line support and add exact star partition equations and necessary
+integrality congruences. The stronger system still admits a rational witness
+with integral point orbit totals.

@@ -78,3 +78,6 @@ labelings (14 in total). This does not exclude any of the three classes.
 It remains to eliminate the 12 direction classes or otherwise force a
 centered transversal in at least one grid. The existence of a grid in an
 arbitrary generalized octagon remains a separate open step.
+
+[Coupling two completed stars](grid_coupled_stars.md) excludes three of
+these twelve classes, leaving nine.

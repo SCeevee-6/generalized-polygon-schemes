@@ -373,3 +373,10 @@ more classes, leaving 12 classes (254 labeled words). The strengthened
 [point and line marginal equations](theta_line_margins.md) have an exact
 nonnegative rational witness without a seventh point. Neither step of the
 uniqueness argument is yet complete.
+
+[Coupled completed stars](grid_coupled_stars.md) exclude three further
+classes, leaving nine classes (164 labelled words). [Incidence directions,
+star partitions and integrality congruences](theta_star_margins.md) sharpen
+the no-extension marginal system and provide a rational witness satisfying
+all new star equations, integral point orbit totals and the derived parity
+conditions. Both steps of the uniqueness argument remain open.
