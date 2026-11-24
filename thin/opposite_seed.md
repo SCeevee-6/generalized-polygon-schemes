@@ -380,3 +380,8 @@ star partitions and integrality congruences](theta_star_margins.md) sharpen
 the no-extension marginal system and provide a rational witness satisfying
 all new star equations, integral point orbit totals and the derived parity
 conditions. Both steps of the uniqueness argument remain open.
+
+[Tree patterns in coupled stars](grid_tree_stars.md) exclude `000000222`,
+leaving eight classes (158 labelled words). The same note shows that the
+numbers of centered, 16-cycle and 18-cycle point triples at mutual distance
+three are fixed by the parameters, and why this alone does not force a grid.

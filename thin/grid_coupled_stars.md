@@ -90,3 +90,5 @@ unchanged. The nine classes must still be addressed, and a separate
 argument is needed to force a grid in an arbitrary octagon.
 
 [Verifier](grid_coupled_stars.py)
+
+[Tree patterns](grid_tree_stars.md) exclude `000000222`, leaving eight classes.
