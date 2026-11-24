@@ -74,3 +74,6 @@ and transposition. The nine whole-class proofs use no entries from
 reproduce the weaker tests.
 
 [Verifier](grid_star_extension.py)
+
+[The next star test](grid_middle_extension.md) uses the middle-line identity
+at all ten neighbours and excludes four further whole direction classes.

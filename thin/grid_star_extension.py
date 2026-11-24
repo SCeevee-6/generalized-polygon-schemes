@@ -8,8 +8,12 @@ import json
 from pathlib import Path
 
 import numpy as np
-from pysat.formula import CNF, IDPool
-from pysat.solvers import Solver
+from grid_rup import CNF, IDPool
+
+try:
+    from pysat.solvers import Solver
+except ModuleNotFoundError:
+    Solver = None
 
 from grid_directions import SYMMETRIES, distance_domains, skeleton, star_domains, third_domains
 
@@ -107,6 +111,8 @@ class Neighbourhoods:
                     for a, b in combinations(inward, 2):
                         self.formula.append([-selected, -a, -b])
 
+        return rows
+
 
 def check_refutation(formula, proof):
     """Replay clause additions by reverse unit propagation in MiniSat.
@@ -128,6 +134,8 @@ def check_refutation(formula, proof):
 
 
 def possible(formula):
+    if Solver is None:
+        raise RuntimeError("Install python-sat to run the original star refutations.")
     with Solver(name="g4", bootstrap_with=formula, with_proof=True) as solver:
         if solver.solve():
             model = set(solver.get_model())
@@ -165,3 +173,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

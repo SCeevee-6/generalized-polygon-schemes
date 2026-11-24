@@ -367,3 +367,9 @@ complete rooted path counts at all nine tips can coexist with zero centered
 transversals. Its incidence graph has girth ten.
 
 [Five-line neighbourhood refutations](grid_star_extension.md) reduce the 25 classes above to 16. [Edge labels and the 21-point support test](opposite_edge_labels.md) give further necessary conditions for a grid-free octagon.
+
+[Middle-line identities in completed stars](grid_middle_extension.md) exclude four
+more classes, leaving 12 classes (254 labeled words). The strengthened
+[point and line marginal equations](theta_line_margins.md) have an exact
+nonnegative rational witness without a seventh point. Neither step of the
+uniqueness argument is yet complete.

@@ -84,3 +84,7 @@ cannot be realized. Other multiplicities can change the available
 lines. Neither this calculation nor the edge labels force a grid somewhere.
 
 Run `python thin/theta_incident_lines.py` to verify the counts. [Verifier](theta_incident_lines.py)
+
+[Point and line marginal equations](theta_line_margins.md) strengthen the
+linear constraints on the same 21-point seed, but still admit an exact
+nonnegative rational solution without an extension.
