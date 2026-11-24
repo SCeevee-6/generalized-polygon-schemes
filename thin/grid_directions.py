@@ -12,6 +12,7 @@ from scipy.sparse import csr_matrix
 from scipy.sparse.csgraph import shortest_path
 
 from theta_profiles import distance_polynomials
+from grid_geodesics import check_geodesics
 
 CELLS = range(9)
 OFF = [[y for y in CELLS if x // 3 != y // 3 and x % 3 != y % 3] for x in CELLS]
@@ -228,6 +229,20 @@ def verify_metric(masks, profiles, lines, digits):
         if eigenvalue == -5:
             assert rank == 30
 
+    check_geodesics(dist, lines)
+
+
+def exclude_middle_line_case(reduced, lines):
+    # For (r,a,b,c) below, c is the third point on the middle line from r to b.
+    # Thus a neighbour a of r must satisfy d(a,b) = d(a,c)+1.
+    forbidden = np.array([[0, 1, 3, 2], [1, 0, 3, 3], [3, 3, 0, 2], [2, 3, 2, 0]])
+    assert reduced[28, 37] == (1 << 3 | 1 << 4)
+    for d, four in ((3, [35, 40, 49, 78]), (4, [36, 44, 50, 76])):
+        branch = reduced.copy()
+        branch[28, 37] = branch[37, 28] = 1 << d
+        after = star_domains(branch, lines)
+        assert after is not None and np.array_equal(after[np.ix_(four, four)], 1 << forbidden)
+
 
 def main():
     totals = Counter()
@@ -253,6 +268,9 @@ def main():
                 reduced = star_domains(masks, lines)
                 if reduced is None:
                     result = "inconsistent inward lines"
+                elif word == "001001220":
+                    exclude_middle_line_case(reduced, lines)
+                    result = "inconsistent middle line"
                 else:
                     # A two-branch refutation for the remaining negative case.
                     assert word == "001010211" and reduced[27, 41] == (1 << 3 | 1 << 4)
@@ -270,6 +288,7 @@ def main():
         "inconsistent line distances",
         "inconsistent inward lines",
         "inconsistent after distance split",
+        "inconsistent middle line",
         "verified partial metrics",
     ):
         print(key, totals[key], "classes", classes[key])

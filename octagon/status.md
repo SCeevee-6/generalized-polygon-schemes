@@ -240,10 +240,11 @@ possibilities and forcing a recognized root, remains necessary.
 A direct alternative is to force one four-cycle in the cubic graph on
 opposite-line pairs and one centered transversal in the resulting grid.
 Both conditions together force a thin suboctagon without a component or
-monodromy hypothesis. If no transversal is centered, 26 direction classes
+monodromy hypothesis. If no transversal is centered, 25 direction classes
 survive exact tests on 81 points. The [opposite-line argument](../thin/opposite_seed.md)
 gives the proof, model counts, integer witnesses and the remaining existence
-question.
+question. [A girth-ten construction](../thin/rooted_grid.md) realizes all nine
+marked roots in a single incidence structure of the full size.
 
 A fresh check of the 96 stored corrected cross-orbit inputs reproduced the
 archived sibling witnesses byte for byte. The final line was

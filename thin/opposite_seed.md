@@ -275,14 +275,43 @@ through three. One further class fails after branching on both possible
 values of a single distance and applying the same rule. These are finite
 exclusions using only integer and bit operations.
 
-Each of the 26 remaining classes has a [saved distance matrix](grid_metrics.json).
+The class `001001220` (18 labelings) fails a further geodesic test. If
+$d(r,b)=3$ and $d(r,c)=d(b,c)=2$, then **every neighbour $a$ of $r$**
+satisfies $d(a,b)=d(a,c)+1$. Indeed $c$ is the third point on the middle
+line of the geodesic from $r$ to $b$. Both geodesics from $r$ start with
+the same line and the same next point $t$. For $a=t$ the two distances are
+2 and 1. For the other neighbour on that first line they are 3 and 2.
+For a neighbour on any other line, the paths via $r$ have lengths four
+and three in the point graph and are geodesic by incidence girth.
+
+In the zero-based numbering of `skeleton()`, the remaining distance from
+28 to 37 is three or four. Impose each value and propagate the joint
+distance patterns on the named lines through each point. The two branches
+give these point distances.
+
+| $d(28,37)$ | $(r,a,b,c)$ | $d(r,a)$ | $d(r,b)$ | $d(r,c)$ | $d(b,c)$ | $d(a,b)$ | $d(a,c)$ |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 3 | (35,40,49,78) | 1 | 3 | 2 | 2 | 3 | 3 |
+| 4 | (36,44,50,76) | 1 | 3 | 2 | 2 | 3 | 3 |
+
+Both rows contradict the neighbour identity. The verifier checks the
+six displayed distances in both branches; it uses no SAT solver.
+
+Each of the 25 remaining classes has a [saved distance matrix](grid_metrics.json).
 The verifier checks the specified profiles, all lines and inward directions,
 and every upper bound on the number of these 81 points in two given shells
 about any two of them. The bounds are the intersection numbers in the full
 octagon. In particular they enforce the triangle inequalities. For all four
 nonprincipal point eigenspaces it checks that the cosine Gram matrix is
 positive semidefinite by exact fraction-free elimination. The least
-eigenspace Gram matrices have rank 30. These certificates describe partial
+eigenspace Gram matrices have rank 30. A further
+[geodesic check](grid_geodesics.py) introduces the unique path for every
+pair of named incidence vertices at distance below eight. The paths of any
+three named vertices with perimeter below 16 form a tree, hence their
+overlapping segments are identified. For each saved matrix these
+identifications preserve all 132 named vertices and introduce no path
+shorter than their specified distances. Four old witnesses were replaced
+when checking this condition. These certificates describe partial
 metrics. They supply neither the other 1,674 points nor their incidences.
 
 ```text
@@ -292,11 +321,47 @@ coincident partners 14179 classes 252
 inconsistent line distances 4608 classes 93
 inconsistent inward lines 72 classes 2
 inconsistent after distance split 18 classes 1
-verified partial metrics 806 classes 26
+inconsistent middle line 18 classes 1
+verified partial metrics 788 classes 25
 ```
 
-Thus ruling out extensions of these 26 **direction types**, allowing all
+Thus ruling out extensions of these 25 **direction types**, allowing all
 distance matrices of each type, would suffice for the second step.
 Eliminating only the displayed matrix of a type would leave its other
 possible matrices open. The first step, existence of a four-cycle somewhere,
 would still be required.
+
+## Additional grids among the prescribed lines
+
+Five surviving classes force other grids within their own 51 lines.
+[grid_neighbors.py](grid_neighbors.py) enumerates the six center lines and
+the nine intermediate lines in each such diagram. It requires 27 distinct
+attachment points and tips. This gives length-eight nonbacktracking paths
+between centers in the same family, so those centers stay opposite in the
+ambient octagon. Only additional grids entirely exhibited in this diagram
+are counted.
+
+In each additional grid, four of the nine direction choices are already
+fixed if no transversal is centered. A tip has two off-row, off-column
+geodesics along the same initial line and through different next points.
+The two geodesics have incidence length six inside the given diagram, so
+they remain unique in every completion. They specify one pair of the
+matching, hence also its other pair. Checking the 788 surviving labelled
+words against the four fixed positions leaves 22 possibilities each time.
+
+| Original class | Additional grids exhibited | Number of the 22 labelings in this class |
+|---|---:|---:|
+| `000000111` | 3 | 2 |
+| `000011011` | 2 | 4 |
+| `000011022` | 1 | 4 |
+| `001002111` | 2 | 8 |
+| `002002111` | 2 | 4 |
+
+Thus in a hypothetical counterexample every grid obtained by these
+transitions belongs to the same five-class list. A centered transversal
+in any one of them would already give the thin suboctagon. This restriction
+alone permits all five classes.
+
+A [full-size incidence construction](rooted_grid.md) shows that even the
+complete rooted path counts at all nine tips can coexist with zero centered
+transversals. Its incidence graph has girth ten.
