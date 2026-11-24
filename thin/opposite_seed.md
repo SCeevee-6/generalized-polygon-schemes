@@ -19,6 +19,8 @@ Bruyn's Main Theorem. The outstanding existence question concerns **one
 pair in an arbitrary octagon**. The exact counts below hold for the Ree–Tits
 model. [De Bruyn, Discrete Mathematics 338 (2015), 2125–2142](https://doi.org/10.1016/j.disc.2015.04.022).
 
+**Subsequent result.** The [short-path refutations](grid_path_closure.md) prove that condition 2 always holds once the grid of condition 1 exists. It now suffices to find one opposite-line pair satisfying condition 1 in an arbitrary octagon. The case counts below record successive earlier tests.
+
 ## Distances and two elementary facts
 
 Write $d$ for point-graph distance and use incidence distance for a point
