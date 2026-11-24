@@ -28,6 +28,9 @@ same uniqueness problem. None closes the unrestricted question.
   the five local metrics when an opposite pair fails to give a grid.
 - `thin/fixed_involution.md` constrains fixed structures of involutions in
   a hypothetical grid-free octagon.
+- The opposite-point parity test reduces the four surviving fixed-point
+  counts to seven possible branch distributions.
+  [Parity and branch counts](thin/involution_branch_parity.md)
 - `thin/rooted_grid.md` gives a girth-10 example showing why the nine
   rooted path conditions alone do not force a centered transversal.
 
@@ -58,6 +61,5 @@ required for their checks.
 ## Branch contents
 
 The branch was cut from `main` at
-`8adffaa3d12d046492327011f4b9a789967f2bd6`, before the subsequent failed
-pair and involution notes were added. It retains the repository files so
+`8adffaa3d12d046492327011f4b9a789967f2bd6`. It retains the repository files so
 that cited computations and data are available together.
