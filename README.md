@@ -31,6 +31,8 @@ same uniqueness problem. None closes the unrestricted question.
 - The opposite-point parity test reduces the four surviving fixed-point
   counts to seven possible branch distributions.
   [Parity and branch counts](thin/involution_branch_parity.md)
+- Component counts restrict where four-cycles can occur in a quotient by
+  an involution. [Opposite components](thin/involution_components.md)
 - `thin/rooted_grid.md` gives a girth-10 example showing why the nine
   rooted path conditions alone do not force a centered transversal.
 
