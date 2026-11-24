@@ -1,0 +1,1163 @@
+{
+"gap": "4.12.1",
+"highs_time_limit": 600,
+"cpsat_time_limit": 900,
+"hard_kill_sec": 1700,
+"results": [
+{
+"order": 750,
+"id": 1,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 12,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 2.35
+},
+{
+"order": 750,
+"id": 2,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 10,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 2.38
+},
+{
+"order": 750,
+"id": 3,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 9,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 2.37
+},
+{
+"order": 750,
+"id": 7,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 12,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 8,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.84
+},
+{
+"order": 750,
+"id": 9,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 22,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.83
+},
+{
+"order": 750,
+"id": 10,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 16,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.67
+},
+{
+"order": 750,
+"id": 11,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 16,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.68
+},
+{
+"order": 750,
+"id": 12,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 26,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.71
+},
+{
+"order": 750,
+"id": 13,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 20,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 14,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 36,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.03,
+"cpsat_sec": 0.72
+},
+{
+"order": 750,
+"id": 15,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 24,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.68
+},
+{
+"order": 750,
+"id": 16,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 24,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.7
+},
+{
+"order": 750,
+"id": 17,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 18,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.69
+},
+{
+"order": 750,
+"id": 18,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 19,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.67
+},
+{
+"order": 750,
+"id": 19,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.67
+},
+{
+"order": 750,
+"id": 20,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.69
+},
+{
+"order": 750,
+"id": 21,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 25,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.72
+},
+{
+"order": 750,
+"id": 22,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 18,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.72
+},
+{
+"order": 750,
+"id": 24,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 32,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.03,
+"cpsat_sec": 0.73
+},
+{
+"order": 750,
+"id": 25,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 32,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.03,
+"cpsat_sec": 0.84
+},
+{
+"order": 750,
+"id": 31,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 28,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 32,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 54,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 33,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 44,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 34,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 66,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 35,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 96,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 36,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 47,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 37,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 42,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 750,
+"id": 38,
+"array": [
+[
+49,
+40,
+22
+],
+[
+1,
+5,
+28
+]
+],
+"rational_classes": 65,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 1000,
+"id": 1,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 13,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 1.05
+},
+{
+"order": 1000,
+"id": 1,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 13,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 1.04
+},
+{
+"order": 1000,
+"id": 3,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 10,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.77
+},
+{
+"order": 1000,
+"id": 3,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 10,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.76
+},
+{
+"order": 1000,
+"id": 4,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.87
+},
+{
+"order": 1000,
+"id": 4,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.84
+},
+{
+"order": 1000,
+"id": 5,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 15,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.83
+},
+{
+"order": 1000,
+"id": 5,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 15,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.81
+},
+{
+"order": 1000,
+"id": 6,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.83
+},
+{
+"order": 1000,
+"id": 6,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.83
+},
+{
+"order": 1000,
+"id": 7,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 18,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.93
+},
+{
+"order": 1000,
+"id": 7,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 18,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.93
+},
+{
+"order": 1000,
+"id": 8,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.95
+},
+{
+"order": 1000,
+"id": 8,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 14,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.97
+},
+{
+"order": 1000,
+"id": 10,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.85
+},
+{
+"order": 1000,
+"id": 10,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.82
+},
+{
+"order": 1000,
+"id": 11,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.74
+},
+{
+"order": 1000,
+"id": 11,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.75
+},
+{
+"order": 1000,
+"id": 12,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 12,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.8
+},
+{
+"order": 1000,
+"id": 12,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 12,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.79
+},
+{
+"order": 1000,
+"id": 13,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.91
+},
+{
+"order": 1000,
+"id": 13,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 20,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.01,
+"cpsat_sec": 0.92
+},
+{
+"order": 1000,
+"id": 22,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 32,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 1000,
+"id": 22,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 32,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.77
+},
+{
+"order": 1000,
+"id": 23,
+"array": [
+[
+54,
+42,
+11
+],
+[
+1,
+3,
+44
+]
+],
+"rational_classes": 32,
+"highs": "KILLED",
+"cpsat": "KILLED",
+"highs_sec": null,
+"cpsat_sec": null
+},
+{
+"order": 1000,
+"id": 23,
+"array": [
+[
+63,
+48,
+24
+],
+[
+1,
+6,
+28
+]
+],
+"rational_classes": 32,
+"highs": "INFEASIBLE",
+"cpsat": "INFEASIBLE",
+"highs_sec": 0.02,
+"cpsat_sec": 0.67
+}
+]
+}

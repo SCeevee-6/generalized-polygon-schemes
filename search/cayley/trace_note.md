@@ -78,3 +78,22 @@ in each, contradicting Y17 = 3.
 
 These two tables coincide too and have 37 rational classes. I have not finished a hand argument; their exclusion rests
 on the solver (HiGHS MILP; the earlier CP-SAT and Z3 runs agree).
+
+## Groups of order 750 and 1000 with a normal cyclic Sylow subgroup
+
+The normal-Cayley search skipped the 29 nonabelian groups of order 750 and the 13 of order 1000 that have a normal
+cyclic Sylow subgroup, because Chen–Muzychuk–Ponomarenko already rule out a primitive distance-regular Cayley graph on
+them. As an independent check I ran the trace model on them anyway. `export_skipped.g` produced their rational tables
+(`tables_skipped.txt`, GAP 4.12.1, all 42 groups). Each table was tested against {49,40,22;1,5,28} at order 750 and
+against both {54,42,11;1,3,44} and {63,48,24;1,6,28} at order 1000, first with HiGHS (600 s) and then with CP-SAT
+(900 s); results in `trace_skipped.json`.
+
+| order | array | tables | both solvers infeasible | undecided within the limits |
+|---|---|---:|---:|---:|
+| 750 | {49,40,22;1,5,28} | 29 | 19 | 10 |
+| 1000 | {54,42,11;1,3,44} | 13 | 11 | 2 |
+| 1000 | {63,48,24;1,6,28} | 13 | 13 | 0 |
+
+No run found a feasible point. The undecided ones (750: 7, 13, 31, 32, 33, 34, 35, 36, 37, 38; 1000: 22, 23 for the
+first array) were stopped at 1700 s with neither solver finished. They are still excluded by the
+Chen–Muzychuk–Ponomarenko theorem, so this only means the computational cross-check is incomplete for them.
