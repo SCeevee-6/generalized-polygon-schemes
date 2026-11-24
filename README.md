@@ -33,6 +33,8 @@ same uniqueness problem. None closes the unrestricted question.
   [Parity and branch counts](thin/involution_branch_parity.md)
 - Component counts restrict where four-cycles can occur in a quotient by
   an involution. [Opposite components](thin/involution_components.md)
+- Outside grid components the opposite-pair graph has girth at least eight.
+  [Short cycles and their line labels](thin/opposite_cycles.md)
 - `thin/rooted_grid.md` gives a girth-10 example showing why the nine
   rooted path conditions alone do not force a centered transversal.
 
