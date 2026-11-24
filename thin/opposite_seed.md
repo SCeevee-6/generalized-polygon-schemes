@@ -297,7 +297,7 @@ give these point distances.
 Both rows contradict the neighbour identity. The verifier checks the
 six displayed distances in both branches; it uses no SAT solver.
 
-Each of the 25 remaining classes has a [saved distance matrix](grid_metrics.json).
+Each of the 25 classes surviving this test has a [saved distance matrix](grid_metrics.json).
 The verifier checks the specified profiles, all lines and inward directions,
 and every upper bound on the number of these 81 points in two given shells
 about any two of them. The bounds are the intersection numbers in the full
@@ -325,7 +325,7 @@ inconsistent middle line 18 classes 1
 verified partial metrics 788 classes 25
 ```
 
-Thus ruling out extensions of these 25 **direction types**, allowing all
+At this stage ruling out extensions of these 25 **direction types**, allowing all
 distance matrices of each type, would suffice for the second step.
 Eliminating only the displayed matrix of a type would leave its other
 possible matrices open. The first step, existence of a four-cycle somewhere,
@@ -365,3 +365,5 @@ alone permits all five classes.
 A [full-size incidence construction](rooted_grid.md) shows that even the
 complete rooted path counts at all nine tips can coexist with zero centered
 transversals. Its incidence graph has girth ten.
+
+[Five-line neighbourhood refutations](grid_star_extension.md) reduce the 25 classes above to 16. [Edge labels and the 21-point support test](opposite_edge_labels.md) give further necessary conditions for a grid-free octagon.
