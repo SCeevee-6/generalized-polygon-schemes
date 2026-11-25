@@ -117,5 +117,5 @@ for q in combinations_with_replacement(range(0, 9, 2), 5):
         print(11 + 2 * sum(q), q, counts[1::2])
 ~~~
 
-These conditions leave seven distributions and four total fixed-point
-counts. They apply to counterexamples with an involution.
+The [central-involution theorem](central_involution.md) reduces these
+possibilities to the 91-point case in a grid-free octagon.

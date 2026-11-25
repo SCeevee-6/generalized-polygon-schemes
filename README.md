@@ -28,16 +28,21 @@ same uniqueness problem. None closes the unrestricted question.
   the five local metrics when an opposite pair fails to give a grid.
 - `thin/fixed_involution.md` constrains fixed structures of involutions in
   a hypothetical grid-free octagon.
-- The opposite-point parity test reduces the four surviving fixed-point
-  counts to seven possible branch distributions.
-  [Parity and branch counts](thin/involution_branch_parity.md)
-- Component counts restrict where four-cycles can occur in a quotient by
-  an involution. [Opposite components](thin/involution_components.md)
+- In a grid-free octagon every nonidentity involution fixes exactly the
+  radius-four ball about a point, with 91 points and 45 lines.
+  The earlier parity and quotient counts apply to this remaining case.
+  [Central involutions](thin/central_involution.md)
+- A repeat among eight leaf-map outputs forces a grid without an
+  automorphism hypothesis. [Repeat test](thin/opposite_leaf_maps.md)
 - Outside grid components the opposite-pair graph has girth at least eight.
   [Short cycles and their line labels](thin/opposite_cycles.md)
 - A global complex couples the indexed systems at all root lines. Its
   boundary gives a binary rank bound and its real incidence matrices give
   exact projected moments. [Global compatibility](thin/opposite_boundary.md)
+- A failed opposite pair of 16-cycle shape forces a rooted surface with
+  at least fourteen faces. The attachment types through fourteen faces
+  are constrained by exact local replays.
+  [Small surfaces and the global count](thin/opposite_link_surfaces.md)
 - `thin/rooted_grid.md` gives a girth-10 example showing why the nine
   rooted path conditions alone do not force a centered transversal.
 

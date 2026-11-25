@@ -86,4 +86,5 @@ an involution realizes one of those vectors is a separate condition.
 Run [the verifier](involution_parity_model.py) with
 `python thin/involution_parity_model.py` from the repository root.
 
-The component constraints leave the four fixed-point counts open.
+The [central-involution theorem](central_involution.md) reduces these
+possibilities to the 91-point case in a grid-free octagon.
