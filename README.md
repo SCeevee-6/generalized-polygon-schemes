@@ -36,6 +36,10 @@ same uniqueness problem. None closes the unrestricted question.
   automorphism hypothesis. [Repeat test](thin/opposite_leaf_maps.md)
 - Outside grid components the opposite-pair graph has girth at least eight.
   [Short cycles and their line labels](thin/opposite_cycles.md)
+- In a grid-free octagon every opposite-pair component contains an
+  indexed cycle of length at least twelve. At least 1,448 distinct
+  indexed systems must contain such a cycle.
+  [Obstruction to simultaneous eight-cycles](thin/indexed_eight_obstruction.md)
 - A global complex couples the indexed systems at all root lines. Its
   boundary gives a binary rank bound and its real incidence matrices give
   exact projected moments. [Global compatibility](thin/opposite_boundary.md)
