@@ -149,6 +149,50 @@ more squares, giving at least 65,813 unordered root pairs globally.
 If all pairs have the 18-cycle shape then $c_4=0$, and the bound rises
 to $\lceil1024/17\rceil=61$ partners at every root.
 
+## Six collinearity tests for label 4
+
+Fix opposite roots $X,Y$. Each ordered pair $i\ne j$ gives a test with
+no choices. Write the unique geodesic between the spares $u_i,v_j$ as
+three successive lines $A,K,D$, and let $p,q$ be the unused points on
+$A,D$ along this path. Put $k=3-i-j$ with colors numbered $0,1,2$.
+Let $E$ be the middle line of the geodesic from $p$ to $y_k$, and
+$B$ the middle line of the geodesic from $q$ to $x_k$. Write $s,t$
+for the unused points on $E,B$ along these paths. Then **the special
+edge $AD$ belongs to a square exactly when $s,t$ are collinear**.
+
+Indeed the three points on $A$ project bijectively to the three points
+on its opposite line $Y$. The point $u_i$ projects to $y_i$. The
+attachment toward $D$ projects to $y_j$ along the arm through $D$.
+Thus $p$ projects to $y_k$ and the six-edge geodesic used above exists.
+Its middle line $E$ is the other auxiliary neighbor of $A$. Symmetrically
+$B$ is the other neighbor of $D$. A square closes exactly when $B,E$
+are at line distance two. In that case the connecting arm at $E$ must
+use its point away from both $A$ and $Y$, namely $s$: the two auxiliary
+neighbors attach at the two points away from the root attachment.
+The same argument gives $t$ at $B$, proving necessity. Collinearity
+gives distance at most two between $B,E$, and their distances from $X$
+differ by two, proving sufficiency. Each label-4 square has just one
+special-to-special edge, so the six indicators sum to $c_4(X,Y)$.
+
+These local indicators have an exact global total. Sum over **unordered**
+opposite roots, choosing either orientation once. Every successful test
+counts the unique cubic edge with those omitted lines and that square.
+The label-4 subgraph has degree two at every 16-cycle pair and zero
+elsewhere. Hence the sum is exactly the number of 16-cycle pairs.
+For example, if all pairs are grid-free and some have the 18-cycle shape,
+at least as many root pairs have zero successful tests as there are
+18-cycle pairs. A root pair with multiple successes increases that deficit
+by its number of successes beyond the first.
+
+The [replay](opposite_square_geodesics.py) tries to force a contradiction
+by requiring all six tests to succeed at once. For each of the five
+failed root metric orbits it names the connecting lines, requires all
+24 corner lines to be distinct, and adds the three geodesics between
+the unused middle-line tips of each of the twelve cubic endpoints.
+All five pass three-line propagation on 116 line slots. This gives
+surviving distance domains only. The compatibility of these tests
+between different root pairs remains open.
+
 ## Testing two squares together
 
 Take the first lexicographically ordered failed metric in
