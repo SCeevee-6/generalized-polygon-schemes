@@ -214,3 +214,6 @@ These are necessary traces. A surviving trace is a set of
 distance domains and gives no ambient completion. In particular,
 excluding eight-cycles would still leave the systems indexed by
 two lines with possible cycle lengths $12,16,\ldots,128$.
+
+The indexed systems through a fixed line are links of a single triangle
+complex. [Compatibility and the Euler restriction](opposite_link_surfaces.md)
