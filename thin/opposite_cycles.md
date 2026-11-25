@@ -163,3 +163,6 @@ eight and there are at most sixteen cycles. Therefore a rank below
 32 cycles have length four. This reduces another grid test to a
 matrix on just 128 local lines. A universal rank bound below 48
 remains to be proved.
+
+The block counts and an exact rank-48 partial distance example are in
+[Distance blocks in the local rank test](indexed_cycle_blocks.md).
