@@ -74,9 +74,25 @@ def edge_labels(path, attachments, masks, lines, constraints):
     return tuple(after for before, after in labels)
 
 
+def contains_grid_at_first_pair(path, masks, lines):
+    lines = np.asarray(lines)
+    tables = masks[lines[:, None, :, None], lines[None, :, None, :]]
+    opposite = ((tables & 7) == 0).all(axis=(2, 3))
+    distance_two = ((tables & 1) == 0).all(axis=(2, 3)) & (tables == 2).any(axis=(2, 3))
+    a, b = path[0]
+    common = np.flatnonzero(distance_two[a] & distance_two[b])
+    for columns in combinations(common, 3):
+        if not all(opposite[x, y] for x, y in combinations(columns, 2)):
+            continue
+        rows = opposite[a] & opposite[b] & distance_two[list(columns)].all(axis=0)
+        if rows.any():
+            return True
+    return False
+
+
 def main():
     constraints = LineConstraints()
-    expected = {11: (8, 0, 1), 12: (6, 1, 5), 13: (71, 0, 1)}
+    expected = {11: (8, 0, 1, 0), 12: (6, 1, 3, 2), 13: (71, 0, 1, 0)}
     for length, result in expected.items():
         counts = Counter()
         for path, distances in classified_traces(length):
@@ -90,6 +106,9 @@ def main():
             masks, lines = named_lines(distances, attachments)
             if not constraints.propagate(masks, lines):
                 continue
+            if contains_grid_at_first_pair(path, masks, lines):
+                counts["grid"] += 1
+                continue
             indexed = length % 2 == 0 and all(
                 set.intersection(*(set(pair) for pair in path[side::2])) for side in range(2)
             )
@@ -98,7 +117,7 @@ def main():
                 labels = edge_labels(path, attachments, masks, lines, constraints)
                 assert labels.count(3) == {11: 2, 13: 4}[length]
                 print("Odd-cycle edge labels", length, labels, flush=True)
-        counts = tuple(counts[k] for k in ("traces", "indexed", "other"))
+        counts = tuple(counts[k] for k in ("traces", "indexed", "other", "grid"))
         assert counts == result
         print(length, *counts, flush=True)
 

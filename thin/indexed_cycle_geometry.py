@@ -38,16 +38,20 @@ def line_distances(a, b, matches_at_leaf, blocks):
         fixed = blocks.get((row[:4], col[:4]))
         if fixed is not None:
             return (4 - int(row == fixed[0]) - int(col == fixed[1]),)
-        return (3, 4) if row in matches_at_leaf or col in matches_at_leaf else (2, 3, 4)
+        # A named match only fixes the entry in that opposite branch.
+        if (any(other[1] == col[1] for other in matches_at_leaf.get(row, ()))
+                or any(other[1] == row[1] for other in matches_at_leaf.get(col, ()))):
+            return (3, 4)
+        return (2, 3, 4)
     leaf, parent = (a[1:], b[1:]) if a[0] == "leaf" else (b[1:], a[1:])
-    if leaf not in matches_at_leaf:
+    if not any(other[1] == parent[1] for other in matches_at_leaf.get(leaf, ())):
         return (3, 4)
     return (3 if any(other[:3] == parent for other in matches_at_leaf[leaf]) else 4,)
 
 
 def replay(groups, edges, constraints):
     # A leaf is named by side, branch, parent line, ancestor point and slot.
-    # Every leaf occurring in edges has both of its matches supplied.
+    # A leaf at the end of an open path may have just one supplied match.
     leaves = [group + (child, slot) for group in groups
               for child, slot in product(range(2), range(4))]
     named = [("root", 0), ("root", 1), ("link",)]
@@ -62,7 +66,7 @@ def replay(groups, edges, constraints):
         blocks[block] = a, b
         matches.setdefault(a, set()).add(b)
         matches.setdefault(b, set()).add(a)
-    assert all({other[1] for other in partners} == {0, 1} and len(partners) == 2
+    assert all(len({other[1] for other in partners}) == len(partners)
                for partners in matches.values())
 
     point_ids = {}

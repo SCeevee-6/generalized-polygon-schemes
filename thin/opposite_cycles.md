@@ -186,11 +186,17 @@ such assignment. The replay names the full intermediate line of
 every distance-two connection and applies the three-line
 distance propagation.
 
-| Length | Traces after the attachment test | Surviving indexed traces | Other surviving traces |
-|---:|---:|---:|---:|
-| 11 | 8 | 0 | 1 |
-| 12 | 6 | 1 | 5 |
-| 13 | 71 | 0 | 1 |
+| Length | Traces after the attachment test | Surviving indexed traces | Other surviving traces | Force a grid at the first pair |
+|---:|---:|---:|---:|---:|
+| 11 | 8 | 0 | 1 | 0 |
+| 12 | 6 | 1 | 3 | 2 |
+| 13 | 71 | 0 | 1 | 0 |
+
+Two of the six length-twelve traces that pass distance propagation
+force a grid through the first opposite pair. Its whole component
+is then $K_{3,3}$, which excludes a twelve-cycle through that pair.
+The 128-vertex indexed systems also obey
+[additional restrictions on open paths](indexed_cycle_paths.md).
 
 The eleven-cycle and thirteen-cycle survivors also force the
 edge labels. Complete the short geodesics between the three unused
