@@ -35,6 +35,9 @@ same uniqueness problem. None closes the unrestricted question.
   an involution. [Opposite components](thin/involution_components.md)
 - Outside grid components the opposite-pair graph has girth at least eight.
   [Short cycles and their line labels](thin/opposite_cycles.md)
+- A global complex couples the indexed systems at all root lines. Its
+  boundary gives a binary rank bound and its real incidence matrices give
+  exact projected moments. [Global compatibility](thin/opposite_boundary.md)
 - `thin/rooted_grid.md` gives a girth-10 example showing why the nine
   rooted path conditions alone do not force a centered transversal.
 

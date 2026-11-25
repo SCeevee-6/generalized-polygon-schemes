@@ -237,14 +237,13 @@ this component pattern at every root. A root-independent forcing theorem
 for a thin suboctagon, or a component argument covering all these
 possibilities and forcing a recognized root, remains necessary.
 
-A direct alternative is to force one four-cycle in the cubic graph on
-opposite-line pairs and one centered transversal in the resulting grid.
-Both conditions together force a thin suboctagon without a component or
-monodromy hypothesis. If no transversal is centered, 25 direction classes
-survive exact tests on 81 points, and 8 survive the completed-star tests. The [opposite-line argument](../thin/opposite_seed.md)
-gives the proof, model counts, integer witnesses and the remaining existence
-question. [A girth-ten construction](../thin/rooted_grid.md) realizes all nine
-marked roots in a single incidence structure of the full size.
+The direct route now requires one four-cycle in the cubic graph on
+opposite-line pairs. That cycle gives a grid, and the completed direction
+enumeration proves that every grid yields a full thin suboctagon. The
+remaining existence question is to force a four-cycle in an arbitrary
+octagon. The global complex ties the indexed systems at all roots to one
+boundary matrix and relates it to the ambient line spectrum.
+[Grid implication](../thin/grid_path_closure.md) · [Global compatibility](../thin/opposite_boundary.md)
 
 A fresh check of the 96 stored corrected cross-orbit inputs reproduced the
 archived sibling witnesses byte for byte. The final line was
