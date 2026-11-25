@@ -77,7 +77,7 @@ def attachment_possible(path, distances):
 
 
 def main():
-    expected = {5: (0, 0), 6: (2, 0), 7: (0, 0), 8: (6, 2)}
+    expected = {5: (0, 0), 6: (2, 0), 7: (0, 0), 8: (6, 2), 9: (2, 2), 10: (38, 0)}
     for size, counts in expected.items():
         candidates = list(traces(size))
         survivors = [path for path, d in candidates if attachment_possible(path, d)]

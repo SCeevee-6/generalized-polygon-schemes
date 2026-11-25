@@ -48,6 +48,8 @@ two steps apart share a line. The finite enumeration gives:
 | 6 | 2 | 0 |
 | 7 | 0 | 0 |
 | 8 | 6 | 2 |
+| 9 | 2 | 2 |
+| 10 | 38 | 0 |
 
 The two length-six traces have a common label in each parity class.
 At one of these labels, the opposite shared label and the three
@@ -109,3 +111,55 @@ non-grid vertex lies on 87 closed walks of length six, the number in
 the cubic tree. Each grid vertex lies on 243. Hence
 $\operatorname{tr}(J^6)=87N+936g$. This is a second trace criterion for
 a grid, alongside the fourth trace in the original reduction.
+
+## Nine-cycles and ten-cycles
+
+A chord in a nine- or ten-cycle would split it into two cycles
+whose lengths sum to at most twelve. In a non-grid component both
+lengths would have to be at least eight, so these cycles are induced.
+The enumerated absence of an induced ten-cycle therefore excludes
+every ten-cycle.
+
+The two nine-cycle traces name nine distinct lines and determine all
+36 distances between them. Eighteen distances are two and eighteen
+are four. Enumerate attachment point choices on each line up to a
+permutation of its three points. Each trace has one assignment.
+Name the intermediate line for each pair at distance two and apply
+the short-path propagation described in
+[the grid proof](grid_path_closure.md).
+
+After identifying slots at distance zero, the result has 36 distinct
+points and 21 distinct lines. Nine points are incident with one named
+line, and the other 27 with two. The nine points of degree one are
+mutually at point distance three.
+
+The two neighbors of a vertex on the cycle name all three middle
+lines, so their three unused tips are known. Complete the geodesics
+between these tips. In [the edge labeling](opposite_edge_labels.md)
+the two cycle edges at each vertex are forced to have label 4, and
+the third edge has label 3. Thus every nine-cycle is an entire
+component of the subgraph on edges labeled 4. Distinct nine-cycles
+are vertex-disjoint. The computation checks implications of the
+trace and leaves its existence open.
+
+Run [the replay](opposite_nine_cycles.py) from the repository root
+using `python thin/opposite_nine_cycles.py`.
+
+## A local rank criterion
+
+Fix $A,C$ at line distance two and take the two 64-vertex sides of
+$J_{A,C}$. Its $64\times64$ biadjacency matrix $M$ has entry one for
+the pairs $\{A,B\},\{C,D\}$ exactly when $B,D$ are at line distance two.
+On a component of length $2m$, permuting the rows and columns gives
+the block $I_m+P_m$, with $P_m$ the permutation matrix of an $m$-cycle.
+Here $m$ is even. Over any field, the kernel is one-dimensional,
+since its coordinates alternate in sign around the cycle. In
+characteristic two the alternating signs both equal one.
+
+The rank of $M$ is $64$ minus the number of cycles of $J_{A,C}$.
+If there is no grid in this system, every cycle has length at least
+eight and there are at most sixteen cycles. Therefore a rank below
+48 for even one line pair $A,C$ forces a grid. Rank 32 means all
+32 cycles have length four. This reduces another grid test to a
+matrix on just 128 local lines. A universal rank bound below 48
+remains to be proved.
