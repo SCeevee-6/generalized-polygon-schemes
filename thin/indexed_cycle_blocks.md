@@ -120,8 +120,9 @@ The line block is scaled by the squared norm $3(1+2k_1)$.
 The remaining line-only eigenspace is checked separately. All the
 Gram tests use integer arithmetic.
 
-The example certifies compatibility with these tests. It is a
-partial distance table, and its extension to an octagon is open.
+The example certifies compatibility with these tests. Completing
+its named lines subsequently excludes the matching table itself.
+[Full-line obstruction](indexed_cycle_geometry.md)
 
 Run the [verifier](indexed_cycle_blocks.py) using
 `python thin/indexed_cycle_blocks.py`.

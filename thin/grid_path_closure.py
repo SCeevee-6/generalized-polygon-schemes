@@ -71,10 +71,14 @@ class LineConstraints:
             for mask in range(32):
                 self.support[k, mask] = self.bits[((1 << values) & mask) != 0].sum()
 
-    def propagate(self, masks, lines):
+    def propagate(self, masks, lines, line_domains=None):
         """Contract point distances and line-pair domains to stability or failure."""
         lines = np.asarray(lines)
         pairs = np.full((len(lines), len(lines)), (1 << 39) - 1, dtype=np.uint64)
+        if line_domains is not None:
+            n = len(line_domains)
+            assert line_domains.shape == (n, n) and n <= len(lines)
+            pairs[:n, :n] &= line_domains
         cells = [np.ix_(lines[:, i], lines[:, j]) for i, j in product(range(3), repeat=2)]
         while True:
             old_pairs, old_masks = pairs.copy(), masks.copy()
