@@ -166,3 +166,45 @@ remains to be proved.
 
 The block counts and an exact rank-48 partial distance example are in
 [Distance blocks in the local rank test](indexed_cycle_blocks.md).
+
+## Cycles of lengths eleven through thirteen
+
+In a non-grid component a chord of a cycle of length at most
+thirteen would split it into two cycles whose lengths sum to
+at most fifteen. This contradicts the girth bound. Hence the
+induced trace enumeration also applies to every cycle of these
+lengths.
+
+The [long-cycle replay](opposite_long_cycles.py) identifies traces
+under cyclic shifts, reversal and line relabelling. The first two
+vertices use four distinct labels. Once their labels are fixed,
+each subsequent vertex introduces at most one new label, which
+fixes its renaming. For each trace passing the attachment test,
+the replay enumerates projection assignments up to independent
+permutations of the three points on each line. Each line has one
+such assignment. The replay names the full intermediate line of
+every distance-two connection and applies the three-line
+distance propagation.
+
+| Length | Traces after the attachment test | Surviving indexed traces | Other surviving traces |
+|---:|---:|---:|---:|
+| 11 | 8 | 0 | 1 |
+| 12 | 6 | 1 | 5 |
+| 13 | 71 | 0 | 1 |
+
+The eleven-cycle and thirteen-cycle survivors also force the
+edge labels. Complete the short geodesics between the three unused
+middle-line tips at every vertex, as in the nine-cycle replay.
+Every vertex of either survivor has incident labels $(3,4,4)$.
+Up to a change of starting point and direction, the cycle labels
+are as follows.
+
+| Length | Edge labels in order |
+|---:|---|
+| 11 | $3,4,4,4,3,4,4,4,4,4,4$ |
+| 13 | $3,4,4,4,3,4,3,4,4,4,3,4,4$ |
+
+These are necessary traces. A surviving trace is a set of
+distance domains and gives no ambient completion. In particular,
+excluding eight-cycles would still leave the systems indexed by
+two lines with possible cycle lengths $12,16,\ldots,128$.
