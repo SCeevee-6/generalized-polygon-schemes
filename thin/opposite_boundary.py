@@ -15,7 +15,11 @@ def local_counts():
     requests = list(combinations(MIDDLE, 2))
     initial, lines, _ = extend_paths((1 << seed_distances()).astype(np.uint8), LINES, requests)
     index_by_line = {tuple(sorted(line)): i for i, line in enumerate(lines)}
-    centers = [lines[4 + 3*i] for i in range(3)]
+    # Each unused tip singles out its own original middle line.
+    centers = []
+    for tip in MIDDLE:
+        line, = [line for line in LINES if tip in line]
+        centers.append(line)
     types = Counter()
     for distances in completions(LineConstraints(), initial, lines):
         new_centers = []
@@ -30,18 +34,20 @@ def local_counts():
             labels.append(int(distances[tip, slot + 3]))
             outer_distances.append(1 + int(distances[np.ix_(centers[i], midline)].min()))
         if labels == [1, 1, 1]:
+            assert outer_distances == [2, 2, 2]
+            types["grid"] += 1
             continue
         internal = sorted(1 + int(distances[np.ix_(a, b)].min()) for a, b in combinations(new_centers, 2))
-        kind = int(sorted(labels) == [3, 4, 4])
+        assert sorted(labels) in ([3, 3, 3], [3, 4, 4])
+        kind = sorted(labels) == [3, 4, 4]
         assert internal == ([2, 3, 3] if kind else [3, 3, 3])
-        for label, outer in zip(labels, outer_distances):
-            assert outer in ((4,) if label == 3 else (3, 4))
-        types[kind, outer_distances.count(3)] += 1
-    assert types == {(0, 0): 8, (1, 0): 6, (1, 1): 12, (1, 2): 6}
-    print("Labelled failed matrices by shape and number of marked edges", dict(sorted(types.items())))
+        assert outer_distances == [4, 4, 4]
+        types["16-cycle" if kind else "18-cycle"] += 1
+    assert types == {"grid": 1, "16-cycle": 24, "18-cycle": 8}
+    print("All three omitted line distances checked in each labelled matrix", dict(types))
 
 
-def moments(eigenvalue, t, q):
+def moments(eigenvalue, t):
     cosine = [Q(1), Q(eigenvalue, 12)]
     for _ in range(3):
         cosine.append(((eigenvalue - 3)*cosine[-1] - cosine[-2])/8)
@@ -50,7 +56,7 @@ def moments(eigenvalue, t, q):
     return [2048*(1 + a4),
             12288*a2,
             12288*(1 + 2*a4),
-            12288*(8*a2 + q*a3 + (1 - q)*a4),
+            12288*(8*a2 + a4),
             36*2048*(1 + a4) + 24*6144*a4 + 4*g]
 
 
@@ -70,14 +76,14 @@ def determinant(matrix):
 
 
 def verify_positivity():
-    # The required matrices are affine on the triangle 0 <= q <= 2t/3.
-    for e, (t, q) in product((7, 3, -1, -3), ((0, Q(0)), (1, Q(0)), (1, Q(2, 3)))):
-        p = moments(e, t, q)
+    # Both matrices are affine in the fraction of 16-cycle pairs.
+    for e, t in product((7, 3, -1, -3), (0, 1)):
+        p = moments(e, t)
         for matrix in ([[p[i+j] for j in range(3)] for i in range(3)],
                        [[9*p[i+j] - p[i+j+2] for j in range(2)] for i in range(2)]):
             for n in range(1, len(matrix) + 1):
                 assert determinant([row[:n] for row in matrix[:n]]) > 0
-    print("Both moment tests hold throughout the parameter triangle")
+    print("Both moment tests hold for every 16-cycle fraction in [0, 1]")
 
 
 if __name__ == "__main__":

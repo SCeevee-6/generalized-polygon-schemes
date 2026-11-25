@@ -85,35 +85,37 @@ both endpoints of $U$. Conversely, for fixed opposite lines $A,F$,
 each neighbor of $\{A,F\}$ has three middle lines $A,F,B$ and records
 $F$ once for $\{A,B\}$. This accounts for the three contributions.
 
-## Two global frequencies from the local failed metrics
+## The omitted middle lines
 
 Let $t$ be the fraction of opposite pairs with middle-tip shape
-$(3,4,4)$ in the [edge labels](opposite_edge_labels.md). At a vertex
-$U$ the three columns selected by $S$ have mutual line distances
-$(2,3,3)$ for this shape and $(3,3,3)$ for the $(3,3,3)$ shape.
+$(3,4,4)$ in the [edge labels](opposite_edge_labels.md). The three lines
+selected by a row of $S$ have mutual line distances $(2,3,3)$ for this
+shape and $(3,3,3)$ for the $(3,3,3)$ shape.
 
-For a directed edge $U,V$, their two middle triples have eight cross
-distances equal to two. The ninth is between the omitted middle line
-of $U$ and the third middle line of $V$ beyond the endpoints of $U$.
-Its distance is three or four in the grid-free case. Let $q$ be the
-fraction of directed edges for which it is three. This condition
-is symmetric in $U,V$.
+Consider adjacent pairs $U,V$. Write their middle triples as
+$V\cup\{X\}$ and $U\cup\{Y\}$. Eight of the nine cross distances
+between the triples are two. **The ninth distance $d(X,Y)$ is four
+on every failed edge and two on every grid edge.** The
+[verifier](opposite_boundary.py) finds the original middle line $X$
+by its unused tip. It checks all three choices of omitted line in
+each of the 24 labelled 16-cycle metrics, eight 18-cycle metrics and
+one centered metric. An earlier calculation selected the last connector
+of each arm in place of its middle line. This corrects the
+distance-three frequency to zero.
 
-The local calculation uses the exact
-[failed-pair enumeration](failed_pair_types.md) to check both facts.
-An edge counted by $q$ has label 4, so $0\le q\le 2t/3$. There are
-32 labelled failed matrices. The counts of vertices with zero,
-one or two qualifying edges are as follows. These are counts within
-the enumeration and impose no frequencies on the ambient octagon.
-
-| Shape | Zero | One | Two |
-|---|---:|---:|---:|
-| $(3,3,3)$ | 8 | 0 | 0 |
-| $(3,4,4)$ | 6 | 12 | 6 |
-
-The qualifying edges form paths and cycles within the label-4
-subgraph. In particular the number of vertices with exactly one
-qualifying edge is even, by the degree sum in that subgraph.
+In a grid-free octagon let $H_{XY}$ count the undirected edges with
+omitted pair $\{X,Y\}$. Set $H_{XX}=0$. Then
+\[
+RJR^{\mathsf T}=256 L_2+H.
+\]
+Indeed an entry counts directed edges $(U,V)$ with the first specified
+line in the middle triple of $U$ and the second in that of $V$.
+For lines at distance two, requiring the second line to be an endpoint
+of $U$ gives $64\cdot3$ choices. Requiring the first line to be an
+endpoint of $V$ gives the same number, with $64\cdot2$ choices in both
+counts. The remaining contributions are precisely the omitted pairs,
+one in each orientation of an undirected edge. Their entries count
+[squares indexed by opposite roots](opposite_root_squares.md).
 
 ## Exact projected moments
 
@@ -132,7 +134,7 @@ The incidence and distance counts give
 m_0 &=2048(1+a_4),\\
 m_1 &=12288a_2,\\
 m_2 &=12288(1+2a_4),\\
-m_3 &=12288[8a_2+q a_3+(1-q)a_4],\\
+m_3 &=12288(8a_2+a_4),\\
 m_4 &=36m_0+24\cdot6144a_4
       +4096[3+6a_3+2t(a_2-a_3)].
 \end{aligned}
@@ -149,9 +151,9 @@ matrices $(m_{i+j})_{0\le i,j\le2}$ and
 $(9m_{i+j}-m_{i+j+2})_{0\le i,j\le1}$ are positive semidefinite.
 For example the second matrix amounts to inserting the positive
 semidefinite matrix $9I-J^2$ into the squared norm. Exact rational
-arithmetic verifies these two inequalities for every parameter in
-$0\le t\le1,\ 0\le q\le 2t/3$. It suffices to check the three corners
-for each nonconstant line eigenspace, by convexity. The constant
+arithmetic verifies these two inequalities for every $0\le t\le1$.
+By convexity it suffices to check the two endpoints for each
+nonconstant line eigenspace. The constant
 eigenspace has $m_j=4096\cdot3^j$. Thus these low moments do not yet
 give an incompatibility.
 

@@ -39,6 +39,9 @@ same uniqueness problem. None closes the unrestricted question.
 - A global complex couples the indexed systems at all root lines. Its
   boundary gives a binary rank bound and its real incidence matrices give
   exact projected moments. [Global compatibility](thin/opposite_boundary.md)
+- In a grid-free octagon every line has at least 32 opposite partners
+  whose 132-vertex auxiliary graph has two disjoint squares.
+  [Opposite-root square count](thin/opposite_root_squares.md)
 - A failed opposite pair of 16-cycle shape forces a rooted surface with
   at least fourteen faces. The attachment types through fourteen faces
   are constrained by exact local replays.
