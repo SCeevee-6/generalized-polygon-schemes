@@ -1,6 +1,6 @@
 # Squares indexed by opposite root lines
 
-If an octagon is grid-free, then **every line has at least 32 opposite
+If an octagon is grid-free, then **every line has at least 45 opposite
 partners whose auxiliary graph contains two vertex-disjoint squares**.
 A uniform upper bound of one square per opposite pair would therefore force a grid.
 
@@ -104,10 +104,50 @@ squares of the two labels at fixed roots, then
 \[
  2c_3+c_4\le54,\qquad 2c_3+3c_4\le78 .
 \]
-For example, if all failed pairs have the 18-cycle shape in a grid-free
-octagon, all edges have label 3 and $c(X,Y)\le27$. The preceding count
-then forces at least $\lceil1024/26\rceil=40$ partners with two squares
-at every line.
+## Separating the spare points on the root arms
+
+A vertex of color $i$ has neighbors of two distinct colors, since they
+are middle lines of an opposite pair with the other root as endpoint.
+Call the vertex special if its neighbors omit color $i$. Its color class
+has $(18+13+13)/2=22$ vertices. Exactly four are special, since 18
+vertices have a neighbor of color $i$.
+
+These four lines have a common point. On arm $i$ from $X$ to $Y$,
+let $u_i,v_i$ be the unused points of the first and last connector,
+as in [the opposite seed](opposite_seed.md). The four lines through
+$u_i$ other than its connector have color $i$ and are opposite $Y$.
+Indeed the seven-edge geodesic from $u_i$ to $Y$ starts through the
+connector and ends through $y_i$. For any of the four lines, its arm
+towards $Y$ through $u_i$ therefore ends at $y_i$. The two arms supplying
+auxiliary neighbors end at the other two points of $Y$. This identifies
+all four special lines. On the other side the common point is $v_i$.
+
+For $i\ne j$ there is **exactly one edge** between special vertices
+of left color $i$ and right color $j$. The seed gives $d(u_i,v_j)=3$
+in point distance, with both other points of either connector at distance
+four from the opposite spare. The unique six-edge geodesic between
+the spares thus starts and ends on special lines, which are at line
+distance two. Conversely a special-to-special edge gives this geodesic
+by using its four-edge connection between lines. The connection starts
+and ends away from the spares by the auxiliary neighbor rule.
+In this ordered color block four edges touch a special left vertex and
+four touch a special right vertex. Exactly $13-4-4+1=6$ edges have
+two ordinary endpoints.
+
+In a square every left vertex misses the omitted right color, and
+conversely. If the omitted colors differ, precisely one vertex on each
+side is special. Their edge determines the square because every vertex
+has degree two. There are only six such edges, so $c_4\le6$.
+If the omitted color is the same on both sides, all four vertices
+are ordinary. For each fixed omitted color the square uses an edge in
+each of the two off-diagonal blocks on the remaining colors. Either
+block has only six ordinary-to-ordinary edges, so $c_3\le3\cdot6=18$.
+
+Thus $c(X,Y)\le24$. In the grid-free case the 3072 squares at $X$
+force at least $\lceil1024/23\rceil=45$ opposite partners with two or
+more squares, giving at least 65,813 unordered root pairs globally.
+If all pairs have the 18-cycle shape then $c_4=0$, and the bound rises
+to $\lceil1024/17\rceil=61$ partners at every root.
 
 ## Testing two squares together
 

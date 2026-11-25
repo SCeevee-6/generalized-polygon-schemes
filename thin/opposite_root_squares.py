@@ -57,6 +57,21 @@ def component_lengths(distance, points, lines, x, y, expected_blocks):
     np.add.at(blocks, (left_color[rows], right_color[cols]), 1)
     assert np.array_equal(blocks, expected_blocks)
 
+    # A special vertex misses its own color among the two neighbors.
+    colors = np.eye(3, dtype=int)
+    left_counts = incidence @ colors[right_color]
+    right_counts = incidence.T @ colors[left_color]
+    assert left_counts.max() == right_counts.max() == 1
+    left_special = left_counts[np.arange(len(left)), left_color] == 0
+    right_special = right_counts[np.arange(len(right)), right_color] == 0
+    for selected, diagonal, off_diagonal in (
+        (left_special[rows] & right_special[cols], 0, 1),
+        (~left_special[rows] & ~right_special[cols], 18, 6),
+    ):
+        counts = np.zeros((3, 3), dtype=int)
+        np.add.at(counts, (left_color[rows[selected]], right_color[cols[selected]]), 1)
+        assert np.array_equal(counts, np.where(np.eye(3, dtype=bool), diagonal, off_diagonal))
+
     # Two steps stay on the left. Each cycle has equally many vertices on each side.
     _, component = connected_components(csr_matrix(incidence @ incidence.T), directed=False)
     return tuple(sorted(map(int, 2 * np.bincount(component))))
