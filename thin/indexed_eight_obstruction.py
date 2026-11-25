@@ -112,12 +112,18 @@ def rooted_piece_checks(moves, roots, faces):
 
     # Construct the assignment tree inside the chosen residues first.
     tree = []
-    for a, b in sorted(known) + sorted(edges - known):
+    remaining = sorted(edges - known, key=lambda e: (not all(roots[i] in chosen for i in e), e))
+    for a, b in sorted(known) + remaining:
         x, y = representative(a), representative(b)
         if x != y:
             parent[x] = y
             tree.append((a, b))
     assert len(tree) == len(moves) - 1 and len(chosen) == 20
+    # After contracting the twenty residue trees, these joins form a tree
+    # on the tested roots. Each join exchanges the endpoints of one pair.
+    joins = [(i, j) for i, j in tree if roots[i] != roots[j]
+             and roots[i] in chosen and roots[j] in chosen]
+    assert len(joins) == 19 and all(moves[i][0] == j for i, j in joins)
     known.update(tree)
     unconditional = [face for conditional, _, face in faces if not conditional]
     while known != edges:

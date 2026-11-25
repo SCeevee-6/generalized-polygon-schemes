@@ -234,3 +234,67 @@ The [verifier](indexed_eight_obstruction.py) uses the Python standard
 library. The earlier eight-face calculation can be replayed with
 `python thin/opposite_link_surfaces.py`. Compatibility of the systems
 containing longer cycles remains open.
+
+## Dependence on the 16-cycle shape and the equality case
+
+In a cubic component let $p$ be the fraction of its opposite pairs of
+16-cycle shape. Let $b$ be the fraction of its frames for which the rooted
+piece is large at **both** endpoints of the underlying pair. Both endpoints
+of a 16-shape pair are large, because all faces of an eight-face piece have
+18-cycle shape. Thus $b\ge p$. [Eight-face calculation](opposite_link_surfaces.md)
+
+The verifier chooses the assignment tree so the twenty tested residues
+are joined by nineteen tree edges of move 0. Contracting their internal
+trees gives a tree on the twenty tests. For each starting frame mark the
+tests landing in large pieces. There is at least one mark. The subgraph
+induced by the marks is a forest, so the number of marks is at least one
+plus the number of its edges. Choose the starting frame uniformly in
+the component. Each individual tree word acts bijectively. On a join,
+the two flags at its ends are assigned by exchanging the endpoints of
+the same opposite pair. Within either residue its internal tree path
+preserves the rooted piece, even when that piece is large. Thus each
+join has two marked ends with probability exactly $b$.
+
+If $a$ is the fraction of large frames and $t$ the long-cycle fraction,
+taking expectations and applying the rooted degree bound gives
+\[
+ 20a\ge 1+19b,\qquad t\ge a/3\ge(1+19b)/60.
+\]
+In particular, if $N_{16}$ is the total number of 16-shape pairs in a
+grid-free octagon, at least
+\[
+ \left\lceil 2340+19N_{16}/1280\right\rceil
+\]
+distinct indices contain long cycles. This follows by summing $6nt$ over
+components of size $n$ and dividing by the capacity 128 of an index.
+
+Suppose exactly 2,340 indices contain long cycles. Every inequality
+giving this bound is then an equality. Each of those indices consists
+entirely of long cycles, $b=0$ in every component, and every large rooted
+piece satisfies $L=f$. The Euler argument above gives exactly two vertices
+of degree greater than four in each such piece.
+
+In fact the piece is a suspension of an even cycle. Take a high-degree
+vertex $u$. All but at most one vertex on its link have degree four.
+For any such degree-four neighbor $x$, the link at $x$ is a square.
+There is a unique second neighbor of $x$ in the color of $u$. Two
+successive degree-four neighbors on the link of $u$ have the same second
+neighbor: the other triangle on their common edge supplies it. Removing
+at most one vertex from a cycle leaves it connected. Hence these second
+neighbors are one vertex $u'$. Every edge of the link has a degree-four
+endpoint, so its two incident faces use $u,u'$. These triangles already
+form a closed suspension. Closure under face adjacency exhausts the piece.
+
+Every face of this suspension has exactly one high-degree vertex, its
+pole. Thus at a cubic vertex $\{A,B\}$ a large piece at $A$ supplies
+exactly one long index through $A$, and $b=0$ makes the piece at $B$
+small. If both pieces are small there is no long index there. Hence
+**the long indexed cycles are vertex-disjoint in the cubic graph**.
+Also at a fixed root all its long indices must attach at the same point
+on the root line. Two middle lines in different attachment colors occur
+together in a face at that root. If both indices were long, purity of
+the indices would give two high-degree vertices on that face.
+
+These are necessary conditions for equality. Grid-free systems with
+more long indices, and the existence of the extremal configuration
+itself, remain open.
