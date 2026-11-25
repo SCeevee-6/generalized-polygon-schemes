@@ -387,3 +387,5 @@ conditions. Both steps of the uniqueness argument remain open.
 leaving eight classes (158 labelled words). The same note shows that the
 numbers of centered, 16-cycle and 18-cycle point triples at mutual distance
 three are fixed by the parameters, and why this alone does not force a grid.
+
+The [eight-output repeat test](opposite_leaf_maps.md) gives a grid whenever a block repeats a leaf. The [fixed-tree refinement](central_involution.md) forces every involution of a grid-free octagon to be point-centered.

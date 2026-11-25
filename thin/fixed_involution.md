@@ -5,7 +5,8 @@ graph of every nonidentity involution has the following form. It contains
 the entire radius-three ball about one point, and it is contained in the
 radius-four ball about that point. It has exactly 45 lines and one of
 $31,51,71,91$ points. The value 91 is the point-centered central
-involution case.
+involution case. A [further geometric argument](central_involution.md)
+eliminates the other three values.
 
 The proof uses the failed-pair stabilizer parity and the fixed-flag
 identity in [failed_pair_types.md](failed_pair_types.md).
@@ -65,22 +66,22 @@ of four lines and two points. A swapped pair of lines at a fixed point
 yields two pairs at point distance two, from the two choices of point on
 one specified line. Each unordered pair contributes twice to $d_i$.
 The complement gives $d_4$. Therefore
-[
-(d_0,d_1,d_2,d_3,d_4)=(91-2T,,2T,,640-16T,,16T,,1024).
-]
+$$
+(d_0,d_1,d_2,d_3,d_4)=(91-2T,2T,640-16T,16T,1024).
+$$
 
 The point-graph adjacency eigenvalues are $10,5,1,-3,-5$. The distance
 polynomials computed from its intersection array give the following
 columns of distance-matrix eigenvalues in that order.
-[
-M=egin{pmatrix}
-1&1&1&1&1\
-10&5&1&-3&-5\
-80&10&-10&2&20\
-640&0&-8&16&-80\
+$$
+M=\begin{pmatrix}
+1&1&1&1&1\\
+10&5&1&-3&-5\\
+80&10&-10&2&20\\
+640&0&-8&16&-80\\
 1024&-16&16&-16&64
-end{pmatrix}.
-]
+\end{pmatrix}.
+$$
 For the permutation matrix of the involution, the trace of its
 product with the $i$th distance matrix is $d_i$. Thus the traces on
 the five adjacency eigenspaces are $M^{-1}d$, namely
