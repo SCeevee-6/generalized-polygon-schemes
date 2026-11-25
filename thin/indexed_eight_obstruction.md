@@ -2,8 +2,8 @@
 
 **Theorem.** In a grid-free generalized octagon of order $(2,4)$, every
 component of the cubic opposite-pair graph contains an indexed cycle of
-length at least twelve. In each component at least $1/97$ of its indexed
-edge incidences belong to such cycles. Globally at least **1,448 distinct
+length at least twelve. In each component at least $1/60$ of its indexed
+edge incidences belong to such cycles. Globally at least **2,340 distinct
 unordered indices** $\{X,C\}$ contain a cycle of length at least twelve.
 
 ## A finite system of frame relations
@@ -140,8 +140,8 @@ on $M$. Then the eight-edge route from $L$ to $L'$ through $M$ is
 nonbacktracking, so $L,L'$ are opposite. The route through $M'$ also
 has length eight and is geodesic. The two arms through $M,M'$ are
 distinct and use the two points other than $p$ on $L$ and the two
-other than $p'$ on $L'$. An arm using one of those endpoints there
-would backtrack on the corresponding cross geodesic. The third arm must
+other than $p'$ on $L'$. An arm attaching at $p$ on $L$, or at $p'$
+on $L'$, would backtrack on the corresponding cross geodesic. The third arm must
 then match $p$ to $p'$ at point distance three, contradicting opposition.
 
 Interchanging the two sides gives a common attachment point $u$ on $L$
@@ -169,6 +169,65 @@ most 128 edges. This yields
 \[
 \left\lceil\frac{6N}{97\cdot128}\right\rceil=1448.
 \]
+
+## Strengthening the count with rooted surfaces
+
+A frame $(X,Y;C,D,E)$ determines a rooted face at $X$ with partner $Y$.
+Call the frame large when this face belongs to a rooted piece with more
+than eight faces. In each opposite-pair component at least **one frame in
+twenty is large**.
+
+To prove this, use the same reference graph with a different assignment
+tree. Choose the twenty vertex labels other than $0,5,19,22$ in the
+verifier's coordinate order. For each chosen $x$ first take a spanning
+tree in the residue fixing $x$ (moves 1, 2 and 3). Extend this forest to
+a spanning tree of the whole flag graph. Use the tree word to one fixed
+flag in each of the twenty residues.
+
+Suppose these twenty words all take the starting frame to eight-face
+pieces. Such a piece has the eight triples of the octahedron and the
+three permitted moves on its 48 flags. There is an isomorphism from the
+reference residue to the rooted piece taking the designated flag to its
+assigned flag by matching its ordered face and then the opposite label in
+each of the three colors. Thus **every internal edge** in each chosen residue
+is consistent with the tree assignment. Starting with these edges and
+the tree, the verifier fills all remaining edges using only unconditional
+two-color relations. This would give the frame map already excluded.
+The twenty fixed tree words permute the frames in a component, proving
+the fraction bound as before.
+
+Consider one rooted piece with $f>8$ faces and $v$ split vertices. The
+degree of a split vertex is half its indexed cycle length. The links are
+simple even cycles, every degree is at least four, and $v-f/2\le2$ by
+Euler characteristic. Write $h$ for the number of vertices of degree
+greater than four and $L$ for their degree sum. Then
+\[
+ L=3f-4(v-h)\ge f-8+4h.
+\]
+There must be at least two such vertices. If $h=0$ the displayed bound
+gives $f\le8$. If $h=1$ and the unique degree is $d$, each of the other
+two colors has $f/4$ vertices. The link at that vertex uses $d/2$
+distinct vertices of each of those colors, so $d\le f/2$. Euler gives
+$d\ge f-4$, again yielding $f\le8$. Thus $L\ge f$ for every large
+piece. At least a third of its $3f$ face–vertex incidences correspond to
+long cycles. [Rooted surfaces](opposite_link_surfaces.md)
+
+All faces in a rooted piece stay in the same opposite-pair component, since
+crossing a face edge changes partners via their common neighbor. Each
+face–vertex incidence at $X$ occurs in two frames with first endpoint
+$X$ and the given middle line first. Hence the two bounds multiply. The
+long-cycle fraction in each component is at least $1/(20\cdot3)=1/60$.
+Globally this gives at least **299,520 indexed edge incidences** on long
+cycles, hence at least **2,340 indices** of capacity 128.
+
+There are also at least $2N/20=299,520$ rooted faces in large pieces,
+spread across at least 147 root lines (2,048 faces per root). Writing
+$k_X$ for the number of pieces at $X$, we obtain
+\[
+ \sum_X(256-k_X)=\sum_{\text{pieces}}(f-8)/8\ge12,480.
+\]
+Here each large piece has $f\ge12$, hence $(f-8)/8\ge f/24$.
+This bound also applies when every failed pair has the 18-cycle shape.
 
 Run `python thin/indexed_eight_obstruction.py` from the repository root.
 The [verifier](indexed_eight_obstruction.py) uses the Python standard

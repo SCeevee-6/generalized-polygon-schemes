@@ -45,11 +45,10 @@ def frame_graph(incident, dual):
         for label in range(24):
             residue = {i for i, f in enumerate(frames) if f[slot] == label}
             assert set(distances(graph, min(residue))) == residue
-    return moves
+    return moves, [frame[0] for frame in frames]
 
 
-def braid_checks(moves):
-    """Fill flag edges from a fixed tree, taking unconditional relations first."""
+def two_color_faces(moves):
     faces = []
     for a, b in combinations(range(4), 2):
         order = {(0, 1): 3, (1, 2): 4, (2, 3): 3}.get((a, b), 2)
@@ -67,6 +66,11 @@ def braid_checks(moves):
             assert i == f and len(face) == 2*order
             faces.append((order == 4, f, face))
 
+    return faces
+
+
+def braid_checks(moves, faces):
+    """Fill flag edges from a fixed tree, taking unconditional relations first."""
     depth = distances(moves, 0)
     assert len(depth) == len(moves)
     known = set()
@@ -89,6 +93,41 @@ def braid_checks(moves):
             raise AssertionError("some flag edges have no filling relation")
     assert len(tests) == len(set(tests)) == 97
     return len(tests)
+
+
+def rooted_piece_checks(moves, roots, faces):
+    """Certify a spanning tree and fill edges using 20 rooted octahedra."""
+    omitted = {0, 5, 19, 22}
+    chosen = set(roots) - omitted
+    known = {tuple(sorted((i, j))) for i, row in enumerate(moves) if roots[i] in chosen
+             for j in row[1:]}
+    edges = {tuple(sorted((i, j))) for i, row in enumerate(moves) for j in row}
+    parent = list(range(len(moves)))
+
+    def representative(i):
+        while i != parent[i]:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    # Construct the assignment tree inside the chosen residues first.
+    tree = []
+    for a, b in sorted(known) + sorted(edges - known):
+        x, y = representative(a), representative(b)
+        if x != y:
+            parent[x] = y
+            tree.append((a, b))
+    assert len(tree) == len(moves) - 1 and len(chosen) == 20
+    known.update(tree)
+    unconditional = [face for conditional, _, face in faces if not conditional]
+    while known != edges:
+        size = len(known)
+        for face in unconditional:
+            missing = face - known
+            if len(missing) == 1:
+                known.update(missing)
+        assert len(known) > size
+    return len(chosen)
 
 
 def ports(points, centers, incident, dual):
@@ -140,14 +179,20 @@ def check_point_graph(vertices, normals, incident, dual):
 
 def main():
     v, w, incident, dual = coordinates()
-    tests = braid_checks(frame_graph(incident, dual))
+    moves, roots = frame_graph(incident, dual)
+    faces = two_color_faces(moves)
+    tests = braid_checks(moves, faces)
+    rooted = rooted_piece_checks(moves, roots, faces)
     check_point_graph(v, w, incident, dual)
     pairs = 2925*2048//2
     systems = (6*pairs + 128*tests-1)//(128*tests)
     assert systems == 1448
     print("1152 reference frames,", tests, "eight-cycle tests")
     print("Two four-point cycles verified on 144 named points")
-    print("At least", systems, "indexed systems contain a cycle of length at least 12")
+    denominator = 3*rooted
+    stronger = (6*pairs + 128*denominator-1)//(128*denominator)
+    assert denominator == 60 and stronger == 2340
+    print(rooted, "rooted-piece tests give at least", stronger, "systems with a long cycle")
 
 
 if __name__ == "__main__":
