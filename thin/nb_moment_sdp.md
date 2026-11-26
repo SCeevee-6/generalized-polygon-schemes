@@ -83,17 +83,40 @@ Two local computations would add real constraints.
 
 1. The line distance between the partners $Y_i$ and $Y_{i+4}$ of an
    indexed cycle of length at least sixteen, from the cycle diagrams.
-2. The exact value of $m_5$. Writing $J^2D^{\mathsf T}=6D^{\mathsf T}+2S$
-   gives $m_5$ from $DJD^{\mathsf T}$, $RS$ and $S^{\mathsf T}JS$. The first
-   two are known: per opposite pair, $RS$ has six entries at distance two
-   and three at distance four. For an edge from $U$ to $V=\{C_1,C_2\}$ the
-   nine distances between the third lines $Z_{12},Z_{13},Z_{23}$ of $U$
-   and the third lines $C_3,Y_A,Y_B$ of $V$ are $4,2,2$ in the first
-   column and $d(Z_{12},Y_A)=d(Z_{12},Y_B)=2$. Only the four distances
-   between $Z_{13},Z_{23}$ and $Y_A,Y_B$ are not yet determined. Here $Y_A$
-   is the third middle line of $\{A,Z_{12}\}$, at distance two in the
-   cubic graph from $U$.
+2. The four open cross distances in $m_5$, settled below only up to one
+   parameter.
+
+## The fifth moment
+
+Writing $J^2D^{\mathsf T}=6D^{\mathsf T}+2S$ gives
+$DJ^5D^{\mathsf T}=36\,DJD^{\mathsf T}+24\,(RS+(RS)^{\mathsf T})+4\,S^{\mathsf T}JS$.
+Per opposite pair, $RS$ has six entries at distance two and three at
+distance four. For a directed edge from $U$ to $V=\{C_1,C_2\}$, the nine
+distances between the third lines $Z_{12},Z_{13},Z_{23}$ of $U$ and the
+third lines $C_3,Y_A,Y_B$ of $V$ are $4,2,2$ against $C_3$ and
+$d(Z_{12},Y_A)=d(Z_{12},Y_B)=2$. Here $Y_A$ is the middle line of the point
+geodesic from the attachment point of $C_3$ on $A$ to the third point of
+$Z_{12}$, since the other two geodesics between $A$ and $Z_{12}$ leave $A$
+through $C_1$ and $C_2$.
+
+The [cross-distance verifier](nb_m5_cross.py) adds these geodesics to all
+32 labelled failed metrics and propagates. The four remaining distances
+lie in $\{3,4\}$. On the 48 directed label-4 edges three of them are
+forced to be 4; on the other 48 directed edges all four stay open. Each
+open value survives propagation on its own. With $s$ the mean number of
+open distances equal to 3,
+\[
+ Q_5=\bigl(0,\;0,\;98304,\;12288\,s,\;98304-12288\,s\bigr),
+ \qquad 0\le s\le 4-2p ,
+\]
+which has the required total $12\cdot2^4\cdot1024$. With this exact
+fifth moment in the semidefinite program, $t$, $p$ and $s$ still range
+over $[0,1]$, $[0,1]$ and $[0,4]$. The low moments of the line-lifted
+vectors do not see the long cycles. A useful constraint has to come from
+the geometry of indexed cycles of length at least sixteen, or from
+vectors that are not lifted from line eigenspaces.
 
 Run `python thin/nb_moment_sdp.py` from the repository root. The exact
-checks use the standard library; the semidefinite part needs `cvxpy`
+checks use the standard library; `python thin/nb_m5_cross.py` takes about
+a minute. The semidefinite part needs `cvxpy`
 with the Clarabel solver and is skipped otherwise.

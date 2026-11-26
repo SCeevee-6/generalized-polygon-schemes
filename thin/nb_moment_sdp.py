@@ -73,14 +73,15 @@ def check_exact():
 def sdp_range():
     import cvxpy as cp
     c = walk_expansion(8)
-    unknown = {k: cp.Variable(5, nonneg=True) for k in (5, 6, 7, 8)}
-    p, t = cp.Variable(), cp.Variable()
-    cons = [p >= 0, p <= 1, t >= 0, t <= 1]
+    unknown = {k: cp.Variable(5, nonneg=True) for k in (6, 7, 8)}
+    p, t, s = cp.Variable(), cp.Variable(), cp.Variable()
+    # s: mean number of the four open cross distances equal to 3 (nb_m5_cross.py)
+    cons = [p >= 0, p <= 1, t >= 0, t <= 1, s >= 0, s <= 4 - 2*p]
     for k, var in unknown.items():
         cons.append(cp.sum(var) == 12*2**(k-1)*PER_LINE)
     cons += [unknown[6][0] >= 12*PER_LINE, unknown[6][4] >= 24*PER_LINE,
              unknown[8][0] >= 12*PER_LINE*(2 - t), unknown[8][4] >= 24*PER_LINE,
-             unknown[5][2] >= 36*PER_LINE, unknown[7][2] >= 36*PER_LINE]
+             unknown[7][2] >= 36*PER_LINE]
     for e in EIGENVALUES[1:]:
         a = [float(x) for x in cosines(e)]
         dist = [[float(v) for v in row] for row in known_distributions(0)[:4]]
@@ -90,6 +91,9 @@ def sdp_range():
                 return sum(a[d]*dist[k][d] for d in range(5))
             if k == 4:
                 row = [12288, 0, 8192*p, 24576 - 8192*p, 61440]
+                return sum(a[d]*row[d] for d in range(5))
+            if k == 5:
+                row = [0, 0, 98304, 12288*s, 98304 - 12288*s]
                 return sum(a[d]*row[d] for d in range(5))
             return a @ unknown[k]
         qs = [qk(k) for k in range(9)]
@@ -101,17 +105,18 @@ def sdp_range():
         for rows in mats:
             x = cp.bmat(rows)
             cons.append((x + x.T)/2 >> 0)
-    out = []
-    for objective in (cp.Minimize(t), cp.Maximize(t)):
-        problem = cp.Problem(objective, cons)
-        problem.solve(solver="CLARABEL")
-        out.append((problem.status, round(float(t.value), 6)))
+    out = {}
+    for name, var in (("t", t), ("p", p), ("s", s)):
+        for objective in (cp.Minimize(var), cp.Maximize(var)):
+            problem = cp.Problem(objective, cons)
+            problem.solve(solver="CLARABEL")
+            out.setdefault(name, []).append(round(float(var.value), 6))
     return out
 
 
 if __name__ == "__main__":
     check_exact()
     try:
-        print("SDP range of the long-cycle fraction:", sdp_range())
+        print("SDP ranges of t, p, s:", sdp_range())
     except ImportError:
         print("cvxpy not installed; skipped the SDP")
