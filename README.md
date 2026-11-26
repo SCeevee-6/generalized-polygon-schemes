@@ -45,6 +45,10 @@ same uniqueness problem. None closes the unrestricted question.
   witnesses and global GF(2) ranks do not force a grid. The cycle space of
   the incidence graph gives a rank bound on the pair–apartment incidence.
   [Spectral and rank checks](thin/spectral_rank_checks.md)
+- The projected moments extend to all orders through non-backtracking walk
+  distributions. A semidefinite test through $m_8$ is feasible for every
+  long-cycle fraction; the note lists the local data it still needs.
+  [Non-backtracking moments](thin/nb_moment_sdp.md)
 - Every indexed cycle of length at least twelve has at least one fifth
   of its edges labelled 3. At length twelve there must be at least four.
   [Cyclic comparisons and edge labels](thin/indexed_cycle_paths.md)
