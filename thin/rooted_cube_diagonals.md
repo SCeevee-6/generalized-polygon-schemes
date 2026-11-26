@@ -13,6 +13,10 @@ cycle, and their long cycles account for at least **417,936 indexed edge
 incidences**. The earlier bound was 2,340 indices. The argument uses no
 automorphism assumption.
 
+Counting marks over all 24 residues improves this to $t\ge1/36$ and
+3,900 indices, and shows that $1/43$ is the limit of the present
+argument. [Two marked residues](all_residue_marks.md)
+
 ## A count on one rooted surface
 
 Use the [rooted surfaces](opposite_link_surfaces.md), splitting each

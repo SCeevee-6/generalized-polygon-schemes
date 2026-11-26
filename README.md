@@ -37,9 +37,10 @@ same uniqueness problem. None closes the unrestricted question.
 - Outside grid components the opposite-pair graph has girth at least eight.
   [Short cycles and their line labels](thin/opposite_cycles.md)
 - In a grid-free octagon every opposite-pair component contains an
-  indexed cycle of length at least twelve. At least 3,266 distinct
+  indexed cycle of length at least twelve. At least 3,900 distinct
   indexed systems must contain such a cycle.
-  [Cube-diagonal bound](thin/rooted_cube_diagonals.md)
+  [Two marks among all residues](thin/all_residue_marks.md),
+  [cube-diagonal bound](thin/rooted_cube_diagonals.md)
 - Every indexed cycle of length at least twelve has at least one fifth
   of its edges labelled 3. At length twelve there must be at least four.
   [Cyclic comparisons and edge labels](thin/indexed_cycle_paths.md)
