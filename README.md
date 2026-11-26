@@ -41,6 +41,10 @@ same uniqueness problem. None closes the unrestricted question.
   indexed systems must contain such a cycle.
   [Two marks among all residues](thin/all_residue_marks.md),
   [cube-diagonal bound](thin/rooted_cube_diagonals.md)
+- Spectral design rigidity, positive semidefiniteness on the twelve-cycle
+  witnesses and global GF(2) ranks do not force a grid. The cycle space of
+  the incidence graph gives a rank bound on the pair–apartment incidence.
+  [Spectral and rank checks](thin/spectral_rank_checks.md)
 - Every indexed cycle of length at least twelve has at least one fifth
   of its edges labelled 3. At length twelve there must be at least four.
   [Cyclic comparisons and edge labels](thin/indexed_cycle_paths.md)

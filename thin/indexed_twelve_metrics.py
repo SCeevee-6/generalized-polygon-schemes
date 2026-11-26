@@ -100,6 +100,7 @@ def check_case(word, choices, metrics, constraints):
         assert len(slots) == 36
         np.bitwise_and.at(expanded, np.ix_(slots, slots), metrics[choice])
     assert constraints.propagate(expanded, lines)
+    return expanded, lines
 
 
 def main():
