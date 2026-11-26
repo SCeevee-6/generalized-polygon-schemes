@@ -6,6 +6,9 @@ length at least twelve. In each component at least $1/60$ of its indexed
 edge incidences belong to such cycles. Globally at least **2,340 distinct
 unordered indices** $\{X,C\}$ contain a cycle of length at least twelve.
 
+The [cube-diagonal bound](rooted_cube_diagonals.md) sharpens these numbers to
+$1/43$ and 3,266, excluding the equality case analyzed below.
+
 ## A finite system of frame relations
 
 Write $(X,Y;C,D,E)$ for an ordering of an opposite line pair and its
@@ -295,6 +298,5 @@ on the root line. Two middle lines in different attachment colors occur
 together in a face at that root. If both indices were long, purity of
 the indices would give two high-degree vertices on that face.
 
-These are necessary conditions for equality. Grid-free systems with
-more long indices, and the existence of the extremal configuration
-itself, remain open.
+The subsequent [cube-diagonal count](rooted_cube_diagonals.md) excludes
+this equality case. Compatibility above the strengthened bound remains open.

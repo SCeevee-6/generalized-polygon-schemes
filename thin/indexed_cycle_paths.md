@@ -144,3 +144,28 @@ compatibility with the other indexed systems remain open.
 
 Run `python thin/indexed_twelve_metrics.py`.
 [Assignments and verifier](indexed_twelve_metrics.py)
+
+## Four systems through a 4-edge
+
+Let a 4-edge join opposite pairs $U=\{A,B\}$ and $V=\{D,E\}$.
+The four indices containing it are $\{A,D\},\{A,E\},
+\{B,D\},\{B,E\}$. At $U$, the two indices using the middle line
+retained by the other 4-edge make a 44 turn; the other two turn onto
+the 3-edge. At $V$, the same statement holds with the roles of the
+endpoint pairs interchanged. Since these are independent choices, the
+four indices have the following exact distribution:
+
+| Turn at $U$ | Turn at $V$ | Number of indices |
+|---|---|---:|
+| 44 | 44 | 1 |
+| 44 | 43 | 1 |
+| 43 | 44 | 1 |
+| 43 | 43 | 1 |
+
+Thus exactly one indexed cycle has the edge flanked by 3-edges, two
+have a 44 turn at exactly one end, and one has a 44 turn at both
+ends. In particular, an all-4 indexed cycle through this edge can only
+use the last index. An indexed 8-cycle is not required to be all-4,
+so this observation alone does not force the other indices to have long
+cycles. Counting turns over edges also counts each 44 turn twice; it is
+consistent with the existing total of $2N_{16}$ turns.

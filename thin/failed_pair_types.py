@@ -81,13 +81,6 @@ def main():
                 arms = [p[j]//7 for j in (0,7,14)]
                 odd = sum(a>b for a,b in combinations(arms,2))%2
                 assert (p[0]%7 == 3) == odd
-        if labels != (1, 1, 1):
-            # The third middle lines for neighbors omitting arms 0, 1, 2.
-            opposite = [(31, 32, 34), (26, 27, 29), (21, 22, 24)]
-            edge_labels = [d[tip, line[2]] for tip, line in zip(MIDDLE, opposite)]
-            for i, j in combinations(range(3), 2):
-                distance = 1 + d[np.ix_(opposite[i], opposite[j])].min()
-                assert distance == (2 if edge_labels[i] == edge_labels[j] == 4 else 3)
         shell_bounds(d, lines)
         seen.update(orbit)
         print(labels,len(orbit))

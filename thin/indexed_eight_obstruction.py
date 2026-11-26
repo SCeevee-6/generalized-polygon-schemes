@@ -95,7 +95,15 @@ def braid_checks(moves, faces):
     return len(tests)
 
 
-def rooted_piece_checks(moves, roots, faces):
+# Joins between tested residues. Their order only chooses a spanning tree.
+ROOT_JOINS = (
+    (1, 2), (1, 14), (2, 4), (3, 8), (3, 16), (6, 7), (6, 8),
+    (8, 9), (10, 14), (10, 20), (11, 14), (12, 17), (12, 20),
+    (13, 17), (13, 21), (14, 15), (14, 16), (17, 23), (18, 21),
+)
+
+
+def rooted_piece_checks(moves, roots, faces, incident):
     """Certify a spanning tree and fill edges using 20 rooted octahedra."""
     omitted = {0, 5, 19, 22}
     chosen = set(roots) - omitted
@@ -112,8 +120,14 @@ def rooted_piece_checks(moves, roots, faces):
 
     # Construct the assignment tree inside the chosen residues first.
     tree = []
-    remaining = sorted(edges - known, key=lambda e: (not all(roots[i] in chosen for i in e), e))
-    for a, b in sorted(known) + remaining:
+    joins_by_root = {}
+    for i, row in enumerate(moves):
+        j = row[0]
+        if i < j:
+            key = tuple(sorted((roots[i], roots[j])))
+            joins_by_root.setdefault(key, (i, j))
+    prescribed = [joins_by_root[e] for e in ROOT_JOINS]
+    for a, b in sorted(known) + prescribed + sorted(edges - known):
         x, y = representative(a), representative(b)
         if x != y:
             parent[x] = y
@@ -124,6 +138,7 @@ def rooted_piece_checks(moves, roots, faces):
     joins = [(i, j) for i, j in tree if roots[i] != roots[j]
              and roots[i] in chosen and roots[j] in chosen]
     assert len(joins) == 19 and all(moves[i][0] == j for i, j in joins)
+    assert set(joins) == set(prescribed)
     known.update(tree)
     unconditional = [face for conditional, _, face in faces if not conditional]
     while known != edges:
@@ -133,7 +148,29 @@ def rooted_piece_checks(moves, roots, faces):
             if len(missing) == 1:
                 known.update(missing)
         assert len(known) > size
-    return len(chosen)
+    # At a small root the partners form a cube. Two partner faces at
+    # cube distance two retain exactly one of their three middle labels.
+    diagonals = 0
+    for x in sorted(chosen):
+        neighbors = {b if a == x else a for a, b in ROOT_JOINS if x in (a, b)}
+        graph = {u: {v for v in neighbors if len(incident[x] & incident[u] & incident[v]) == 1}
+                 for u in neighbors}
+        # Take a spanning tree of each component of the diagonal graph.
+        while neighbors:
+            component = set(distances(graph, min(neighbors)))
+            diagonals += len(component) - 1
+            neighbors -= component
+    assert diagonals == 17
+    return len(chosen), len(joins), diagonals
+
+
+def check_square_links():
+    for high in product((0, 1), repeat=4):
+        if sum(high) < 2:
+            continue  # excluded in a large piece by the all-low triangle lemma
+        unpaired = sum(high[i] and not high[(i+2) % 4] for i in range(4))
+        face_counts = [high[i] + high[(i+1) % 4] for i in range(4)]
+        assert unpaired <= 3*face_counts.count(2) - face_counts.count(0)
 
 
 def ports(points, centers, incident, dual):
@@ -188,7 +225,8 @@ def main():
     moves, roots = frame_graph(incident, dual)
     faces = two_color_faces(moves)
     tests = braid_checks(moves, faces)
-    rooted = rooted_piece_checks(moves, roots, faces)
+    rooted, joins, diagonals = rooted_piece_checks(moves, roots, faces, incident)
+    check_square_links()
     check_point_graph(v, w, incident, dual)
     pairs = 2925*2048//2
     systems = (6*pairs + 128*tests-1)//(128*tests)
@@ -199,6 +237,15 @@ def main():
     stronger = (6*pairs + 128*denominator-1)//(128*denominator)
     assert denominator == 60 and stronger == 2340
     print(rooted, "rooted-piece tests give at least", stronger, "systems with a long cycle")
+    # (rooted - diagonals)*a + 2*diagonals*t >= 1 + (joins - diagonals)*b,
+    # where a <= 3t. Count in units of four edge incidences.
+    denominator = 3*(rooted - diagonals) + 2*diagonals
+    assert rooted > diagonals and (denominator, joins - diagonals) == (43, 2)
+    units = (6*pairs + 4*denominator - 1)//(4*denominator)
+    indices = (4*units + 127)//128
+    assert (4*units, indices) == (417936, 3266)
+    print(diagonals, "cube diagonals force at least", 4*units,
+          "long-cycle edge incidences in at least", indices, "indices")
 
 
 if __name__ == "__main__":
