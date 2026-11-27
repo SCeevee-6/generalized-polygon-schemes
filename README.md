@@ -18,6 +18,10 @@ same uniqueness problem. None closes the unrestricted question.
 
 ## Main proof files
 
+- At collinear roots, outer components of sizes $256i,256j$ intersect in exactly
+  $32ij$ points. All three component labels on a random opposite line are
+  independent. [Collinear component counts](octagon/collinear_components.md)
+
 - `thin/opposite_seed.md` derives the 21-point configuration from two
   opposite lines and explains the centered-transversal criterion.
 - `thin/grid_path_closure.md` proves the conditional theorem and records

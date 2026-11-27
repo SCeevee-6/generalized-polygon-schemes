@@ -151,4 +151,4 @@ off-diagonal entry there. Run `python thin/check_tip_gram.py`.
   0 through 256 in even steps. Independence on the full space does
   not imply strictness on the shared half-shell. Also a strict bound
   with irrational right side cannot in general be tightened by
-  subtracting two. The proposed strict cross-cut remains unproved.
+  subtracting two. A subsequent [boundary count](../octagon/collinear_components.md) gives exact overlap 128.
