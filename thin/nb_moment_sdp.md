@@ -1,5 +1,8 @@
 # Non-backtracking moments and a semidefinite test
 
+The [sixth walk distribution](nb_m6_cross.md) determines all six-step
+endpoint returns and gives an exact feasible witness for stronger tests.
+
 This extends the [projected moments](opposite_boundary.md) beyond $m_4$.
 The setup is exact. With the constraints known so far the resulting
 semidefinite program is feasible for every long-cycle fraction, for a

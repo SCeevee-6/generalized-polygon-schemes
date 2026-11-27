@@ -1,5 +1,8 @@
 # Two marked residues among all twenty-four
 
+The [three-mark argument](three_residue_marks.md) excludes the adjacent two-mark
+case below and raises the index bound to 5,850.
+
 **Theorem.** In each opposite-pair component of a grid-free generalized
 octagon of order $(2,4)$, let $a$ be the fraction of rooted faces lying in
 pieces with more than eight faces and $t$ the fraction of indexed edge

@@ -83,7 +83,7 @@ def assignment_tree(moves, roots, frames, edges):
     return tree, internal
 
 
-def fills(tree, internal, small, unconditional, face_of, n):
+def filled_edges(tree, internal, small, unconditional, face_of, n):
     known = bytearray(n)
     for k in tree:
         known[k] = 1
@@ -102,7 +102,11 @@ def fills(tree, internal, small, unconditional, face_of, n):
             missing[k2] -= 1
             if missing[k2] == 1:
                 stack.append(k2)
-    return all(known)
+    return known
+
+
+def fills(tree, internal, small, unconditional, face_of, n):
+    return all(filled_edges(tree, internal, small, unconditional, face_of, n))
 
 
 def reduce(vectors, basis):

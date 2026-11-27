@@ -37,18 +37,21 @@ same uniqueness problem. None closes the unrestricted question.
 - Outside grid components the opposite-pair graph has girth at least eight.
   [Short cycles and their line labels](thin/opposite_cycles.md)
 - In a grid-free octagon every opposite-pair component contains an
-  indexed cycle of length at least twelve. At least 3,900 distinct
-  indexed systems must contain such a cycle.
-  [Two marks among all residues](thin/all_residue_marks.md),
+  indexed cycle of length at least twelve. At least 5,850 distinct
+  indexed systems must contain such a cycle. Every assignment on the
+  24-cell test tree has at least three reference residues mapping into
+  large rooted pieces. [Three marked residues](thin/three_residue_marks.md),
+  [two-mark count](thin/all_residue_marks.md),
   [cube-diagonal bound](thin/rooted_cube_diagonals.md)
 - Spectral design rigidity, positive semidefiniteness on the twelve-cycle
   witnesses and global GF(2) ranks do not force a grid. The cycle space of
   the incidence graph gives a rank bound on the pair–apartment incidence.
   [Spectral and rank checks](thin/spectral_rank_checks.md)
-- The projected moments extend to all orders through non-backtracking walk
-  distributions. A semidefinite test through $m_8$ is feasible for every
-  long-cycle fraction; the note lists the local data it still needs.
-  [Non-backtracking moments](thin/nb_moment_sdp.md)
+- Every six-step non-backtracking walk with a shared endpoint line keeps
+  that line at every even step. The sixth walk distribution and bounds at
+  steps seven and eight still admit an all-18 projected moment witness.
+  [Six-step endpoint returns](thin/nb_m6_cross.md),
+  [non-backtracking moments](thin/nb_moment_sdp.md)
 - Every indexed cycle of length at least twelve has at least one fifth
   of its edges labelled 3. At length twelve there must be at least four.
   [Cyclic comparisons and edge labels](thin/indexed_cycle_paths.md)
