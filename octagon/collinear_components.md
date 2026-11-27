@@ -84,3 +84,5 @@ The normalized contrasts attain the global trace bound with $R=1755$.
 This exact model identity suggests a stronger recognition target. Its
 extension to arbitrary octagons, including those with connected outer
 shells, remains open.
+
+The [boundary rank test](boundary_span.md) detects outer components using distances on the distance-three sphere.
