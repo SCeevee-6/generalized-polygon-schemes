@@ -142,6 +142,9 @@ component of the subgraph on edges labeled 4. Distinct nine-cycles
 are vertex-disjoint. The computation checks implications of the
 trace and leaves its existence open.
 
+The nine degree-one points have no centered triple and determine nine
+pairwise opposite unused lines. [Nine-cycle simplex](nine_cycle_simplex.md)
+
 Run [the replay](opposite_nine_cycles.py) from the repository root
 using `python thin/opposite_nine_cycles.py`.
 

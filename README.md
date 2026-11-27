@@ -35,7 +35,9 @@ same uniqueness problem. None closes the unrestricted question.
 - A repeat among eight leaf-map outputs forces a grid without an
   automorphism hypothesis. [Repeat test](thin/opposite_leaf_maps.md)
 - Outside grid components the opposite-pair graph has girth at least eight.
-  [Short cycles and their line labels](thin/opposite_cycles.md)
+  The nine distinguished points of a nine-cycle have no centered triple.
+  [Short cycles and their line labels](thin/opposite_cycles.md),
+  [nine-cycle simplex](thin/nine_cycle_simplex.md)
 - In a grid-free octagon every opposite-pair component contains an
   indexed cycle of length at least twelve. At least 5,850 distinct
   indexed systems must contain such a cycle. Every assignment on the
