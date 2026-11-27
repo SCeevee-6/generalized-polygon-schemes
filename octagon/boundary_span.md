@@ -76,3 +76,10 @@ Run `python octagon/boundary_span.py` for a Ree–Tits check. At root zero
 the rank modulo 101 is 349, matching the real upper bound from the two
 components. The checker also tests the bordered identity modulo 101 at
 two outer points. The universal formulas above follow from the proof.
+
+## Further reduction
+
+[Boundary reconstruction](boundary_reconstruction.md) recovers the entire
+outer graph from boundary distance-two cliques, gives exact Laplacian and
+modular profile tests, and couples outer adjacency to the boundary incidence
+matrix via mixed moments and positive-semidefinite constraints.
